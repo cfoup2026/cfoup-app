@@ -295,6 +295,259 @@ a:hover { color: var(--navy); }
 .today-obs:focus { border-color: var(--blue); }
 .today-obs::placeholder { color: var(--muted-2); }
 
+/* Head com ações de dia */
+.today-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+  gap: 16px;
+}
+.today-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.ghost-btn {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.15s;
+}
+.ghost-btn:hover { border-color: var(--blue); color: var(--blue); }
+
+/* Grid 3 colunas com primeira mais larga */
+.today-col-wide { }
+.today-body.tasks-layout {}
+
+/* Hint pequeno ao lado do título da coluna */
+.today-col-hint {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--muted-2);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  margin-left: 6px;
+  font-style: italic;
+}
+.col-add-btn {
+  margin-left: auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.col-add-btn:hover { border-color: var(--blue); background: var(--blue); color: var(--white); }
+
+/* TASK — card de task do dia */
+.task-list { display: flex; flex-direction: column; gap: 10px; min-height: 80px; }
+.task-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--muted-2);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  transition: box-shadow 0.15s, border-color 0.15s;
+  position: relative;
+}
+.task-card:hover { box-shadow: var(--shadow-2); }
+.task-card.prio-high { border-left-color: var(--p1); }
+.task-card.prio-med  { border-left-color: var(--p2); }
+.task-card.prio-low  { border-left-color: var(--green); }
+
+.task-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.task-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+  flex: 1;
+  cursor: pointer;
+}
+.task-title:hover { color: var(--blue); }
+.task-meta-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.task-prio-chip {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: opacity 0.15s;
+}
+.task-prio-chip:hover { opacity: 0.75; }
+.task-prio-chip.prio-high { background: var(--p1-bg); color: var(--p1); }
+.task-prio-chip.prio-med  { background: var(--p2-bg); color: var(--p2); }
+.task-prio-chip.prio-low  { background: var(--ok-bg); color: var(--ok); }
+
+.task-tools-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.task-tool-chip {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--line-2);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.task-objective {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+.task-checks { display: flex; flex-direction: column; gap: 2px; }
+.task-check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 3px 0;
+  cursor: pointer;
+  user-select: none;
+}
+.task-check-row input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 3px;
+  background: var(--white);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.15s;
+}
+.task-check-row input[type="checkbox"]:hover { border-color: var(--blue); }
+.task-check-row input[type="checkbox"]:checked {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+.task-check-row input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 3.5px;
+  top: 0px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.task-check-row label {
+  font-size: 12.5px;
+  color: var(--ink);
+  line-height: 1.45;
+  flex: 1;
+  cursor: pointer;
+}
+.task-check-row input:checked + label {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+.task-check-del {
+  opacity: 0;
+  background: none; border: none;
+  color: var(--muted); cursor: pointer;
+  font-size: 13px; padding: 0 4px;
+  transition: opacity 0.15s, color 0.15s;
+}
+.task-check-row:hover .task-check-del { opacity: 1; }
+.task-check-del:hover { color: var(--p1); }
+
+.task-add-check {
+  font-size: 11.5px;
+  color: var(--muted-2);
+  background: none;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  margin-top: 2px;
+  transition: color 0.15s;
+}
+.task-add-check:hover { color: var(--blue); }
+
+.task-delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: var(--muted-2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s;
+}
+.task-card:hover .task-delete { opacity: 1; }
+.task-delete:hover { color: var(--p1); background: var(--p1-bg); }
+
+.task-tools-edit, .task-objective-edit {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: var(--ink);
+  outline: none;
+}
+.task-tools-edit:focus, .task-objective-edit:focus { border-color: var(--blue); }
+
+/* Link hint */
+.link-hint {
+  font-size: 10.5px;
+  color: var(--muted-2);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* Layout ajustado: coluna 1 mais larga */
+.today-body {
+  grid-template-columns: 1.6fr 1fr 0.9fr !important;
+}
+
 /* Input composer */
 .composer { display: flex; gap: 6px; }
 .composer input {
@@ -438,6 +691,52 @@ a:hover { color: var(--navy); }
   white-space: pre-wrap;
   line-height: 1.55;
 }
+
+/* Histórico — tasks arquivadas */
+.day-log-task {
+  background: var(--line-2);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+.day-log-task:last-child { margin-bottom: 0; }
+.day-log-task-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.day-log-task-prio {
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.day-log-task-prio.prio-high { background: var(--p1-bg); color: var(--p1); }
+.day-log-task-prio.prio-med  { background: var(--p2-bg); color: var(--p2); }
+.day-log-task-prio.prio-low  { background: var(--ok-bg); color: var(--ok); }
+.day-log-task-title {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy);
+  flex: 1;
+}
+.day-log-task-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.day-log-task-check {
+  font-size: 12px;
+  color: var(--ink);
+  padding: 2px 0 2px 4px;
+  line-height: 1.5;
+}
+.day-log-task-check.done { color: var(--muted); text-decoration: line-through; }
+
 .load-more {
   display: block;
   width: 100%;
@@ -638,6 +937,182 @@ a:hover { color: var(--navy); }
   color: var(--muted);
   text-decoration: line-through;
 }
+
+/* ============================================================
+   MILESTONES (roadmap)
+   ============================================================ */
+.week-counter {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.week-card:not(.current) .week-counter { color: var(--muted); }
+
+.milestone-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 5px 0;
+  position: relative;
+}
+.milestone-row input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 4px;
+  background: var(--white);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.15s;
+}
+.milestone-row input[type="checkbox"]:hover { border-color: var(--blue); }
+.milestone-row input[type="checkbox"]:checked {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+.milestone-row input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.milestone-row label {
+  font-size: 12.5px;
+  color: var(--ink);
+  line-height: 1.45;
+  flex: 1;
+  cursor: pointer;
+}
+.milestone-row.milestone-done label {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+.milestone-progress {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--blue);
+  background: #EAF3FD;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.milestone-del {
+  opacity: 0;
+  background: none; border: none;
+  color: var(--muted); cursor: pointer;
+  font-size: 12px; padding: 0 4px;
+  transition: opacity 0.15s, color 0.15s;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.milestone-row:hover .milestone-del { opacity: 1; }
+.milestone-del:hover { color: var(--p1); }
+
+.milestone-add {
+  font-size: 11px;
+  color: var(--muted-2);
+  background: none;
+  border: none;
+  padding: 6px 0;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  margin-top: 4px;
+  transition: color 0.15s;
+}
+.milestone-add:hover { color: var(--blue); }
+
+/* ============================================================
+   TASK GROUP HEADER (tasks do Hoje agrupadas por milestone)
+   ============================================================ */
+.task-group-header {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.task-group-header:first-child { padding-top: 0; }
+.task-group-ms-label {
+  color: var(--blue);
+  font-size: 10px;
+  background: #EAF3FD;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+.task-group-ms-text {
+  color: var(--navy);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  font-weight: 500;
+  flex: 1;
+  min-width: 0;
+}
+.task-group-done-mark {
+  font-size: 10px;
+  color: var(--ok);
+  background: var(--ok-bg);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.task-group-loose {
+  color: var(--muted-2);
+}
+.task-group-orphan {
+  color: var(--p2);
+}
+
+/* Task — botão de mudar milestone */
+.task-change-ms {
+  background: none;
+  border: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: 10.5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-top: 8px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.15s;
+}
+.task-change-ms:hover { border-color: var(--blue); color: var(--blue); background: #FAFCFF; }
+
+/* Modal labels */
+.modal-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.modal-label:first-of-type { margin-top: 0; }
 
 /* ============================================================
    CARDS GENÉRICOS
@@ -1019,32 +1494,46 @@ a:hover { color: var(--navy); }
 
 <div class="main">
 
-  <!-- FAIXA 1 — HOJE -->
+  <!-- FAIXA 1 — DIÁRIO DE TRABALHO -->
   <div class="section-label">Diário de trabalho</div>
 
   <div class="today-card">
     <div class="today-head">
-      <div class="today-label">Hoje</div>
-      <div class="today-date" id="todayDate">—</div>
-      <input type="text" class="focus-input" id="focusInput"
-             placeholder="Qual é o foco de hoje?" />
-    </div>
-    <div class="today-body">
-
-      <div class="today-col">
-        <div class="today-col-head">
-          Atividades
-          <span class="today-col-count" id="activityCount">0</span>
+      <div class="today-head-row">
+        <div>
+          <div class="today-label">Hoje</div>
+          <div class="today-date" id="todayDate">—</div>
         </div>
-        <div class="activity-list" id="activityList"></div>
-        <div class="composer">
-          <input type="text" id="activityInput"
-                 placeholder="O que você fez ou está fazendo…"
-                 onkeydown="if(event.key==='Enter') addActivity()" />
-          <button class="composer-btn" onclick="addActivity()">Adicionar</button>
+        <div class="today-actions">
+          <button class="ghost-btn" onclick="exportDay()" title="Exportar snapshot do dia">Exportar status</button>
+          <button class="ghost-btn" onclick="resetDayChecks()" title="Zerar checks das tasks de hoje">Zerar checks</button>
         </div>
       </div>
+    </div>
 
+    <div class="today-body">
+
+      <!-- Coluna 1: TASKS DE HOJE -->
+      <div class="today-col today-col-wide">
+        <div class="today-col-head">
+          Hoje <span class="today-col-hint">tasks acionáveis</span>
+          <button class="col-add-btn" onclick="openTaskModal()" title="Nova task">+</button>
+        </div>
+        <div class="task-list" id="taskList"></div>
+      </div>
+
+      <!-- Coluna 2: TRAVADO + NOTAS -->
+      <div class="today-col">
+        <div class="today-col-head">Travado · dependências</div>
+        <textarea class="today-obs" id="blockedInput"
+                  placeholder="O que pode me impedir hoje: integração pendente, feedback não voltou, aguardando resposta…"></textarea>
+
+        <div class="today-col-head" style="margin-top:18px">Notas rápidas</div>
+        <textarea class="today-obs" id="notesInput"
+                  placeholder="Ideia, feedback do piloto, risco, decisão em andamento, observação livre…"></textarea>
+      </div>
+
+      <!-- Coluna 3: LINKS DO DIA -->
       <div class="today-col">
         <div class="today-col-head">
           Links do dia
@@ -1057,12 +1546,7 @@ a:hover { color: var(--navy); }
                  onkeydown="if(event.key==='Enter') addTodayLink()" />
           <button class="composer-btn" onclick="addTodayLink()">+</button>
         </div>
-      </div>
-
-      <div class="today-col">
-        <div class="today-col-head">Observações do dia</div>
-        <textarea class="today-obs" id="obsInput"
-                  placeholder="Feedback, ideias, riscos, decisões em andamento…"></textarea>
+        <div class="link-hint">★ para promover a permanentes</div>
       </div>
 
     </div>
@@ -1104,85 +1588,7 @@ a:hover { color: var(--navy); }
     </div>
   </div>
 
-  <div class="roadmap">
-
-    <div class="week-card current">
-      <div class="week-head">
-        <div class="week-num">Semana 1 · agora</div>
-        <div class="week-name">Fechar telas e UX</div>
-        <div class="week-goal">Produto navegável, coerente, com cara de produto.</div>
-      </div>
-      <div class="week-body">
-        <div class="week-tools">
-          <span class="tool-chip">v0</span>
-          <span class="tool-chip">GitHub</span>
-          <span class="tool-chip">Vercel</span>
-        </div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w1a"><label for="w1a">9 telas essenciais fechadas no essencial</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w1b"><label for="w1b">Preview online funcionando na Vercel</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w1c"><label for="w1c">Teste manual no preview — navegação e botões</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w1d"><label for="w1d">Correções de UX aplicadas no que foi testado</label></div>
-      </div>
-    </div>
-
-    <div class="week-card">
-      <div class="week-head">
-        <div class="week-num">Semana 2 · em seguida</div>
-        <div class="week-name">Fluxo ponta a ponta</div>
-        <div class="week-goal">Login → dados → overview → relatório → chat → histórico.</div>
-      </div>
-      <div class="week-body">
-        <div class="week-tools">
-          <span class="tool-chip">Supabase</span>
-          <span class="tool-chip">Vercel</span>
-          <span class="tool-chip">GitHub</span>
-        </div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w2a"><label for="w2a">Login e segregação por cliente funcionando</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w2b"><label for="w2b">Dados reais de 1 cliente aparecendo corretamente</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w2c"><label for="w2c">Relatório e histórico mínimo salvos</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w2d"><label for="w2d">Fluxo completo testado como usuário</label></div>
-      </div>
-    </div>
-
-    <div class="week-card">
-      <div class="week-head">
-        <div class="week-num">Semana 3 · cérebro</div>
-        <div class="week-name">CFO Chat core</div>
-        <div class="week-goal">Perguntas centrais respondidas com dado real e escopo disciplinado.</div>
-      </div>
-      <div class="week-body">
-        <div class="week-tools">
-          <span class="tool-chip">Claude API</span>
-          <span class="tool-chip">Supabase</span>
-          <span class="tool-chip">Vercel</span>
-        </div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w3a"><label for="w3a">Perguntas core priorizadas e conectadas</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w3b"><label for="w3b">Formato de resposta curto e consistente</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w3c"><label for="w3c">Fallback fora de escopo funcionando</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w3d"><label for="w3d">Histórico do chat por cliente</label></div>
-      </div>
-    </div>
-
-    <div class="week-card">
-      <div class="week-head">
-        <div class="week-num">Semana 4 · ingestão</div>
-        <div class="week-name">Conexões automáticas</div>
-        <div class="week-goal">Integrações como trilho principal; entrada manual como fallback arquitetural.</div>
-      </div>
-      <div class="week-body">
-        <div class="week-tools">
-          <span class="tool-chip">Pluggy</span>
-          <span class="tool-chip">eNotas</span>
-          <span class="tool-chip">Supabase</span>
-        </div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w4a"><label for="w4a">Conexão automática com banco via Pluggy</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w4b"><label for="w4b">Integração eNotas para NFSe funcionando</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w4c"><label for="w4c">Fallback manual previsto na arquitetura</label></div>
-        <div class="check-row"><input type="checkbox" class="mvp-chk" id="w4d"><label for="w4d">Próximo conector ERP priorizado</label></div>
-      </div>
-    </div>
-
-  </div>
+  <div class="roadmap" id="roadmap"></div>
 
   <div class="section-label">Prioridades e conteúdo</div>
   <div class="grid-2">
@@ -1271,6 +1677,66 @@ const KEY = 'cfoup_hq_v2';
 const DAILY_KEY = 'cfoup_daily_v1';
 const HISTORY_KEY = 'cfoup_history_v1';
 const MVP_KEY = 'cfoup_mvp_v1';
+const ROADMAP_KEY = 'cfoup_roadmap_v1';
+
+const ROADMAP_DEFAULT = [
+  {
+    id: 'w1',
+    label: 'Semana 1 · agora',
+    name: 'Fechar telas e UX',
+    goal: 'Produto navegável, coerente, com cara de produto.',
+    tools: 'v0 · GitHub · Vercel',
+    current: true,
+    milestones: [
+      { id: 'w1-m1', text: '9 telas essenciais fechadas no essencial', done: false },
+      { id: 'w1-m2', text: 'Preview online funcionando na Vercel', done: false },
+      { id: 'w1-m3', text: 'Teste manual no preview — navegação e botões', done: false },
+      { id: 'w1-m4', text: 'Correções de UX aplicadas no que foi testado', done: false }
+    ]
+  },
+  {
+    id: 'w2',
+    label: 'Semana 2 · em seguida',
+    name: 'Fluxo ponta a ponta',
+    goal: 'Login → dados → overview → relatório → chat → histórico.',
+    tools: 'Supabase · Vercel · GitHub',
+    current: false,
+    milestones: [
+      { id: 'w2-m1', text: 'Login e segregação por cliente funcionando', done: false },
+      { id: 'w2-m2', text: 'Dados reais de 1 cliente aparecendo corretamente', done: false },
+      { id: 'w2-m3', text: 'Relatório e histórico mínimo salvos', done: false },
+      { id: 'w2-m4', text: 'Fluxo completo testado como usuário', done: false }
+    ]
+  },
+  {
+    id: 'w3',
+    label: 'Semana 3 · cérebro',
+    name: 'CFO Chat core',
+    goal: 'Perguntas centrais respondidas com dado real e escopo disciplinado.',
+    tools: 'Claude API · Supabase · Vercel',
+    current: false,
+    milestones: [
+      { id: 'w3-m1', text: 'Perguntas core priorizadas e conectadas', done: false },
+      { id: 'w3-m2', text: 'Formato de resposta curto e consistente', done: false },
+      { id: 'w3-m3', text: 'Fallback fora de escopo funcionando', done: false },
+      { id: 'w3-m4', text: 'Histórico do chat por cliente', done: false }
+    ]
+  },
+  {
+    id: 'w4',
+    label: 'Semana 4 · ingestão',
+    name: 'Conexões automáticas',
+    goal: 'Integrações como trilho principal; entrada manual como fallback arquitetural.',
+    tools: 'Pluggy · eNotas · Supabase',
+    current: false,
+    milestones: [
+      { id: 'w4-m1', text: 'Conexão automática com banco via Pluggy', done: false },
+      { id: 'w4-m2', text: 'Integração eNotas para NFSe funcionando', done: false },
+      { id: 'w4-m3', text: 'Fallback manual previsto na arquitetura', done: false },
+      { id: 'w4-m4', text: 'Próximo conector ERP priorizado', done: false }
+    ]
+  }
+];
 
 const DEFAULTS = {
   priorities: [
@@ -1327,6 +1793,7 @@ let data = {};
 let today = null;
 let history = [];
 let mvpChecks = {};
+let roadmap = [];
 let historyVisible = 7;
 
 function load() {
@@ -1340,6 +1807,21 @@ function load() {
     const mvpStored = localStorage.getItem(MVP_KEY);
     mvpChecks = mvpStored ? JSON.parse(mvpStored) : {};
   } catch(e) { mvpChecks = {}; }
+
+  try {
+    const rmStored = localStorage.getItem(ROADMAP_KEY);
+    roadmap = rmStored ? JSON.parse(rmStored) : JSON.parse(JSON.stringify(ROADMAP_DEFAULT));
+    // Migração: se veio MVP_KEY antigo, marcar milestones equivalentes
+    if (!rmStored && Object.keys(mvpChecks).length) {
+      roadmap.forEach(w => {
+        w.milestones.forEach((m, idx) => {
+          const oldId = w.id + String.fromCharCode(97 + idx); // w1 + 'a','b','c','d'
+          if (mvpChecks[oldId]) m.done = true;
+        });
+      });
+      localStorage.setItem(ROADMAP_KEY, JSON.stringify(roadmap));
+    }
+  } catch(e) { roadmap = JSON.parse(JSON.stringify(ROADMAP_DEFAULT)); }
 
   try {
     const histStored = localStorage.getItem(HISTORY_KEY);
@@ -1362,23 +1844,90 @@ function loadToday() {
     const stored = localStorage.getItem(DAILY_KEY);
     if (stored) {
       const parsed = JSON.parse(stored);
-      if (parsed.date === k) { today = parsed; return; }
+      if (parsed.date === k) {
+        today = parsed;
+        // Garantir compatibilidade com estrutura antiga — migrar se necessário
+        if (!Array.isArray(today.tasks)) today.tasks = defaultTasks();
+        if (typeof today.blocked !== 'string') today.blocked = today.obs || '';
+        if (typeof today.notes !== 'string') today.notes = '';
+        if (!Array.isArray(today.links)) today.links = [];
+        return;
+      }
+      // Dia mudou — arquivar snapshot do dia anterior se teve conteúdo
       if (parsed.date && hasContent(parsed)) {
         history = history.filter(d => d.date !== parsed.date);
         history.unshift(parsed);
         localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
       }
+      // Opção A: preservar tasks e promoted-links, zerar checks/estado do dia
+      today = {
+        date: k,
+        focus: '',
+        tasks: (parsed.tasks || []).map(t => ({
+          ...t,
+          checks: (t.checks || []).map(c => ({ ...c, done: false }))
+        })),
+        links: [],
+        blocked: '',
+        notes: ''
+      };
+      saveToday();
+      return;
     }
   } catch(e) {}
-  today = { date: k, focus: '', activities: [], links: [], obs: '' };
+  today = { date: k, focus: '', tasks: defaultTasks(), links: [], blocked: '', notes: '' };
   saveToday();
+}
+
+function defaultTasks() {
+  return [
+    {
+      id: Date.now(),
+      title: 'Fechar telas essenciais',
+      prio: 'high',
+      tools: 'v0 · GitHub · Vercel',
+      objective: 'Overview, chat, relatório, login, upload, histórico e navegação sem buraco.',
+      checks: [
+        { id: 1, text: 'Telas centrais prontas no essencial', done: false },
+        { id: 2, text: 'Botões principais funcionam', done: false },
+        { id: 3, text: 'Navegação ida/volta coerente', done: false }
+      ]
+    },
+    {
+      id: Date.now() + 1,
+      title: 'Teste de UX rápido',
+      prio: 'high',
+      tools: 'Vercel Preview',
+      objective: 'Testar como usuário real, não apenas olhando código.',
+      checks: [
+        { id: 1, text: 'Tela faz sentido em 5 segundos', done: false },
+        { id: 2, text: 'CTA principal está óbvio', done: false },
+        { id: 3, text: 'Não há botão morto ou fluxo quebrado', done: false }
+      ]
+    },
+    {
+      id: Date.now() + 2,
+      title: 'Salvar e publicar preview',
+      prio: 'med',
+      tools: 'GitHub · Vercel',
+      objective: 'Cada avanço relevante precisa virar preview online.',
+      checks: [
+        { id: 1, text: 'Commit no GitHub feito', done: false },
+        { id: 2, text: 'Preview na Vercel subido', done: false }
+      ]
+    }
+  ];
 }
 
 function hasContent(day) {
   return (day.focus && day.focus.trim()) ||
-         (day.activities && day.activities.length > 0) ||
+         (day.blocked && day.blocked.trim()) ||
+         (day.notes && day.notes.trim()) ||
+         (day.obs && day.obs.trim()) ||
          (day.links && day.links.length > 0) ||
-         (day.obs && day.obs.trim());
+         (day.tasks && day.tasks.some(t =>
+           (t.checks || []).some(c => c.done)
+         ));
 }
 
 function save() { try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e) {} flashSaved(); }
@@ -1395,6 +1944,7 @@ function flashSaved() {
 }
 
 function nextId(arr) { return arr.length ? Math.max(...arr.map(x=>x.id))+1 : 1; }
+function nextCheckId(arr) { return arr.length ? Math.max(...arr.map(x=>x.id))+1 : 1; }
 
 const DIAS_LONG = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
 const MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
@@ -1412,29 +1962,115 @@ function longDateFromISO(iso) {
   return DIAS_LONG[d.getDay()] + ', ' + d.getDate() + ' de ' + MESES[d.getMonth()];
 }
 
-function timeNow() {
-  const d = new Date();
-  return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+// ============================================================
+// RENDER HOJE
+// ============================================================
+function renderToday() {
+  document.getElementById('blockedInput').value = today.blocked || '';
+  document.getElementById('notesInput').value = today.notes || '';
+
+  renderTasks();
+  renderTodayLinks();
 }
 
-function renderToday() {
-  document.getElementById('focusInput').value = today.focus || '';
-  document.getElementById('obsInput').value = today.obs || '';
+function renderTasks() {
+  const el = document.getElementById('taskList');
+  if (!today.tasks || !today.tasks.length) {
+    el.innerHTML = '<div class="empty-hint">Nenhuma task hoje. Clique em + para adicionar.</div>';
+    return;
+  }
+  const prioLabel = { high: 'Alta', med: 'Média', low: 'Baixa' };
 
-  const aList = document.getElementById('activityList');
-  if (!today.activities.length) {
-    aList.innerHTML = '<div class="empty-hint">Nenhuma atividade registrada ainda.</div>';
-  } else {
-    aList.innerHTML = today.activities.map(a => `
-      <div class="activity-item">
-        <span class="activity-time">${a.time}</span>
-        <span class="activity-text">${escapeHtml(a.text)}</span>
-        <button class="activity-del" onclick="removeActivity(${a.id})" title="Remover">✕</button>
+  // Map milestone ID -> texto curto da semana+milestone
+  const msLabel = {};
+  roadmap.forEach(w => {
+    w.milestones.forEach(m => { msLabel[m.id] = { week: w.label.split('·')[0].trim(), text: m.text, done: m.done }; });
+  });
+
+  // Agrupar tasks por milestone (null = avulsas)
+  const groups = {};
+  today.tasks.forEach(t => {
+    const key = t.milestoneId || '__none__';
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(t);
+  });
+
+  const order = [];
+  // primeiro as tasks com milestone da semana atual
+  const currentWeek = roadmap.find(w => w.current);
+  if (currentWeek) {
+    currentWeek.milestones.forEach(m => { if (groups[m.id]) order.push(m.id); });
+  }
+  // depois outras semanas
+  roadmap.filter(w => !w.current).forEach(w => {
+    w.milestones.forEach(m => { if (groups[m.id]) order.push(m.id); });
+  });
+  // avulsas por último
+  if (groups['__none__']) order.push('__none__');
+
+  el.innerHTML = order.map(key => {
+    const groupHeader = (key === '__none__')
+      ? '<div class="task-group-header task-group-loose">Tasks avulsas</div>'
+      : (msLabel[key]
+          ? `<div class="task-group-header">
+               <span class="task-group-ms-label">${escapeHtml(msLabel[key].week)}</span>
+               <span class="task-group-ms-text">${escapeHtml(msLabel[key].text)}</span>
+               ${msLabel[key].done ? '<span class="task-group-done-mark">✓ concluído</span>' : ''}
+             </div>`
+          : `<div class="task-group-header task-group-orphan">Milestone removido</div>`);
+
+    return groupHeader + groups[key].map(t => `
+      <div class="task-card prio-${t.prio}">
+        <button class="task-delete" onclick="deleteTask(${t.id})" title="Remover task">✕</button>
+        <div class="task-head">
+          <span class="task-title" ondblclick="editTaskTitle(${t.id}, this)">${escapeHtml(t.title)}</span>
+          <div class="task-meta-row">
+            <span class="task-prio-chip prio-${t.prio}" onclick="cycleTaskPrio(${t.id})">${prioLabel[t.prio]}</span>
+          </div>
+        </div>
+        <div class="task-tools-row" ondblclick="editTaskTools(${t.id}, this)">
+          ${(t.tools || '').split('·').filter(x=>x.trim()).map(tool =>
+            `<span class="task-tool-chip">${escapeHtml(tool.trim())}</span>`
+          ).join('') || '<span class="task-tool-chip" style="font-style:italic;color:var(--muted-2)">sem ferramentas · duplo-clique para editar</span>'}
+        </div>
+        <div class="task-objective" ondblclick="editTaskObjective(${t.id}, this)">${escapeHtml(t.objective || 'Sem objetivo — duplo-clique para editar')}</div>
+        <div class="task-checks">
+          ${(t.checks || []).map(c => `
+            <div class="task-check-row">
+              <input type="checkbox" ${c.done?'checked':''} onchange="toggleCheck(${t.id}, ${c.id})" id="tc_${t.id}_${c.id}">
+              <label for="tc_${t.id}_${c.id}" ondblclick="editCheckText(${t.id}, ${c.id}, this)">${escapeHtml(c.text)}</label>
+              <button class="task-check-del" onclick="deleteCheck(${t.id}, ${c.id})" title="Remover">✕</button>
+            </div>
+          `).join('')}
+          <button class="task-add-check" onclick="addCheck(${t.id})">+ adicionar check</button>
+        </div>
+        <button class="task-change-ms" onclick="changeTaskMilestone(${t.id})" title="Mudar milestone desta task">${t.milestoneId ? 'mudar milestone' : 'vincular a milestone'}</button>
       </div>
     `).join('');
-  }
-  document.getElementById('activityCount').textContent = today.activities.length;
+  }).join('');
+}
 
+function changeTaskMilestone(taskId) {
+  const t = today.tasks.find(x => x.id === taskId);
+  if (!t) return;
+  // mostrar mini-picker via prompt (simples)
+  const opts = [];
+  opts.push({ id: '', label: '— Sem milestone —' });
+  roadmap.forEach(w => {
+    w.milestones.filter(m=>!m.done).forEach(m => {
+      opts.push({ id: m.id, label: `${w.label.split('·')[0].trim()} — ${m.text}` });
+    });
+  });
+  const choices = opts.map((o,i) => `${i+1}. ${o.label}`).join('\n');
+  const pick = prompt('Vincular task a qual milestone?\n\n' + choices + '\n\nDigite o número:');
+  if (!pick) return;
+  const idx = parseInt(pick) - 1;
+  if (isNaN(idx) || idx < 0 || idx >= opts.length) return;
+  t.milestoneId = opts[idx].id || null;
+  saveToday(); renderTasks(); renderRoadmap();
+}
+
+function renderTodayLinks() {
   const lList = document.getElementById('todayLinkList');
   if (!today.links.length) {
     lList.innerHTML = '<div class="empty-hint">Nenhum link adicionado hoje.</div>';
@@ -1443,7 +2079,7 @@ function renderToday() {
       <div class="today-link-item">
         <button class="today-link-star ${l.promoted?'promoted':''}"
                 onclick="promoteLink(${l.id})"
-                title="${l.promoted?'Já promovido':'Promover para links permanentes'}">★</button>
+                title="${l.promoted?'Já promovido':'Promover para permanentes'}">★</button>
         <a href="${escapeAttr(l.url)}" target="_blank">${escapeHtml(l.label || l.url)}</a>
         <button class="today-link-del" onclick="removeTodayLink(${l.id})" title="Remover">✕</button>
       </div>
@@ -1452,18 +2088,195 @@ function renderToday() {
   document.getElementById('todayLinkCount').textContent = today.links.length;
 }
 
-function addActivity() {
-  const input = document.getElementById('activityInput');
-  const text = input.value.trim();
-  if (!text) return;
-  today.activities.push({ id: Date.now(), time: timeNow(), text });
-  input.value = '';
-  saveToday(); renderToday();
+// ============================================================
+// TASK CRUD
+// ============================================================
+function cycleTaskPrio(id) {
+  const t = today.tasks.find(x => x.id === id);
+  if (!t) return;
+  const cycle = { high: 'med', med: 'low', low: 'high' };
+  t.prio = cycle[t.prio] || 'high';
+  saveToday(); renderTasks();
 }
-function removeActivity(id) {
-  today.activities = today.activities.filter(a => a.id !== id);
-  saveToday(); renderToday();
+
+function toggleCheck(taskId, checkId) {
+  const t = today.tasks.find(x => x.id === taskId);
+  if (!t) return;
+  const c = t.checks.find(x => x.id === checkId);
+  if (!c) return;
+  c.done = !c.done;
+  saveToday();
+  renderRoadmap();
 }
+
+function deleteCheck(taskId, checkId) {
+  const t = today.tasks.find(x => x.id === taskId);
+  if (!t) return;
+  t.checks = t.checks.filter(c => c.id !== checkId);
+  saveToday(); renderTasks();
+}
+
+function addCheck(taskId) {
+  const t = today.tasks.find(x => x.id === taskId);
+  if (!t) return;
+  const text = prompt('Novo check:');
+  if (!text || !text.trim()) return;
+  t.checks.push({ id: nextCheckId(t.checks), text: text.trim(), done: false });
+  saveToday(); renderTasks();
+}
+
+function deleteTask(id) {
+  if (!confirm('Remover esta task?')) return;
+  today.tasks = today.tasks.filter(t => t.id !== id);
+  saveToday(); renderTasks();
+}
+
+function editTaskTitle(id, el) {
+  const t = today.tasks.find(x => x.id === id);
+  if (!t) return;
+  const input = document.createElement('input');
+  input.className = 'inline-edit';
+  input.value = t.title;
+  input.style.fontWeight = '600';
+  input.style.fontSize = '13.5px';
+  input.style.color = 'var(--navy)';
+  el.replaceWith(input);
+  input.focus();
+  input.select();
+  const commit = () => {
+    t.title = input.value.trim() || t.title;
+    saveToday(); renderTasks();
+  };
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') input.blur(); });
+}
+
+function editTaskTools(id, el) {
+  const t = today.tasks.find(x => x.id === id);
+  if (!t) return;
+  const input = document.createElement('input');
+  input.className = 'task-tools-edit';
+  input.value = t.tools || '';
+  input.placeholder = 'Ex: v0 · GitHub · Vercel';
+  el.replaceWith(input);
+  input.focus();
+  input.select();
+  const commit = () => {
+    t.tools = input.value.trim();
+    saveToday(); renderTasks();
+  };
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') input.blur(); });
+}
+
+function editTaskObjective(id, el) {
+  const t = today.tasks.find(x => x.id === id);
+  if (!t) return;
+  const input = document.createElement('input');
+  input.className = 'task-objective-edit';
+  input.value = t.objective || '';
+  input.placeholder = 'Objetivo desta task…';
+  el.replaceWith(input);
+  input.focus();
+  input.select();
+  const commit = () => {
+    t.objective = input.value.trim();
+    saveToday(); renderTasks();
+  };
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') input.blur(); });
+}
+
+function editCheckText(taskId, checkId, el) {
+  const t = today.tasks.find(x => x.id === taskId);
+  if (!t) return;
+  const c = t.checks.find(x => x.id === checkId);
+  if (!c) return;
+  const input = document.createElement('input');
+  input.className = 'inline-edit';
+  input.value = c.text;
+  input.style.fontSize = '12.5px';
+  el.replaceWith(input);
+  input.focus();
+  input.select();
+  const commit = () => {
+    c.text = input.value.trim() || c.text;
+    saveToday(); renderTasks();
+  };
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') input.blur(); });
+}
+
+// Novo task via modal
+function openTaskModal(preselectedMilestoneId) {
+  const box = document.getElementById('modalBox');
+  // construir opções de milestone
+  const currentWeek = roadmap.find(w => w.current) || roadmap[0];
+  let msOptions = '<option value="">— Sem milestone (task avulsa) —</option>';
+  if (currentWeek) {
+    msOptions += `<optgroup label="${escapeHtml(currentWeek.label)} · ${escapeHtml(currentWeek.name)}">`;
+    currentWeek.milestones.filter(m=>!m.done).forEach(m => {
+      const sel = (preselectedMilestoneId === m.id) ? ' selected' : '';
+      msOptions += `<option value="${m.id}"${sel}>${escapeHtml(m.text)}</option>`;
+    });
+    msOptions += '</optgroup>';
+  }
+  // outras semanas
+  roadmap.filter(w => !w.current).forEach(w => {
+    const open = w.milestones.filter(m=>!m.done);
+    if (!open.length) return;
+    msOptions += `<optgroup label="${escapeHtml(w.label)} · ${escapeHtml(w.name)}">`;
+    open.forEach(m => {
+      const sel = (preselectedMilestoneId === m.id) ? ' selected' : '';
+      msOptions += `<option value="${m.id}"${sel}>${escapeHtml(m.text)}</option>`;
+    });
+    msOptions += '</optgroup>';
+  });
+
+  box.innerHTML = `
+    <h3>Nova task</h3>
+    <label class="modal-label">Milestone</label>
+    <select id="m_task_ms">${msOptions}</select>
+    <label class="modal-label">Título</label>
+    <input id="m_task_title" placeholder="Ex: Fechar tela Overview" />
+    <label class="modal-label">Prioridade</label>
+    <select id="m_task_prio">
+      <option value="high">Alta prioridade</option>
+      <option value="med" selected>Média prioridade</option>
+      <option value="low">Baixa prioridade</option>
+    </select>
+    <label class="modal-label">Ferramentas</label>
+    <input id="m_task_tools" placeholder="Ex: v0 · GitHub · Vercel" />
+    <label class="modal-label">Objetivo</label>
+    <textarea id="m_task_obj" rows="2" placeholder="O que esta task precisa garantir"></textarea>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+      <button class="btn-save" onclick="saveNewTask()">Adicionar</button>
+    </div>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+  setTimeout(() => document.getElementById('m_task_title').focus(), 50);
+}
+
+function saveNewTask() {
+  const title = document.getElementById('m_task_title').value.trim();
+  if (!title) return;
+  const prio = document.getElementById('m_task_prio').value;
+  const tools = document.getElementById('m_task_tools').value.trim();
+  const objective = document.getElementById('m_task_obj').value.trim();
+  const milestoneId = document.getElementById('m_task_ms').value || null;
+  today.tasks.push({
+    id: Date.now(),
+    milestoneId,
+    title, prio, tools, objective,
+    checks: []
+  });
+  saveToday(); renderTasks(); renderRoadmap(); closeModal();
+}
+
+// ============================================================
+// LINKS DO DIA
+// ============================================================
 function addTodayLink() {
   const labelEl = document.getElementById('linkLabelInput');
   const urlEl = document.getElementById('linkUrlInput');
@@ -1473,12 +2286,12 @@ function addTodayLink() {
   if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
   today.links.push({ id: Date.now(), label: label || url.replace(/^https?:\/\//,''), url, promoted: false });
   labelEl.value = ''; urlEl.value = '';
-  saveToday(); renderToday();
+  saveToday(); renderTodayLinks();
   labelEl.focus();
 }
 function removeTodayLink(id) {
   today.links = today.links.filter(l => l.id !== id);
-  saveToday(); renderToday();
+  saveToday(); renderTodayLinks();
 }
 function promoteLink(id) {
   const lnk = today.links.find(l => l.id === id);
@@ -1486,7 +2299,63 @@ function promoteLink(id) {
   data.links.push({ id: nextId(data.links), label: lnk.label, url: lnk.url });
   lnk.promoted = true;
   save(); saveToday();
-  renderLinks(); renderToday();
+  renderLinks(); renderTodayLinks();
+}
+
+// ============================================================
+// EXPORTAR / ZERAR
+// ============================================================
+function exportDay() {
+  const prioLabel = { high: 'ALTA', med: 'MÉDIA', low: 'BAIXA' };
+  const lines = [];
+  lines.push('AI CFOup · Command Center');
+  lines.push('Snapshot do dia — ' + today.date);
+  lines.push('='.repeat(50));
+  lines.push('');
+  lines.push('FOCO DO DIA:');
+  lines.push(today.focus || '-');
+  lines.push('');
+  lines.push('TASKS:');
+  (today.tasks || []).forEach((t, i) => {
+    const done = (t.checks || []).filter(c => c.done).length;
+    const total = (t.checks || []).length;
+    lines.push(`${i+1}. [${prioLabel[t.prio]}] ${t.title}  (${done}/${total})`);
+    if (t.tools) lines.push(`   Ferramentas: ${t.tools}`);
+    if (t.objective) lines.push(`   Objetivo: ${t.objective}`);
+    (t.checks || []).forEach(c => {
+      lines.push(`   [${c.done?'x':' '}] ${c.text}`);
+    });
+    lines.push('');
+  });
+  lines.push('TRAVADO / DEPENDÊNCIAS:');
+  lines.push(today.blocked || '-');
+  lines.push('');
+  lines.push('NOTAS RÁPIDAS:');
+  lines.push(today.notes || '-');
+  lines.push('');
+  if ((today.links || []).length) {
+    lines.push('LINKS DO DIA:');
+    today.links.forEach(l => lines.push(`- ${l.label}: ${l.url}${l.promoted?' ★':''}`));
+    lines.push('');
+  }
+
+  const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'cfoup_' + today.date + '.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function resetDayChecks() {
+  if (!confirm('Zerar todos os checks das tasks de hoje?')) return;
+  (today.tasks || []).forEach(t => {
+    (t.checks || []).forEach(c => c.done = false);
+  });
+  saveToday(); renderTasks();
 }
 
 function renderHistory() {
@@ -1502,26 +2371,59 @@ function renderHistory() {
   }
   empty.style.display = 'none';
 
+  const prioLabel = { high: 'Alta', med: 'Média', low: 'Baixa' };
   const shown = history.slice(0, historyVisible);
+
   el.innerHTML = shown.map(d => {
-    const nAct = (d.activities || []).length;
+    const tasks = d.tasks || [];
+    const nTasks = tasks.length;
+    const totalChecks = tasks.reduce((s,t) => s + (t.checks||[]).length, 0);
+    const doneChecks = tasks.reduce((s,t) => s + (t.checks||[]).filter(c=>c.done).length, 0);
     const nLink = (d.links || []).length;
+    const hasBlocked = !!(d.blocked && d.blocked.trim());
+    const hasNotes = !!(d.notes && d.notes.trim());
+    // Retrocompat com estrutura antiga
     const hasObs = !!(d.obs && d.obs.trim());
 
     const stats = [];
-    if (nAct) stats.push(`<span class="stat-chip">${nAct} atividade${nAct>1?'s':''}</span>`);
+    if (nTasks) stats.push(`<span class="stat-chip">${doneChecks}/${totalChecks} checks</span>`);
     if (nLink) stats.push(`<span class="stat-chip">${nLink} link${nLink>1?'s':''}</span>`);
-    if (hasObs) stats.push(`<span class="stat-chip">observações</span>`);
+    if (hasBlocked) stats.push(`<span class="stat-chip">travado</span>`);
+    if (hasNotes || hasObs) stats.push(`<span class="stat-chip">notas</span>`);
 
-    const actBlock = nAct ? `
+    const taskBlock = nTasks ? `
       <div class="day-log-section">
-        <div class="day-log-section-label">Atividades</div>
-        ${d.activities.map(a => `
-          <div class="day-log-activity">
-            <span class="t">${a.time}</span>
-            <span>${escapeHtml(a.text)}</span>
-          </div>
-        `).join('')}
+        <div class="day-log-section-label">Tasks do dia</div>
+        ${tasks.map(t => {
+          const td = (t.checks||[]).filter(c=>c.done).length;
+          const tt = (t.checks||[]).length;
+          return `
+            <div class="day-log-task">
+              <div class="day-log-task-head">
+                <span class="day-log-task-prio prio-${t.prio||'med'}">${prioLabel[t.prio||'med']}</span>
+                <span class="day-log-task-title">${escapeHtml(t.title)}</span>
+                <span class="day-log-task-count">${td}/${tt}</span>
+              </div>
+              ${(t.checks||[]).map(c => `
+                <div class="day-log-task-check ${c.done?'done':''}">
+                  ${c.done?'✓':'○'} ${escapeHtml(c.text)}
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }).join('')}
+      </div>` : '';
+
+    const blockedBlock = hasBlocked ? `
+      <div class="day-log-section">
+        <div class="day-log-section-label">Travado · dependências</div>
+        <div class="day-log-obs">${escapeHtml(d.blocked)}</div>
+      </div>` : '';
+
+    const notesBlock = (hasNotes || hasObs) ? `
+      <div class="day-log-section">
+        <div class="day-log-section-label">Notas rápidas</div>
+        <div class="day-log-obs">${escapeHtml(d.notes || d.obs || '')}</div>
       </div>` : '';
 
     const linkBlock = nLink ? `
@@ -1534,12 +2436,6 @@ function renderHistory() {
         `).join('')}
       </div>` : '';
 
-    const obsBlock = hasObs ? `
-      <div class="day-log-section">
-        <div class="day-log-section-label">Observações</div>
-        <div class="day-log-obs">${escapeHtml(d.obs)}</div>
-      </div>` : '';
-
     return `
       <div class="day-log" data-date="${d.date}">
         <div class="day-log-head" onclick="toggleDay('${d.date}')">
@@ -1548,7 +2444,7 @@ function renderHistory() {
           <div class="day-log-stats">${stats.join('')}</div>
           <div class="day-log-toggle">▸</div>
         </div>
-        <div class="day-log-body">${actBlock}${linkBlock}${obsBlock}</div>
+        <div class="day-log-body">${taskBlock}${blockedBlock}${notesBlock}${linkBlock}</div>
       </div>`;
   }).join('');
 
@@ -1560,24 +2456,148 @@ function toggleDay(date) {
 }
 function loadMoreDays() { historyVisible += 7; renderHistory(); }
 
-function bindMvpChecks() {
-  document.querySelectorAll('.mvp-chk').forEach(chk => {
-    if (mvpChecks[chk.id]) chk.checked = true;
-    chk.addEventListener('change', () => {
-      mvpChecks[chk.id] = chk.checked;
-      saveMvp(); updateMvp();
-    });
-  });
-  updateMvp();
+function saveRoadmap() { try { localStorage.setItem(ROADMAP_KEY, JSON.stringify(roadmap)); } catch(e) {} flashSaved(); }
+
+// ============================================================
+// ROADMAP — milestones editáveis + contadores dinâmicos
+// ============================================================
+function renderRoadmap() {
+  const el = document.getElementById('roadmap');
+  if (!el) return;
+
+  el.innerHTML = roadmap.map(w => {
+    const total = w.milestones.length;
+    const done = w.milestones.filter(m => m.done).length;
+
+    const milestonesHtml = w.milestones.map(m => {
+      // Task progress pra este milestone: soma dos checks do Hoje que pertencem a este milestone
+      const linkedTasks = (today.tasks || []).filter(t => t.milestoneId === m.id);
+      let tProgress = '';
+      if (linkedTasks.length) {
+        const tTotal = linkedTasks.reduce((s,t) => s + (t.checks||[]).length, 0);
+        const tDone = linkedTasks.reduce((s,t) => s + (t.checks||[]).filter(c=>c.done).length, 0);
+        tProgress = `<span class="milestone-progress" title="Checks de tasks do Hoje ligadas a este milestone">${tDone}/${tTotal}</span>`;
+      }
+
+      return `
+        <div class="milestone-row ${m.done?'milestone-done':''}" data-milestone-id="${m.id}">
+          <input type="checkbox" ${m.done?'checked':''} onchange="toggleMilestone('${w.id}','${m.id}')" id="ms_${m.id}">
+          <label for="ms_${m.id}" ondblclick="editMilestone('${w.id}','${m.id}', this)">${escapeHtml(m.text)}</label>
+          ${tProgress}
+          <button class="milestone-del" onclick="deleteMilestone('${w.id}','${m.id}')" title="Remover milestone">✕</button>
+        </div>
+      `;
+    }).join('');
+
+    const toolsHtml = (w.tools || '').split('·').filter(x => x.trim()).map(t =>
+      `<span class="tool-chip">${escapeHtml(t.trim())}</span>`
+    ).join('');
+
+    return `
+      <div class="week-card ${w.current?'current':''}" data-week-id="${w.id}">
+        <div class="week-head">
+          <div class="week-num" ondblclick="editWeekLabel('${w.id}', this)">${escapeHtml(w.label)}</div>
+          <div class="week-name" ondblclick="editWeekName('${w.id}', this)">${escapeHtml(w.name)}</div>
+          <div class="week-goal" ondblclick="editWeekGoal('${w.id}', this)">${escapeHtml(w.goal)}</div>
+          <div class="week-counter">${done} de ${total} milestones</div>
+        </div>
+        <div class="week-body">
+          <div class="week-tools" ondblclick="editWeekTools('${w.id}', this)">
+            ${toolsHtml || '<span style="font-size:10.5px;color:var(--muted-2);font-style:italic">sem ferramentas</span>'}
+          </div>
+          ${milestonesHtml}
+          <button class="milestone-add" onclick="addMilestone('${w.id}')">+ adicionar milestone</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  updateMvpMetric();
 }
-function updateMvp() {
-  const all = document.querySelectorAll('.mvp-chk');
-  const total = all.length;
-  const done = Array.from(all).filter(c => c.checked).length;
+
+function updateMvpMetric() {
+  const total = roadmap.reduce((s,w) => s + w.milestones.length, 0);
+  const done = roadmap.reduce((s,w) => s + w.milestones.filter(m=>m.done).length, 0);
   const pct = total ? Math.round((done/total)*100) : 0;
-  document.getElementById('mvpText').textContent = done + ' / ' + total;
-  document.getElementById('mvpBar').style.width = pct + '%';
+  const mt = document.getElementById('mvpText');
+  const mb = document.getElementById('mvpBar');
+  if (mt) mt.textContent = done + ' / ' + total;
+  if (mb) mb.style.width = pct + '%';
 }
+
+function toggleMilestone(weekId, msId) {
+  const w = roadmap.find(x => x.id === weekId);
+  if (!w) return;
+  const m = w.milestones.find(x => x.id === msId);
+  if (!m) return;
+  m.done = !m.done;
+  saveRoadmap();
+  renderRoadmap();
+  // Atualiza as tasks do Hoje pra refletir milestone fechado
+  renderTasks();
+}
+
+function deleteMilestone(weekId, msId) {
+  if (!confirm('Remover este milestone? Tasks do Hoje ligadas a ele ficarão sem milestone.')) return;
+  const w = roadmap.find(x => x.id === weekId);
+  if (!w) return;
+  w.milestones = w.milestones.filter(m => m.id !== msId);
+  // desvincular tasks do Hoje que apontavam pra esse milestone
+  (today.tasks || []).forEach(t => { if (t.milestoneId === msId) t.milestoneId = null; });
+  saveRoadmap(); saveToday();
+  renderRoadmap(); renderTasks();
+}
+
+function addMilestone(weekId) {
+  const text = prompt('Novo milestone:');
+  if (!text || !text.trim()) return;
+  const w = roadmap.find(x => x.id === weekId);
+  if (!w) return;
+  const newId = weekId + '-m' + (Date.now() % 100000);
+  w.milestones.push({ id: newId, text: text.trim(), done: false });
+  saveRoadmap(); renderRoadmap();
+}
+
+function editMilestone(weekId, msId, el) {
+  const w = roadmap.find(x => x.id === weekId);
+  if (!w) return;
+  const m = w.milestones.find(x => x.id === msId);
+  if (!m) return;
+  const input = document.createElement('input');
+  input.className = 'inline-edit';
+  input.value = m.text;
+  input.style.fontSize = '12.5px';
+  el.replaceWith(input);
+  input.focus();
+  input.select();
+  const commit = () => {
+    m.text = input.value.trim() || m.text;
+    saveRoadmap(); renderRoadmap();
+  };
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') input.blur(); });
+}
+
+function editWeekField(weekId, field, el, fontClass) {
+  const w = roadmap.find(x => x.id === weekId);
+  if (!w) return;
+  const input = document.createElement('input');
+  input.className = 'inline-edit';
+  input.value = w[field] || '';
+  el.replaceWith(input);
+  input.focus();
+  input.select();
+  const commit = () => {
+    w[field] = input.value.trim() || w[field];
+    saveRoadmap(); renderRoadmap();
+  };
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') input.blur(); });
+}
+function editWeekLabel(wId, el) { editWeekField(wId, 'label', el); }
+function editWeekName(wId, el)  { editWeekField(wId, 'name', el); }
+function editWeekGoal(wId, el)  { editWeekField(wId, 'goal', el); }
+function editWeekTools(wId, el) { editWeekField(wId, 'tools', el); }
 
 function escapeHtml(str) {
   return String(str || '').replace(/[&<>"']/g, c => ({
@@ -1791,12 +2811,12 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); }
 
 // Listeners Hoje
 document.addEventListener('DOMContentLoaded', () => {
-  const focusEl = document.getElementById('focusInput');
-  const obsEl = document.getElementById('obsInput');
-  if (focusEl) focusEl.addEventListener('input', () => { today.focus = focusEl.value; saveToday(); });
-  if (obsEl) obsEl.addEventListener('input', () => { today.obs = obsEl.value; saveToday(); });
+  const blockedEl = document.getElementById('blockedInput');
+  const notesEl = document.getElementById('notesInput');
+  if (blockedEl) blockedEl.addEventListener('input', () => { today.blocked = blockedEl.value; saveToday(); });
+  if (notesEl) notesEl.addEventListener('input', () => { today.notes = notesEl.value; saveToday(); });
 
-  // Virada de dia automática
+  // Virada de dia automática (Opção A: preserva tasks, zera checks)
   setInterval(() => {
     if (today.date !== todayKey()) {
       if (hasContent(today)) {
@@ -1804,9 +2824,20 @@ document.addEventListener('DOMContentLoaded', () => {
         history.unshift(today);
         saveHistory();
       }
-      today = { date: todayKey(), focus: '', activities: [], links: [], obs: '' };
+      // Preserva a lista de tasks e vínculos com milestones; zera checks e campos do dia
+      today = {
+        date: todayKey(),
+        focus: '',
+        tasks: (today.tasks || []).map(t => ({
+          ...t,
+          checks: (t.checks || []).map(c => ({ ...c, done: false }))
+        })),
+        links: [],
+        blocked: '',
+        notes: ''
+      };
       saveToday();
-      renderTopDate(); renderToday(); renderHistory();
+      renderTopDate(); renderToday(); renderHistory(); renderRoadmap();
     }
   }, 60000);
 });
@@ -1817,7 +2848,7 @@ renderTopDate();
 renderToday();
 renderHistory();
 renderAll();
-bindMvpChecks();
+renderRoadmap();
 </script>
 </body>
 </html>
