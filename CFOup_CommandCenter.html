@@ -3,1673 +3,1788 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI CFOup | Command Center</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>AI CFOup · Command Center</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+
 <style>
-/* ============================================================
-   CFOup DESIGN SYSTEM
-   ============================================================ */
-:root {
-  --navy:        #071D3B;
-  --navy-2:      #0D2B52;
-  --blue:        #1567C8;
-  --blue-2:      #2A7FD6;
-  --cyan:        #38B8E8;
-  --green:       #36BA58;
-  --green-2:     #7ED444;
-  --ink:         #0F1B2D;
-  --ink-2:       #334155;
-  --muted:       #6B7280;
-  --muted-2:     #94A3B8;
-  --line:        #E2E8F0;
-  --line-2:      #F1F5F9;
-  --bg:          #F7F9FC;
-  --white:       #FFFFFF;
-
-  --p1:     #DC2626;   --p1-bg:     #FEF2F2;
-  --p2:     #D97706;   --p2-bg:     #FFFBEB;
-  --p3:     #64748B;   --p3-bg:     #F1F5F9;
-  --ok:     #15803D;   --ok-bg:     #ECFDF5;
-  --warn:   #B45309;   --warn-bg:   #FFFBEB;
-  --stop:   #B91C1C;   --stop-bg:   #FEF2F2;
-
-  --radius:    12px;
-  --radius-sm: 8px;
-  --shadow-1:  0 1px 2px rgba(15,27,45,0.04), 0 1px 3px rgba(15,27,45,0.06);
-  --shadow-2:  0 4px 12px rgba(7,29,59,0.06), 0 1px 3px rgba(7,29,59,0.04);
+/* ==========================================================================
+   CFOUP DESIGN SYSTEM v1.0 — INLINE
+   Fonte: cfoup-design-system.css (repo cfoup-design-system)
+   ========================================================================== */
+:root{
+  --cfoup-navy: #071D3B;
+  --cfoup-navy-deep: #0A2647;
+  --cfoup-navy-light: #0E3A6B;
+  --cfoup-blue: #1567C8;
+  --cfoup-cyan: #38B8E8;
+  --cfoup-green: #36BA58;
+  --cfoup-light-green: #7ED444;
+  --cfoup-ink: #0F1B2D;
+  --cfoup-ink-soft: #243042;
+  --cfoup-ink-muted: #3D4D66;
+  --cfoup-muted: #5B6B82;
+  --cfoup-line: #E5EBF2;
+  --cfoup-line-soft: #EEF3F8;
+  --cfoup-bg: #F7F9FC;
+  --cfoup-bg-subtle: #FAFBFD;
+  --cfoup-bg-hover: #FAFCFF;
+  --cfoup-white: #FFFFFF;
+  --cfoup-pos: #36BA58;
+  --cfoup-neg: #D14343;
+  --cfoup-warn: #E08B00;
+  --cfoup-neutral: #8A99B0;
+  --cfoup-hl-bg: #FFF8E1;
+  --cfoup-font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --cfoup-font-serif: 'Fraunces', Georgia, serif;
+  --cfoup-font-mono: 'SF Mono', Menlo, 'Roboto Mono', Consolas, monospace;
+  --cfoup-text-xs: 11px;
+  --cfoup-text-sm: 12px;
+  --cfoup-text-base: 14px;
+  --cfoup-text-md: 15px;
+  --cfoup-text-lg: 17px;
+  --cfoup-text-xl: 22px;
+  --cfoup-text-2xl: 30px;
+  --cfoup-text-3xl: 44px;
+  --cfoup-weight-light: 300;
+  --cfoup-weight-regular: 400;
+  --cfoup-weight-medium: 500;
+  --cfoup-weight-semi: 600;
+  --cfoup-weight-bold: 700;
+  --cfoup-space-1: 4px;
+  --cfoup-space-2: 8px;
+  --cfoup-space-3: 12px;
+  --cfoup-space-4: 16px;
+  --cfoup-space-5: 20px;
+  --cfoup-space-6: 24px;
+  --cfoup-space-8: 32px;
+  --cfoup-space-10: 40px;
+  --cfoup-space-12: 48px;
+  --cfoup-space-16: 64px;
+  --cfoup-radius-sm: 4px;
+  --cfoup-radius: 8px;
+  --cfoup-radius-md: 10px;
+  --cfoup-radius-lg: 12px;
+  --cfoup-radius-xl: 14px;
+  --cfoup-radius-pill: 20px;
+  --cfoup-radius-full: 9999px;
+  --cfoup-shadow-sm: 0 1px 3px rgba(7,29,59,.04);
+  --cfoup-shadow: 0 1px 3px rgba(7,29,59,.04), 0 8px 24px rgba(7,29,59,.04);
+  --cfoup-shadow-md: 0 4px 12px rgba(7,29,59,.08);
+  --cfoup-shadow-lg: 0 12px 32px rgba(7,29,59,.10);
+  --cfoup-shadow-xl: 0 20px 48px rgba(7,29,59,.14);
+  --cfoup-transition: all .2s ease;
+  --cfoup-transition-fast: all .15s ease;
+  --cfoup-container: 1340px;
+  --cfoup-container-app: 1140px;
+  --cfoup-gradient-navy: linear-gradient(135deg, var(--cfoup-navy) 0%, var(--cfoup-navy-deep) 60%, var(--cfoup-navy-light) 100%);
+  --cfoup-gradient-hero-glow: radial-gradient(circle, rgba(56,184,232,.18) 0%, transparent 70%);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Montserrat', -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.55;
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+html,body{
+  background: var(--cfoup-bg);
+  color: var(--cfoup-ink);
+  font-family: var(--cfoup-font-sans);
+  font-size: var(--cfoup-text-md);
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
+img{ max-width: 100%; height: auto; display: block; }
+button{ font-family: inherit; cursor: pointer; }
+a{ color: var(--cfoup-blue); text-decoration: none; transition: var(--cfoup-transition-fast); }
+a:hover{ color: var(--cfoup-navy); }
 
-a { color: var(--blue); text-decoration: none; }
-a:hover { color: var(--navy); }
+/* Tipografia */
+.cfoup-display{ font-family: var(--cfoup-font-serif); font-weight: 500; font-size: var(--cfoup-text-3xl); line-height: 1.1; letter-spacing: -.015em; color: var(--cfoup-navy); }
+.cfoup-h1{ font-family: var(--cfoup-font-serif); font-weight: 500; font-size: var(--cfoup-text-2xl); line-height: 1.15; letter-spacing: -.01em; color: var(--cfoup-navy); }
+.cfoup-h2{ font-family: var(--cfoup-font-serif); font-weight: 500; font-size: var(--cfoup-text-xl); line-height: 1.2; letter-spacing: -.005em; color: var(--cfoup-navy); }
+.cfoup-h3{ font-family: var(--cfoup-font-sans); font-weight: 600; font-size: var(--cfoup-text-lg); line-height: 1.3; color: var(--cfoup-navy); }
+.cfoup-eyebrow{ font-size: var(--cfoup-text-xs); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--cfoup-blue); }
+.cfoup-label{ font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--cfoup-muted); }
+.cfoup-lede{ font-size: 15.5px; color: var(--cfoup-muted); line-height: 1.65; font-weight: 400; }
+.cfoup-text-mono{ font-family: var(--cfoup-font-mono); font-variant-numeric: tabular-nums; }
 
-/* ============================================================
-   TOPBAR
-   ============================================================ */
-.topbar {
-  background: var(--navy);
-  color: var(--white);
-  padding: 0 32px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.04), 0 2px 8px rgba(7,29,59,0.25);
-}
-.brand {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  font-weight: 600;
-  font-size: 17px;
-  letter-spacing: -0.01em;
-}
-.brand-ai    { color: var(--cyan); font-weight: 600; }
-.brand-cfoup { color: var(--white); }
-.brand-sep   { color: rgba(255,255,255,0.2); font-weight: 300; margin: 0 4px; }
-.brand-sub   { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 400; letter-spacing: 0; }
-
-.topbar-right { display: flex; align-items: center; gap: 16px; }
-.today-chip {
-  font-size: 12px;
-  color: rgba(255,255,255,0.85);
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-}
-.saved-ind {
-  font-size: 12px;
-  color: var(--green-2);
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-weight: 500;
-}
-.saved-ind.show { opacity: 1; }
-
-/* ============================================================
-   LAYOUT
-   ============================================================ */
-.main {
-  max-width: 1140px;
+/* Container app */
+.cfoup-container-app{
+  max-width: var(--cfoup-container-app);
   margin: 0 auto;
-  padding: 32px 32px 80px;
+  padding: 0 var(--cfoup-space-8);
 }
 
-.section-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin: 28px 0 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.section-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-}
-.section-label:first-of-type { margin-top: 0; }
-
-/* ============================================================
-   HOJE — FAIXA VIVA
-   ============================================================ */
-.today-card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--blue);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-2);
-  overflow: hidden;
-}
-.today-head {
-  padding: 20px 24px 16px;
-  border-bottom: 1px solid var(--line-2);
-  background: linear-gradient(180deg, #FAFCFF 0%, var(--white) 100%);
-}
-.today-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 6px;
-}
-.today-date {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--navy);
-  letter-spacing: -0.01em;
-  margin-bottom: 14px;
-}
-.focus-input {
-  width: 100%;
-  border: none;
-  background: transparent;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--ink);
-  padding: 8px 0;
-  border-bottom: 1.5px solid var(--line);
-  outline: none;
-  transition: border-color 0.2s;
-}
-.focus-input:focus { border-bottom-color: var(--blue); }
-.focus-input::placeholder { color: var(--muted-2); font-weight: 400; }
-
-.today-body {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr;
-  gap: 0;
-}
-.today-col {
-  padding: 20px 24px;
-  border-right: 1px solid var(--line-2);
-}
-.today-col:last-child { border-right: none; }
-.today-col-head {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.today-col-count {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--blue);
-  background: #EAF3FD;
-  padding: 2px 8px;
-  border-radius: 999px;
-  letter-spacing: 0;
-}
-
-/* Activity items */
-.activity-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; min-height: 60px; }
-.activity-item {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  padding: 6px 10px;
-  background: var(--line-2);
-  border-radius: var(--radius-sm);
-  font-size: 13px;
-  color: var(--ink);
-  transition: background 0.15s;
-}
-.activity-item:hover { background: #E6EEF9; }
-.activity-time {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--blue);
-  flex-shrink: 0;
-  font-variant-numeric: tabular-nums;
-}
-.activity-text { flex: 1; line-height: 1.45; }
-.activity-del {
-  opacity: 0;
-  background: none; border: none;
-  color: var(--muted); cursor: pointer;
-  font-size: 14px; padding: 0 4px;
-  transition: opacity 0.15s, color 0.15s;
-}
-.activity-item:hover .activity-del { opacity: 1; }
-.activity-del:hover { color: var(--p1); }
-
-/* Link items in today */
-.today-link-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; min-height: 60px; }
-.today-link-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  background: var(--line-2);
-  border-radius: var(--radius-sm);
-  font-size: 13px;
-}
-.today-link-item a {
-  flex: 1;
-  color: var(--blue);
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* Botões */
+.cfoup-btn{
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--cfoup-space-2); padding: 11px 20px;
+  font-family: inherit; font-size: var(--cfoup-text-base);
+  font-weight: 600; letter-spacing: .01em;
+  border-radius: var(--cfoup-radius); border: 1px solid transparent;
+  cursor: pointer; transition: var(--cfoup-transition-fast);
   white-space: nowrap;
 }
-.today-link-star {
-  background: none; border: none;
-  color: var(--muted); cursor: pointer;
-  font-size: 13px; padding: 2px 4px;
-  transition: color 0.15s;
-}
-.today-link-star:hover { color: var(--warn); }
-.today-link-star.promoted { color: var(--warn); }
-.today-link-del {
-  opacity: 0;
-  background: none; border: none;
-  color: var(--muted); cursor: pointer;
-  font-size: 14px; padding: 0 4px;
-  transition: opacity 0.15s, color 0.15s;
-}
-.today-link-item:hover .today-link-del { opacity: 1; }
-.today-link-del:hover { color: var(--p1); }
+.cfoup-btn-primary{ background: var(--cfoup-navy); color: white; }
+.cfoup-btn-primary:hover{ background: #0E2E50; transform: translateY(-1px); box-shadow: var(--cfoup-shadow-md); }
+.cfoup-btn-secondary{ background: white; color: var(--cfoup-navy); border-color: var(--cfoup-line); }
+.cfoup-btn-secondary:hover{ border-color: var(--cfoup-cyan); color: var(--cfoup-blue); }
+.cfoup-btn-ghost{ background: transparent; color: var(--cfoup-navy); border: none; }
+.cfoup-btn-ghost:hover{ background: var(--cfoup-line-soft); color: var(--cfoup-blue); }
+.cfoup-btn-pill{ border-radius: var(--cfoup-radius-pill); padding: 7px 14px; font-size: var(--cfoup-text-sm); font-weight: 500; }
 
-/* Obs textarea */
-.today-obs {
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
-  font-family: 'Montserrat', sans-serif;
+/* Inputs */
+.cfoup-input{
+  width: 100%; padding: 13px 16px;
+  border: 1px solid #D4DCE7; border-radius: var(--cfoup-radius);
+  font-size: var(--cfoup-text-base); font-family: inherit;
+  color: var(--cfoup-ink); background: white;
+  transition: var(--cfoup-transition-fast);
+}
+.cfoup-input::placeholder{ color: #9AA7BA; font-weight: 400; }
+.cfoup-input:focus{ outline: none; border-color: var(--cfoup-blue); box-shadow: 0 0 0 3px rgba(21,103,200,.1); }
+
+/* Card base */
+.cfoup-card{
+  background: white;
+  border: 1px solid var(--cfoup-line);
+  border-radius: var(--cfoup-radius-lg);
+  padding: var(--cfoup-space-6);
+  transition: var(--cfoup-transition);
+}
+
+/* Badges */
+.cfoup-badge{
+  display: inline-flex; align-items: center;
+  font-size: 10.5px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: var(--cfoup-radius-sm);
+}
+.cfoup-badge-pos{ background: rgba(54,186,88,.1); color: var(--cfoup-pos); }
+.cfoup-badge-neg{ background: rgba(209,67,67,.1); color: var(--cfoup-neg); }
+.cfoup-badge-warn{ background: rgba(224,139,0,.1); color: var(--cfoup-warn); }
+.cfoup-badge-info{ background: rgba(21,103,200,.12); color: var(--cfoup-blue); }
+.cfoup-badge-neutral{ background: var(--cfoup-line-soft); color: var(--cfoup-muted); }
+
+/* Hero (compacto — versão CC) */
+.cfoup-hero{
+  background: var(--cfoup-gradient-navy);
+  color: white;
+  padding: 24px 0 28px;
+  position: relative;
+  overflow: hidden;
+}
+.cfoup-hero::before{
+  content: ""; position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: var(--cfoup-gradient-hero-glow);
+  pointer-events: none;
+}
+.cfoup-hero-top{
+  display: flex; align-items: center; gap: 20px;
+  margin-bottom: 16px;
+}
+.cfoup-hero-brand{
+  border-left: 1px solid rgba(255,255,255,.18);
+  padding-left: 20px;
+}
+.cfoup-hero-brand-line1{
+  font-size: var(--cfoup-text-xs);
+  letter-spacing: .18em;
+  color: var(--cfoup-cyan);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.cfoup-hero-brand-line2{
   font-size: 13px;
-  color: var(--ink);
-  resize: vertical;
-  min-height: 120px;
-  outline: none;
-  transition: border-color 0.2s;
-  background: var(--white);
+  color: #B8C8DC;
+  letter-spacing: .04em;
+  margin-top: 2px;
 }
-.today-obs:focus { border-color: var(--blue); }
-.today-obs::placeholder { color: var(--muted-2); }
+.cfoup-hero h1{
+  font-family: var(--cfoup-font-serif);
+  font-weight: 500;
+  font-size: var(--cfoup-text-2xl);
+  line-height: 1.1;
+  letter-spacing: -.015em;
+  color: white;
+}
+.cfoup-hero-meta{
+  margin-top: 16px;
+  display: flex; gap: var(--cfoup-space-8);
+  flex-wrap: wrap; align-items: center;
+  font-size: var(--cfoup-text-xs);
+  color: #8FA3BD;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.cfoup-hero-meta strong{
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0;
+  font-size: var(--cfoup-text-base);
+  margin-left: 8px;
+  text-transform: none;
+}
+.cc-saved-ind{
+  font-size: 11px;
+  color: var(--cfoup-cyan);
+  opacity: 0;
+  transition: opacity .3s;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-left: auto;
+}
+.cc-saved-ind.show{ opacity: 1; }
 
-/* Head com ações de dia */
-.today-head-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 14px;
-  gap: 16px;
+/* KPI editorial */
+.cfoup-kpis{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--cfoup-space-4);
+  margin: var(--cfoup-space-6) 0 var(--cfoup-space-2);
 }
-.today-actions {
-  display: flex;
-  gap: 8px;
+.cfoup-kpi{
+  background: white;
+  padding: 20px 20px 18px;
+  border-radius: var(--cfoup-radius-lg);
+  border: 1px solid var(--cfoup-line);
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  min-height: 130px;
+}
+.cfoup-kpi::before{
+  content: ""; position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--cfoup-cyan);
+}
+.cfoup-kpi.pos::before{ background: var(--cfoup-pos); }
+.cfoup-kpi.neg::before{ background: var(--cfoup-neg); }
+.cfoup-kpi.warn::before{ background: var(--cfoup-warn); }
+.cfoup-kpi.blue::before{ background: var(--cfoup-blue); }
+.cfoup-kpi-label{
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--cfoup-muted);
+  margin-bottom: var(--cfoup-space-3);
+  line-height: 1.3;
+}
+.cfoup-kpi-value{
+  font-family: var(--cfoup-font-serif);
+  font-weight: 500;
+  font-size: 26px;
+  color: var(--cfoup-navy);
+  line-height: 1.05;
+  letter-spacing: -.01em;
+  margin-bottom: var(--cfoup-space-2);
+}
+.cfoup-kpi-value .cfoup-kpi-unit{
+  font-size: var(--cfoup-text-md);
+  color: var(--cfoup-muted);
+  font-weight: 400;
+}
+.cfoup-kpi-sub{
+  font-size: 11.5px;
+  color: var(--cfoup-muted);
+  line-height: 1.5;
+  margin-top: auto;
+}
+.cfoup-kpi-sub strong{ color: var(--cfoup-navy); font-weight: 600; }
+
+/* Section editorial (header navy) */
+.cfoup-section{
+  background: white;
+  border: 1px solid var(--cfoup-line);
+  border-radius: var(--cfoup-radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--cfoup-space-6);
+  box-shadow: var(--cfoup-shadow);
+}
+.cfoup-section-head{
+  background: var(--cfoup-gradient-navy);
+  color: white;
+  padding: 14px 22px;
+  display: flex; justify-content: space-between;
+  align-items: center; gap: var(--cfoup-space-4);
+  flex-wrap: wrap;
+}
+.cfoup-section-head h2{
+  font-family: var(--cfoup-font-serif);
+  font-size: var(--cfoup-text-xl);
+  font-weight: 500;
+  color: white;
+  letter-spacing: -.005em;
+}
+.cfoup-section-head h2 span{ color: var(--cfoup-cyan); }
+.cfoup-section-head-src{
+  font-size: var(--cfoup-text-xs);
+  color: rgba(255,255,255,.72);
+  letter-spacing: .04em;
+}
+.cfoup-section-body{ padding: var(--cfoup-space-6); }
+
+/* Verdict / Headline */
+.cfoup-verdict{
+  background: #F0F4FA;
+  border-left: 4px solid var(--cfoup-blue);
+  padding: 14px 20px;
+  margin-bottom: var(--cfoup-space-4);
+  display: flex; gap: var(--cfoup-space-3);
+  align-items: baseline;
+  border-radius: 0 var(--cfoup-radius) var(--cfoup-radius) 0;
+}
+.cfoup-verdict-tag{
+  font-size: 10.5px; font-weight: 700;
+  letter-spacing: .12em;
+  color: var(--cfoup-blue);
+  text-transform: uppercase;
   flex-shrink: 0;
 }
-.ghost-btn {
-  font-size: 11.5px;
-  font-weight: 500;
-  color: var(--muted);
-  background: var(--white);
-  border: 1px solid var(--line);
-  padding: 6px 12px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  transition: all 0.15s;
+.cfoup-verdict-text{
+  font-family: var(--cfoup-font-serif);
+  font-size: 16px; font-weight: 500;
+  color: var(--cfoup-navy);
+  line-height: 1.4;
 }
-.ghost-btn:hover { border-color: var(--blue); color: var(--blue); }
 
-/* Grid 3 colunas com primeira mais larga */
-.today-col-wide { }
-.today-body.tasks-layout {}
+/* Alerts */
+.cfoup-alerts{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--cfoup-space-3);
+  margin-bottom: var(--cfoup-space-4);
+}
+.cfoup-alert{
+  border: 1px solid var(--cfoup-line);
+  border-left-width: 4px;
+  padding: 14px 16px;
+  background: white;
+  border-radius: 0 var(--cfoup-radius-md) var(--cfoup-radius-md) 0;
+}
+.cfoup-alert-critico{ border-left-color: var(--cfoup-neg); }
+.cfoup-alert-atencao{ border-left-color: var(--cfoup-warn); }
+.cfoup-alert-controle{ border-left-color: var(--cfoup-pos); }
+.cfoup-alert-title{
+  font-size: 13.5px; font-weight: 600;
+  color: var(--cfoup-navy);
+  margin-bottom: 5px;
+  line-height: 1.35;
+}
+.cfoup-alert-text{
+  font-size: 12.5px;
+  color: var(--cfoup-ink-muted);
+  line-height: 1.5;
+}
+.cfoup-alert-text b{ color: var(--cfoup-navy); font-weight: 600; }
 
-/* Hint pequeno ao lado do título da coluna */
-.today-col-hint {
-  font-size: 10px;
+/* Table editorial */
+.cfoup-table-wrap{
+  background: white;
+  border-radius: var(--cfoup-radius-lg);
+  overflow: hidden;
+  margin: 0;
+}
+.cfoup-table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.cfoup-table thead th{
+  background: var(--cfoup-bg-subtle);
+  color: var(--cfoup-navy);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--cfoup-line);
+  font-size: var(--cfoup-text-xs);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.cfoup-table tbody td{
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--cfoup-line);
+  color: var(--cfoup-ink-soft);
+  vertical-align: middle;
+}
+.cfoup-table tbody tr:last-child td{ border-bottom: none; }
+.cfoup-table tbody tr:hover td{ background: var(--cfoup-bg-hover); }
+
+/* Synthesis (bloco navy com pontos) — usado em Princípios */
+.cfoup-synthesis{
+  background: var(--cfoup-navy);
+  color: white;
+  border-radius: var(--cfoup-radius-xl);
+  padding: 32px 28px;
+  margin: var(--cfoup-space-6) 0;
+}
+.cfoup-synthesis-eyebrow{
+  color: var(--cfoup-cyan);
+  font-size: var(--cfoup-text-xs);
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.cfoup-synthesis h3{
+  color: white;
+  font-family: var(--cfoup-font-serif);
   font-weight: 500;
-  color: var(--muted-2);
-  letter-spacing: 0.04em;
+  font-size: 20px;
+  margin: 0 0 6px;
+}
+.cfoup-synthesis-points{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--cfoup-space-6) var(--cfoup-space-8);
+  margin-top: var(--cfoup-space-5);
+}
+.cfoup-synthesis-point h4{
+  color: var(--cfoup-cyan);
+  font-weight: 600;
+  font-size: var(--cfoup-text-xs);
+  letter-spacing: .12em;
+  margin-bottom: var(--cfoup-space-2);
+}
+.cfoup-synthesis-point p{
+  color: #C8D4E5;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+.cfoup-synthesis-point p strong{ color: white; font-weight: 600; }
+
+/* ==========================================================================
+   CC-SPECIFIC — só o que não existe no design system
+   ========================================================================== */
+
+/* Layout principal */
+.cc-main{
+  padding: var(--cfoup-space-8) 0 64px;
+}
+.cc-section-eyebrow{
+  font-size: var(--cfoup-text-xs);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cfoup-muted);
+  margin: var(--cfoup-space-8) 0 var(--cfoup-space-4);
+  display: flex; align-items: center; gap: 14px;
+}
+.cc-section-eyebrow::after{
+  content: ''; flex: 1; height: 1px; background: var(--cfoup-line);
+}
+.cc-section-eyebrow:first-child{ margin-top: 0; }
+
+/* Diário do dia — header da section */
+.cc-today-head-actions{
+  display: flex; gap: 8px;
+}
+.cc-today-head-actions .cfoup-btn{
+  padding: 7px 14px;
+  font-size: 12px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.18);
+  color: white;
+}
+.cc-today-head-actions .cfoup-btn:hover{
+  background: rgba(255,255,255,.18);
+  border-color: var(--cfoup-cyan);
+  color: var(--cfoup-cyan);
+}
+
+/* Diário — grid 3 colunas */
+.cc-today-body{
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 0.95fr;
+  gap: 0;
+}
+.cc-today-col{
+  padding: var(--cfoup-space-5) var(--cfoup-space-6);
+  border-right: 1px solid var(--cfoup-line);
+}
+.cc-today-col:last-child{ border-right: none; }
+.cc-col-head{
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cfoup-muted);
+  margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cc-col-head-hint{
+  font-size: 10px;
+  color: var(--cfoup-neutral);
+  font-weight: 500;
+  letter-spacing: 0;
   text-transform: none;
-  margin-left: 6px;
   font-style: italic;
 }
-.col-add-btn {
-  margin-left: auto;
-  width: 22px;
-  height: 22px;
+.cc-col-add{
+  width: 22px; height: 22px;
   border-radius: 50%;
-  border: 1px solid var(--line);
-  background: var(--white);
-  color: var(--blue);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
+  border: 1px solid var(--cfoup-line);
+  background: white;
+  color: var(--cfoup-blue);
+  font-size: 14px; font-weight: 700;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  transition: all 0.15s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   padding: 0;
+  transition: var(--cfoup-transition-fast);
 }
-.col-add-btn:hover { border-color: var(--blue); background: var(--blue); color: var(--white); }
+.cc-col-add:hover{ background: var(--cfoup-blue); color: white; border-color: var(--cfoup-blue); }
+.cc-col-count{
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--cfoup-blue);
+  background: rgba(21,103,200,.08);
+  padding: 2px 8px;
+  border-radius: var(--cfoup-radius-pill);
+}
 
-/* TASK — card de task do dia */
-.task-list { display: flex; flex-direction: column; gap: 10px; min-height: 80px; }
-.task-card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--muted-2);
-  border-radius: var(--radius-sm);
+/* Tasks no Hoje */
+.cc-task-list{ display: flex; flex-direction: column; gap: 10px; min-height: 60px; }
+.cc-task{
+  background: white;
+  border: 1px solid var(--cfoup-line);
+  border-left: 3px solid var(--cfoup-neutral);
+  border-radius: var(--cfoup-radius);
   padding: 12px 14px;
-  transition: box-shadow 0.15s, border-color 0.15s;
   position: relative;
+  transition: var(--cfoup-transition-fast);
 }
-.task-card:hover { box-shadow: var(--shadow-2); }
-.task-card.prio-high { border-left-color: var(--p1); }
-.task-card.prio-med  { border-left-color: var(--p2); }
-.task-card.prio-low  { border-left-color: var(--green); }
-
-.task-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 4px;
+.cc-task:hover{ box-shadow: var(--cfoup-shadow-md); }
+.cc-task.prio-high{ border-left-color: var(--cfoup-neg); }
+.cc-task.prio-med{ border-left-color: var(--cfoup-warn); }
+.cc-task.prio-low{ border-left-color: var(--cfoup-pos); }
+.cc-task-head{
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 10px;
+  margin-bottom: 5px;
 }
-.task-title {
+.cc-task-title{
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--cfoup-navy);
   line-height: 1.3;
   flex: 1;
   cursor: pointer;
 }
-.task-title:hover { color: var(--blue); }
-.task-meta-row {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  flex-shrink: 0;
+.cc-task-title:hover{ color: var(--cfoup-blue); }
+.cc-task-prio{
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--cfoup-radius-pill);
+  cursor: pointer;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  transition: var(--cfoup-transition-fast);
 }
-.task-prio-chip {
+.cc-task-prio.prio-high{ background: rgba(209,67,67,.1); color: var(--cfoup-neg); }
+.cc-task-prio.prio-med{ background: rgba(224,139,0,.1); color: var(--cfoup-warn); }
+.cc-task-prio.prio-low{ background: rgba(54,186,88,.1); color: var(--cfoup-pos); }
+.cc-task-tools{
+  display: flex; flex-wrap: wrap; gap: 4px;
+  margin-bottom: 7px;
+}
+.cc-tool-chip{
   font-size: 10px;
   font-weight: 600;
+  color: var(--cfoup-muted);
+  background: var(--cfoup-line-soft);
   padding: 2px 8px;
-  border-radius: 999px;
-  cursor: pointer;
-  letter-spacing: 0.02em;
+  border-radius: var(--cfoup-radius-pill);
+  letter-spacing: .02em;
   text-transform: uppercase;
-  transition: opacity 0.15s;
 }
-.task-prio-chip:hover { opacity: 0.75; }
-.task-prio-chip.prio-high { background: var(--p1-bg); color: var(--p1); }
-.task-prio-chip.prio-med  { background: var(--p2-bg); color: var(--p2); }
-.task-prio-chip.prio-low  { background: var(--ok-bg); color: var(--ok); }
-
-.task-tools-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-bottom: 8px;
-}
-.task-tool-chip {
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--muted);
-  background: var(--line-2);
-  padding: 2px 8px;
-  border-radius: 999px;
-}
-.task-objective {
+.cc-task-obj{
   font-size: 12px;
-  color: var(--muted);
+  color: var(--cfoup-muted);
   line-height: 1.5;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
   font-style: italic;
 }
-.task-checks { display: flex; flex-direction: column; gap: 2px; }
-.task-check-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
+.cc-task-checks{ display: flex; flex-direction: column; gap: 2px; }
+.cc-check-row{
+  display: flex; align-items: flex-start; gap: 8px;
   padding: 3px 0;
-  cursor: pointer;
   user-select: none;
 }
-.task-check-row input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
+.cc-check-row input[type="checkbox"]{
+  appearance: none; -webkit-appearance: none;
+  width: 15px; height: 15px;
   border: 1.5px solid #CBD5E1;
-  border-radius: 3px;
-  background: var(--white);
+  border-radius: var(--cfoup-radius-sm);
+  background: white;
   cursor: pointer;
   position: relative;
   flex-shrink: 0;
   margin-top: 2px;
-  transition: all 0.15s;
+  transition: var(--cfoup-transition-fast);
 }
-.task-check-row input[type="checkbox"]:hover { border-color: var(--blue); }
-.task-check-row input[type="checkbox"]:checked {
-  background: var(--blue);
-  border-color: var(--blue);
-}
-.task-check-row input[type="checkbox"]:checked::after {
-  content: '';
-  position: absolute;
-  left: 3.5px;
-  top: 0px;
-  width: 4px;
-  height: 9px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
+.cc-check-row input[type="checkbox"]:hover{ border-color: var(--cfoup-blue); }
+.cc-check-row input[type="checkbox"]:checked{ background: var(--cfoup-blue); border-color: var(--cfoup-blue); }
+.cc-check-row input[type="checkbox"]:checked::after{
+  content: ''; position: absolute;
+  left: 3.5px; top: 0px;
+  width: 4px; height: 9px;
+  border: solid white; border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
-.task-check-row label {
+.cc-check-row label{
+  font-size: 12.5px; color: var(--cfoup-ink); line-height: 1.45;
+  flex: 1; cursor: pointer;
+}
+.cc-check-row input:checked + label{ color: var(--cfoup-muted); text-decoration: line-through; }
+.cc-check-del, .cc-task-del{
+  opacity: 0; background: none; border: none;
+  color: var(--cfoup-muted); cursor: pointer;
+  font-size: 13px; padding: 0 4px;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-check-row:hover .cc-check-del,
+.cc-task:hover .cc-task-del{ opacity: 1; }
+.cc-check-del:hover, .cc-task-del:hover{ color: var(--cfoup-neg); }
+.cc-task-del{ position: absolute; top: 10px; right: 10px; }
+.cc-add-check{
+  font-size: 11px;
+  color: var(--cfoup-neutral);
+  background: none; border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  text-align: left;
+  margin-top: 2px;
+  font-family: inherit;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-add-check:hover{ color: var(--cfoup-blue); }
+.cc-task-change-ms{
+  background: none;
+  border: 1px dashed var(--cfoup-line);
+  color: var(--cfoup-muted);
+  font-size: 10.5px;
+  padding: 3px 10px;
+  border-radius: var(--cfoup-radius-pill);
+  margin-top: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-task-change-ms:hover{ border-color: var(--cfoup-blue); color: var(--cfoup-blue); }
+
+/* Task group header (agrupado por milestone) */
+.cc-task-group{
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--cfoup-muted);
+  padding: 12px 0 6px;
+  display: flex; align-items: center; gap: 8px;
+  flex-wrap: wrap;
+}
+.cc-task-group:first-child{ padding-top: 0; }
+.cc-task-group-week{
+  color: var(--cfoup-blue);
+  font-size: 9.5px;
+  background: rgba(21,103,200,.08);
+  padding: 2px 7px;
+  border-radius: var(--cfoup-radius-sm);
+}
+.cc-task-group-name{
+  color: var(--cfoup-navy);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  font-weight: 500;
+  flex: 1; min-width: 0;
+}
+.cc-task-group-done{
+  font-size: 9.5px;
+  color: var(--cfoup-pos);
+  background: rgba(54,186,88,.1);
+  padding: 2px 7px;
+  border-radius: var(--cfoup-radius-pill);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Notas estruturadas (4 blocos no dia / 5 blocos no projeto) */
+.cc-note-block{ margin-bottom: 12px; }
+.cc-note-block:last-child{ margin-bottom: 0; }
+.cc-note-label{
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--cfoup-blue);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.cc-note-area{
+  width: 100%;
+  border: 1px solid var(--cfoup-line);
+  border-radius: var(--cfoup-radius);
+  padding: 8px 10px;
+  font-family: var(--cfoup-font-sans);
   font-size: 12.5px;
-  color: var(--ink);
+  color: var(--cfoup-ink);
+  resize: vertical;
+  min-height: 50px;
+  outline: none;
+  transition: var(--cfoup-transition-fast);
+  background: white;
+  line-height: 1.5;
+}
+.cc-note-area:focus{ border-color: var(--cfoup-blue); box-shadow: 0 0 0 3px rgba(21,103,200,.08); }
+.cc-note-area::placeholder{ color: #9AA7BA; font-size: 12px; }
+
+/* Links do dia */
+.cc-link-list{ display: flex; flex-direction: column; gap: 6px; min-height: 40px; }
+.cc-link-row{
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 10px;
+  background: var(--cfoup-line-soft);
+  border-radius: var(--cfoup-radius-sm);
+  font-size: 12.5px;
+}
+.cc-link-row a{ flex: 1; color: var(--cfoup-blue); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cc-link-star{
+  background: none; border: none;
+  color: var(--cfoup-muted); cursor: pointer;
+  font-size: 13px; padding: 2px 4px;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-link-star:hover{ color: var(--cfoup-warn); }
+.cc-link-star.promoted{ color: var(--cfoup-warn); }
+.cc-link-del{
+  opacity: 0; background: none; border: none;
+  color: var(--cfoup-muted); cursor: pointer;
+  font-size: 14px; padding: 0 4px;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-link-row:hover .cc-link-del{ opacity: 1; }
+.cc-link-del:hover{ color: var(--cfoup-neg); }
+.cc-composer{ display: grid; grid-template-columns: 70px 1fr auto; gap: 6px; margin-top: 8px; }
+.cc-composer input{
+  border: 1px solid var(--cfoup-line);
+  border-radius: var(--cfoup-radius-sm);
+  padding: 7px 9px;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+  min-width: 0;
+}
+.cc-composer input:focus{ border-color: var(--cfoup-blue); }
+.cc-composer button{
+  background: var(--cfoup-blue);
+  color: white; border: none;
+  border-radius: var(--cfoup-radius-sm);
+  padding: 7px 12px;
+  font-family: inherit;
+  font-size: 12px; font-weight: 600;
+  cursor: pointer;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-composer button:hover{ background: var(--cfoup-navy); }
+.cc-link-hint{
+  font-size: 10px;
+  color: var(--cfoup-neutral);
+  margin-top: 6px;
+  font-style: italic;
+}
+.cc-empty-hint{
+  font-size: 12px;
+  color: var(--cfoup-neutral);
+  font-style: italic;
+  padding: 6px 0;
+}
+
+/* Roadmap — semanas */
+.cc-roadmap{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--cfoup-space-3);
+}
+.cc-week{
+  background: white;
+  border: 1px solid var(--cfoup-line);
+  border-radius: var(--cfoup-radius-lg);
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: var(--cfoup-transition);
+}
+.cc-week:hover{ box-shadow: var(--cfoup-shadow-md); }
+.cc-week.current::before{
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--cfoup-cyan);
+}
+.cc-week-head{
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--cfoup-line-soft);
+  background: var(--cfoup-bg-subtle);
+}
+.cc-week.current .cc-week-head{ background: #F4F8FD; }
+.cc-week-num{
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--cfoup-muted);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.cc-week.current .cc-week-num{ color: var(--cfoup-blue); }
+.cc-week-name{
+  font-family: var(--cfoup-font-serif);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--cfoup-navy);
+  letter-spacing: -.005em;
+  line-height: 1.25;
+}
+.cc-week-goal{
+  font-size: 11.5px;
+  color: var(--cfoup-muted);
+  margin-top: 6px;
+  line-height: 1.45;
+}
+.cc-week-counter{
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--cfoup-blue);
+  margin-top: 8px;
+  letter-spacing: .02em;
+  font-variant-numeric: tabular-nums;
+}
+.cc-week.current .cc-week-counter{ color: var(--cfoup-blue); }
+.cc-week:not(.current) .cc-week-counter{ color: var(--cfoup-muted); }
+.cc-week-body{
+  padding: 12px 16px 14px;
+  flex: 1;
+  display: flex; flex-direction: column;
+}
+.cc-week-tools{
+  display: flex; flex-wrap: wrap; gap: 4px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed var(--cfoup-line);
+}
+.cc-milestone{
+  display: flex; align-items: flex-start; gap: 8px;
+  padding: 5px 0;
+  position: relative;
+}
+.cc-milestone input[type="checkbox"]{
+  appearance: none; -webkit-appearance: none;
+  width: 15px; height: 15px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: var(--cfoup-radius-sm);
+  background: white;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.cc-milestone input[type="checkbox"]:hover{ border-color: var(--cfoup-blue); }
+.cc-milestone input[type="checkbox"]:checked{ background: var(--cfoup-blue); border-color: var(--cfoup-blue); }
+.cc-milestone input[type="checkbox"]:checked::after{
+  content: ''; position: absolute;
+  left: 3.5px; top: 0px;
+  width: 4px; height: 9px;
+  border: solid white; border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.cc-milestone label{
+  font-size: 12px;
+  color: var(--cfoup-ink);
   line-height: 1.45;
   flex: 1;
   cursor: pointer;
 }
-.task-check-row input:checked + label {
-  color: var(--muted);
-  text-decoration: line-through;
-}
-.task-check-del {
-  opacity: 0;
-  background: none; border: none;
-  color: var(--muted); cursor: pointer;
-  font-size: 13px; padding: 0 4px;
-  transition: opacity 0.15s, color 0.15s;
-}
-.task-check-row:hover .task-check-del { opacity: 1; }
-.task-check-del:hover { color: var(--p1); }
-
-.task-add-check {
-  font-size: 11.5px;
-  color: var(--muted-2);
-  background: none;
-  border: none;
-  padding: 4px 0;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  text-align: left;
+.cc-milestone.done label{ color: var(--cfoup-muted); text-decoration: line-through; }
+.cc-milestone-progress{
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--cfoup-blue);
+  background: rgba(21,103,200,.08);
+  padding: 1px 6px;
+  border-radius: var(--cfoup-radius-pill);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
   margin-top: 2px;
-  transition: color 0.15s;
 }
-.task-add-check:hover { color: var(--blue); }
-
-.task-delete {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 12px;
-  color: var(--muted-2);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 2px 6px;
-  border-radius: 4px;
-  opacity: 0;
-  transition: opacity 0.15s, color 0.15s;
+.cc-milestone-del{
+  opacity: 0; background: none; border: none;
+  color: var(--cfoup-muted); cursor: pointer;
+  font-size: 12px; padding: 0 4px;
+  flex-shrink: 0; margin-top: 2px;
+  transition: var(--cfoup-transition-fast);
 }
-.task-card:hover .task-delete { opacity: 1; }
-.task-delete:hover { color: var(--p1); background: var(--p1-bg); }
-
-.task-tools-edit, .task-objective-edit {
-  width: 100%;
-  background: transparent;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 4px 6px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  color: var(--ink);
-  outline: none;
-}
-.task-tools-edit:focus, .task-objective-edit:focus { border-color: var(--blue); }
-
-/* Link hint */
-.link-hint {
+.cc-milestone:hover .cc-milestone-del{ opacity: 1; }
+.cc-milestone-del:hover{ color: var(--cfoup-neg); }
+.cc-add-ms{
   font-size: 10.5px;
-  color: var(--muted-2);
-  margin-top: 6px;
-  font-style: italic;
+  color: var(--cfoup-neutral);
+  background: none; border: none;
+  padding: 6px 0; cursor: pointer;
+  font-family: inherit; text-align: left;
+  margin-top: 4px;
 }
+.cc-add-ms:hover{ color: var(--cfoup-blue); }
 
-/* Layout ajustado: coluna 1 mais larga */
-.today-body {
-  grid-template-columns: 1.6fr 1fr 0.9fr !important;
-}
-
-/* Input composer */
-.composer { display: flex; gap: 6px; }
-.composer input {
-  flex: 1;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  padding: 8px 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  outline: none;
-  transition: border-color 0.15s;
-}
-.composer input:focus { border-color: var(--blue); }
-.composer input::placeholder { color: var(--muted-2); font-size: 12.5px; }
-.composer-btn {
-  background: var(--blue);
-  color: var(--white);
-  border: none;
-  border-radius: var(--radius-sm);
-  padding: 8px 14px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-.composer-btn:hover { background: var(--navy-2); }
-
-.composer-two {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 6px;
-}
-.composer-two input {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  padding: 8px 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  outline: none;
-  transition: border-color 0.15s;
-  min-width: 0;
-}
-.composer-two input:focus { border-color: var(--blue); }
-.composer-two input::placeholder { color: var(--muted-2); font-size: 12.5px; }
-
-.empty-hint {
-  font-size: 12px;
-  color: var(--muted-2);
-  font-style: italic;
-  padding: 8px 10px;
-}
-
-/* ============================================================
-   HISTÓRICO DE DIAS
-   ============================================================ */
-.day-log {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-1);
-  margin-bottom: 10px;
+/* Histórico de dias */
+.cc-day-log{
+  background: white;
+  border: 1px solid var(--cfoup-line);
+  border-radius: var(--cfoup-radius);
+  margin-bottom: 8px;
   overflow: hidden;
-  transition: box-shadow 0.2s;
+  transition: var(--cfoup-transition);
 }
-.day-log:hover { box-shadow: var(--shadow-2); }
-.day-log-head {
-  padding: 14px 20px;
+.cc-day-log:hover{ border-color: #D4DCE7; box-shadow: var(--cfoup-shadow-sm); }
+.cc-day-log-head{
+  padding: 12px 18px;
   display: grid;
   grid-template-columns: auto 1fr auto auto;
-  gap: 16px;
+  gap: 14px;
   align-items: center;
   cursor: pointer;
   user-select: none;
 }
-.day-log-date {
+.cc-day-log-date{
+  font-family: var(--cfoup-font-serif);
   font-size: 13px;
-  font-weight: 600;
-  color: var(--navy);
-  min-width: 180px;
+  font-weight: 500;
+  color: var(--cfoup-navy);
+  min-width: 170px;
 }
-.day-log-focus {
-  font-size: 13px;
-  color: var(--ink-2);
-  font-weight: 400;
+.cc-day-log-summary{
+  font-size: 12.5px;
+  color: var(--cfoup-ink-muted);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.day-log-focus.empty { color: var(--muted-2); font-style: italic; }
-.day-log-stats { display: flex; gap: 8px; }
-.stat-chip {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--muted);
-  background: var(--line-2);
-  padding: 3px 10px;
-  border-radius: 999px;
+.cc-day-log-summary.empty{ color: var(--cfoup-neutral); font-style: italic; }
+.cc-day-log-stats{ display: flex; gap: 6px; }
+.cc-day-stat{
+  font-size: 10.5px;
+  color: var(--cfoup-muted);
+  background: var(--cfoup-line-soft);
+  padding: 2px 8px;
+  border-radius: var(--cfoup-radius-pill);
 }
-.day-log-toggle {
-  color: var(--blue);
-  font-size: 13px;
-  font-weight: 500;
-  transition: transform 0.2s;
+.cc-day-toggle{
+  color: var(--cfoup-blue);
+  font-size: 12px;
+  transition: transform .2s;
 }
-.day-log.open .day-log-toggle { transform: rotate(90deg); }
-
-.day-log-body {
+.cc-day-log.open .cc-day-toggle{ transform: rotate(90deg); }
+.cc-day-log-body{
   display: none;
-  padding: 0 20px 18px;
-  border-top: 1px solid var(--line-2);
+  padding: 0 18px 16px;
+  border-top: 1px solid var(--cfoup-line-soft);
 }
-.day-log.open .day-log-body { display: block; }
-.day-log-section { padding-top: 14px; }
-.day-log-section-label {
-  font-size: 10px;
+.cc-day-log.open .cc-day-log-body{ display: block; }
+.cc-day-sec{ padding-top: 14px; }
+.cc-day-sec-label{
+  font-size: 9.5px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 8px;
+  color: var(--cfoup-muted);
+  margin-bottom: 6px;
 }
-.day-log-activity,
-.day-log-link {
-  font-size: 13px;
-  color: var(--ink);
-  padding: 4px 0;
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
-}
-.day-log-activity .t {
-  font-weight: 600;
-  color: var(--blue);
-  font-size: 11px;
-  min-width: 40px;
-}
-.day-log-obs {
-  font-size: 13px;
-  color: var(--ink);
+.cc-day-sec-text{
+  font-size: 12.5px;
+  color: var(--cfoup-ink);
   white-space: pre-wrap;
   line-height: 1.55;
 }
-
-/* Histórico — tasks arquivadas */
-.day-log-task {
-  background: var(--line-2);
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
-  margin-bottom: 8px;
-}
-.day-log-task:last-child { margin-bottom: 0; }
-.day-log-task-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.cc-day-task{
+  background: var(--cfoup-line-soft);
+  border-radius: var(--cfoup-radius);
+  padding: 9px 11px;
   margin-bottom: 6px;
 }
-.day-log-task-prio {
-  font-size: 9.5px;
-  font-weight: 600;
-  padding: 1px 7px;
-  border-radius: 999px;
-  letter-spacing: 0.03em;
+.cc-day-task-head{
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 4px;
+}
+.cc-day-task-prio{
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: var(--cfoup-radius-pill);
+  letter-spacing: .04em;
   text-transform: uppercase;
 }
-.day-log-task-prio.prio-high { background: var(--p1-bg); color: var(--p1); }
-.day-log-task-prio.prio-med  { background: var(--p2-bg); color: var(--p2); }
-.day-log-task-prio.prio-low  { background: var(--ok-bg); color: var(--ok); }
-.day-log-task-title {
-  font-size: 12.5px;
+.cc-day-task-prio.prio-high{ background: rgba(209,67,67,.1); color: var(--cfoup-neg); }
+.cc-day-task-prio.prio-med{ background: rgba(224,139,0,.1); color: var(--cfoup-warn); }
+.cc-day-task-prio.prio-low{ background: rgba(54,186,88,.1); color: var(--cfoup-pos); }
+.cc-day-task-title{
+  font-size: 12px;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--cfoup-navy);
   flex: 1;
 }
-.day-log-task-count {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--muted);
+.cc-day-task-count{
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--cfoup-muted);
   font-variant-numeric: tabular-nums;
 }
-.day-log-task-check {
-  font-size: 12px;
-  color: var(--ink);
-  padding: 2px 0 2px 4px;
+.cc-day-task-check{
+  font-size: 11.5px;
+  color: var(--cfoup-ink);
+  padding: 2px 0 2px 6px;
+  line-height: 1.45;
+}
+.cc-day-task-check.done{ color: var(--cfoup-muted); text-decoration: line-through; }
+.cc-day-link{ font-size: 12.5px; padding: 3px 0; }
+
+.cc-load-more{
+  display: block; width: 100%;
+  padding: 11px;
+  background: none;
+  border: 1px dashed var(--cfoup-line);
+  border-radius: var(--cfoup-radius);
+  color: var(--cfoup-muted);
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-load-more:hover{ border-color: var(--cfoup-blue); color: var(--cfoup-blue); background: var(--cfoup-bg-hover); }
+
+/* Ferramentas (stack reformulado) */
+.cc-tool-group{
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cfoup-line-soft);
+}
+.cc-tool-group:last-child{ border-bottom: none; padding-bottom: 0; }
+.cc-tool-group:first-child{ padding-top: 0; }
+.cc-tool-name{
+  font-family: var(--cfoup-font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cfoup-blue);
+  margin-bottom: 4px;
+  letter-spacing: -.005em;
+}
+.cc-tool-bullets{
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.cc-tool-bullets li{
+  font-size: 12.5px;
+  color: var(--cfoup-ink-soft);
+  padding: 2px 0 2px 14px;
+  position: relative;
   line-height: 1.5;
 }
-.day-log-task-check.done { color: var(--muted); text-decoration: line-through; }
-
-.load-more {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  background: none;
-  border: 1px dashed var(--line);
-  border-radius: var(--radius);
-  color: var(--muted);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.15s;
-  margin-top: 8px;
-}
-.load-more:hover { border-color: var(--blue); color: var(--blue); background: #FAFCFF; }
-
-/* ============================================================
-   MÉTRICAS MVP
-   ============================================================ */
-.metric-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-.metric {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  box-shadow: var(--shadow-1);
-}
-.metric.accent { border-left: 3px solid var(--blue); }
-.metric-label {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-.metric-value {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-.metric-sub {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 4px;
-}
-.progress-track {
-  width: 100%;
-  height: 6px;
-  background: var(--line-2);
-  border-radius: 999px;
-  overflow: hidden;
-  margin-top: 10px;
-}
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--blue), var(--cyan));
-  width: 0%;
-  transition: width 0.4s ease;
-}
-
-/* ============================================================
-   ROADMAP 4 SEMANAS
-   ============================================================ */
-.roadmap {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-.week-card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-1);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.2s;
-}
-.week-card:hover { box-shadow: var(--shadow-2); }
-.week-card.current {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 1px var(--blue), var(--shadow-2);
-}
-.week-head {
-  padding: 14px 16px;
-  background: linear-gradient(180deg, #FAFCFF 0%, var(--white) 100%);
-  border-bottom: 1px solid var(--line-2);
-}
-.week-card.current .week-head {
-  background: linear-gradient(180deg, #EAF3FD 0%, #F7FAFE 100%);
-  border-bottom-color: rgba(21,103,200,0.15);
-}
-.week-num {
-  font-size: 10.5px;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.week-card.current .week-num { color: var(--blue); }
-.week-name {
+.cc-tool-bullets li::before{
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: var(--cfoup-cyan);
+  font-weight: 700;
   font-size: 14px;
-  font-weight: 600;
-  color: var(--navy);
-  letter-spacing: -0.005em;
-  line-height: 1.3;
-}
-.week-goal {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 6px;
-  line-height: 1.45;
-}
-.week-body {
-  padding: 14px 16px 16px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.week-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-  border-bottom: 1px dashed var(--line);
-}
-.tool-chip {
-  font-size: 10.5px;
-  font-weight: 500;
-  color: var(--muted);
-  background: var(--line-2);
-  padding: 3px 9px;
-  border-radius: 999px;
-}
-.week-card.current .tool-chip {
-  color: var(--blue);
-  background: var(--white);
-  border: 1px solid rgba(21,103,200,0.2);
-  padding: 2px 8px;
+  top: 1px;
 }
 
-.check-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  padding: 5px 0;
-  cursor: pointer;
-  user-select: none;
-}
-.check-row input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
-  border: 1.5px solid #CBD5E1;
-  border-radius: 4px;
-  background: var(--white);
-  cursor: pointer;
-  position: relative;
-  flex-shrink: 0;
-  margin-top: 2px;
-  transition: all 0.15s;
-}
-.check-row input[type="checkbox"]:hover { border-color: var(--blue); }
-.check-row input[type="checkbox"]:checked {
-  background: var(--blue);
-  border-color: var(--blue);
-}
-.check-row input[type="checkbox"]:checked::after {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 0px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-.check-row label {
-  font-size: 12.5px;
-  color: var(--ink);
-  line-height: 1.45;
-  cursor: pointer;
-  flex: 1;
-}
-.check-row input:checked + label {
-  color: var(--muted);
-  text-decoration: line-through;
-}
-
-/* ============================================================
-   MILESTONES (roadmap)
-   ============================================================ */
-.week-counter {
-  font-size: 10.5px;
-  font-weight: 600;
-  color: var(--blue);
-  margin-top: 6px;
-  letter-spacing: 0.02em;
-  font-variant-numeric: tabular-nums;
-}
-.week-card:not(.current) .week-counter { color: var(--muted); }
-
-.milestone-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  padding: 5px 0;
-  position: relative;
-}
-.milestone-row input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
-  border: 1.5px solid #CBD5E1;
-  border-radius: 4px;
-  background: var(--white);
-  cursor: pointer;
-  position: relative;
-  flex-shrink: 0;
-  margin-top: 2px;
-  transition: all 0.15s;
-}
-.milestone-row input[type="checkbox"]:hover { border-color: var(--blue); }
-.milestone-row input[type="checkbox"]:checked {
-  background: var(--blue);
-  border-color: var(--blue);
-}
-.milestone-row input[type="checkbox"]:checked::after {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 0px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-.milestone-row label {
-  font-size: 12.5px;
-  color: var(--ink);
-  line-height: 1.45;
-  flex: 1;
-  cursor: pointer;
-}
-.milestone-row.milestone-done label {
-  color: var(--muted);
-  text-decoration: line-through;
-}
-.milestone-progress {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--blue);
-  background: #EAF3FD;
-  padding: 1px 7px;
-  border-radius: 999px;
-  font-variant-numeric: tabular-nums;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.milestone-del {
-  opacity: 0;
-  background: none; border: none;
-  color: var(--muted); cursor: pointer;
-  font-size: 12px; padding: 0 4px;
-  transition: opacity 0.15s, color 0.15s;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.milestone-row:hover .milestone-del { opacity: 1; }
-.milestone-del:hover { color: var(--p1); }
-
-.milestone-add {
-  font-size: 11px;
-  color: var(--muted-2);
-  background: none;
-  border: none;
-  padding: 6px 0;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  text-align: left;
-  margin-top: 4px;
-  transition: color 0.15s;
-}
-.milestone-add:hover { color: var(--blue); }
-
-/* ============================================================
-   TASK GROUP HEADER (tasks do Hoje agrupadas por milestone)
-   ============================================================ */
-.task-group-header {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 12px 0 6px;
-  display: flex;
+/* Núcleo de Dados — status */
+.cc-nucleus-row{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--cfoup-line-soft);
 }
-.task-group-header:first-child { padding-top: 0; }
-.task-group-ms-label {
-  color: var(--blue);
-  font-size: 10px;
-  background: #EAF3FD;
-  padding: 2px 7px;
-  border-radius: 4px;
-  letter-spacing: 0.05em;
-}
-.task-group-ms-text {
-  color: var(--navy);
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 12px;
-  font-weight: 500;
-  flex: 1;
-  min-width: 0;
-}
-.task-group-done-mark {
-  font-size: 10px;
-  color: var(--ok);
-  background: var(--ok-bg);
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-weight: 600;
-  text-transform: none;
-  letter-spacing: 0;
-}
-.task-group-loose {
-  color: var(--muted-2);
-}
-.task-group-orphan {
-  color: var(--p2);
-}
-
-/* Task — botão de mudar milestone */
-.task-change-ms {
-  background: none;
-  border: 1px dashed var(--line);
-  color: var(--muted);
-  font-size: 10.5px;
-  padding: 3px 10px;
-  border-radius: 999px;
-  margin-top: 8px;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  transition: all 0.15s;
-}
-.task-change-ms:hover { border-color: var(--blue); color: var(--blue); background: #FAFCFF; }
-
-/* Modal labels */
-.modal-label {
-  display: block;
-  font-size: 10.5px;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-top: 4px;
-  margin-bottom: 4px;
-}
-.modal-label:first-of-type { margin-top: 0; }
-
-/* ============================================================
-   CARDS GENÉRICOS
-   ============================================================ */
-.card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-1);
-  overflow: hidden;
-}
-.card-head {
-  padding: 14px 18px;
-  border-bottom: 1px solid var(--line-2);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(180deg, #FAFCFF 0%, var(--white) 100%);
-}
-.card-title {
+.cc-nucleus-row:last-child{ border-bottom: none; }
+.cc-nucleus-info{ min-width: 0; }
+.cc-nucleus-name{
   font-size: 13px;
   font-weight: 600;
-  color: var(--navy);
-  letter-spacing: -0.005em;
+  color: var(--cfoup-navy);
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 2px;
 }
-.card-body { padding: 16px 18px; }
-
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-
-/* Priority items */
-.priority-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 12px;
-  border-radius: var(--radius-sm);
-  margin-bottom: 5px;
-  background: var(--line-2);
-  border: 1px solid transparent;
-  transition: all 0.15s;
-}
-.priority-item:hover { background: #EAF2FB; border-color: var(--line); }
-.p-badge {
-  font-size: 10.5px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 999px;
+.cc-nucleus-dot{
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--cfoup-neutral);
   flex-shrink: 0;
-  letter-spacing: 0.02em;
 }
-.p-p1 { background: var(--p1-bg); color: var(--p1); }
-.p-p2 { background: var(--p2-bg); color: var(--p2); }
-.p-p3 { background: var(--p3-bg); color: var(--p3); }
-
-.status-badge {
-  font-size: 10.5px;
-  font-weight: 500;
-  padding: 2px 9px;
-  border-radius: 999px;
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: opacity 0.15s;
-}
-.status-badge:hover { opacity: 0.75; }
-.s-doing   { background: var(--ok-bg);   color: var(--ok); }
-.s-todo    { background: var(--warn-bg); color: var(--warn); }
-.s-blocked { background: var(--stop-bg); color: var(--stop); }
-.s-done    { background: #F1F5F9;        color: var(--muted); }
-
-.p-text {
-  font-size: 13px;
-  flex: 1;
-  color: var(--ink);
-  cursor: pointer;
-}
-.p-text.done-text { text-decoration: line-through; color: var(--muted-2); }
-
-.add-btn {
+.cc-nucleus-row.status-not_started .cc-nucleus-dot{ background: var(--cfoup-neutral); }
+.cc-nucleus-row.status-in_progress .cc-nucleus-dot{ background: var(--cfoup-warn); }
+.cc-nucleus-row.status-functional .cc-nucleus-dot{ background: var(--cfoup-pos); }
+.cc-nucleus-desc{
   font-size: 11.5px;
-  font-weight: 600;
-  color: var(--blue);
-  background: #EAF3FD;
-  border: 1px solid transparent;
-  padding: 4px 12px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  transition: all 0.15s;
+  color: var(--cfoup-muted);
+  line-height: 1.4;
 }
-.add-btn:hover { background: var(--blue); color: var(--white); }
+.cc-nucleus-status{
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: var(--cfoup-radius-pill);
+  border: 1px solid var(--cfoup-line);
+  background: white;
+  color: var(--cfoup-muted);
+  cursor: pointer;
+  outline: none;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-nucleus-row.status-not_started .cc-nucleus-status{ color: var(--cfoup-muted); border-color: var(--cfoup-line); }
+.cc-nucleus-row.status-in_progress .cc-nucleus-status{ color: var(--cfoup-warn); border-color: var(--cfoup-warn); background: rgba(224,139,0,.06); }
+.cc-nucleus-row.status-functional .cc-nucleus-status{ color: var(--cfoup-pos); border-color: var(--cfoup-pos); background: rgba(54,186,88,.06); }
 
-.inline-edit {
+/* Posts — agenda */
+.cc-post-date{
+  font-family: var(--cfoup-font-serif);
+  font-weight: 500;
+  text-align: center;
+  width: 46px;
+  white-space: nowrap;
+}
+.cc-post-date .day{
+  font-size: 18px;
+  color: var(--cfoup-navy);
+  line-height: 1;
+}
+.cc-post-date .mon{
+  font-size: 9.5px;
+  color: var(--cfoup-muted);
+  font-family: var(--cfoup-font-sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-top: 3px;
+}
+.cc-post-lang{
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--cfoup-radius-sm);
+  letter-spacing: .04em;
+}
+.cc-post-lang.lang-pt{ background: rgba(54,186,88,.1); color: var(--cfoup-pos); }
+.cc-post-lang.lang-en{ background: rgba(21,103,200,.1); color: var(--cfoup-blue); }
+.cc-post-status{
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--cfoup-radius-pill);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-post-status:hover{ opacity: .8; }
+.cc-post-status.ps-planned{ background: rgba(91,107,130,.12); color: var(--cfoup-muted); }
+.cc-post-status.ps-ready{ background: rgba(224,139,0,.12); color: var(--cfoup-warn); }
+.cc-post-status.ps-published{ background: rgba(54,186,88,.12); color: var(--cfoup-pos); }
+.cc-row-del{
+  background: none; border: none;
+  color: var(--cfoup-muted); cursor: pointer;
+  font-size: 14px; padding: 2px 6px;
+  opacity: 0;
+  transition: var(--cfoup-transition-fast);
+}
+.cfoup-table tbody tr:hover .cc-row-del{ opacity: 1; }
+.cc-row-del:hover{ color: var(--cfoup-neg); }
+.cc-add-icon{
+  background: var(--cfoup-blue);
+  color: white;
+  border: none;
+  border-radius: var(--cfoup-radius-pill);
+  padding: 5px 12px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-add-icon:hover{ background: var(--cfoup-navy); }
+
+/* Decisões — filtro categorias */
+.cc-dec-filter{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 14px 22px;
+  background: var(--cfoup-bg-subtle);
+  border-bottom: 1px solid var(--cfoup-line);
+}
+.cc-dec-chip{
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--cfoup-muted);
+  background: white;
+  border: 1px solid var(--cfoup-line);
+  padding: 5px 11px;
+  border-radius: var(--cfoup-radius-pill);
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 5px;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-dec-chip:hover{ border-color: var(--cfoup-blue); color: var(--cfoup-blue); }
+.cc-dec-chip.active{
+  background: var(--cfoup-navy);
+  border-color: var(--cfoup-navy);
+  color: white;
+  font-weight: 600;
+}
+.cc-dec-count{
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--cfoup-line-soft);
+  color: var(--cfoup-muted);
+  padding: 1px 6px;
+  border-radius: var(--cfoup-radius-pill);
+}
+.cc-dec-chip.active .cc-dec-count{
+  background: rgba(255,255,255,.18);
+  color: white;
+}
+.cc-dec-date{
+  font-family: var(--cfoup-font-serif);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--cfoup-navy);
+  white-space: nowrap;
+}
+.cc-dec-cat{
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--cfoup-muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 3px;
+}
+.cc-dec-text{ font-size: 13px; color: var(--cfoup-ink); line-height: 1.5; }
+
+/* Modal */
+.cc-modal-overlay{
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(7,29,59,.55);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center; justify-content: center;
+}
+.cc-modal-overlay.open{ display: flex; }
+.cc-modal{
+  background: white;
+  border-radius: var(--cfoup-radius-lg);
+  padding: 28px;
+  width: 460px;
+  max-width: 90vw;
+  box-shadow: var(--cfoup-shadow-xl);
+}
+.cc-modal h3{
+  font-family: var(--cfoup-font-serif);
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--cfoup-navy);
+  margin-bottom: 16px;
+}
+.cc-modal-label{
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--cfoup-muted);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin: 10px 0 5px;
+}
+.cc-modal-label:first-of-type{ margin-top: 0; }
+.cc-modal input, .cc-modal textarea, .cc-modal select{
+  width: 100%;
+  border: 1px solid var(--cfoup-line);
+  border-radius: var(--cfoup-radius);
+  padding: 9px 11px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  background: white;
+  transition: var(--cfoup-transition-fast);
+}
+.cc-modal input:focus, .cc-modal textarea:focus, .cc-modal select:focus{
+  border-color: var(--cfoup-blue);
+  box-shadow: 0 0 0 3px rgba(21,103,200,.08);
+}
+.cc-modal-btns{
+  display: flex; justify-content: flex-end; gap: 8px;
+  margin-top: 18px;
+}
+
+.cc-inline-edit{
   background: transparent;
   border: none;
-  border-bottom: 1.5px solid var(--blue);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  color: var(--ink);
+  border-bottom: 1.5px solid var(--cfoup-blue);
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--cfoup-ink);
   width: 100%;
   outline: none;
   padding: 1px 2px;
 }
 
-/* Posts */
-.post-item {
-  display: flex;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--line-2);
-  align-items: flex-start;
+/* Responsivo */
+@media (max-width: 1100px){
+  .cc-today-body{ grid-template-columns: 1fr; }
+  .cc-today-col{ border-right: none; border-bottom: 1px solid var(--cfoup-line); }
+  .cc-today-col:last-child{ border-bottom: none; }
+  .cc-roadmap{ grid-template-columns: repeat(2, 1fr); }
+  .cfoup-kpis{ grid-template-columns: repeat(2, 1fr); }
+  .cfoup-synthesis-points{ grid-template-columns: 1fr; }
 }
-.post-item:last-child { border-bottom: none; }
-.post-day {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--blue);
-  width: 32px;
-  flex-shrink: 0;
-  padding-top: 2px;
-  letter-spacing: 0.02em;
-}
-.post-info { flex: 1; min-width: 0; }
-.post-title { font-size: 13px; color: var(--ink); font-weight: 500; }
-.post-meta { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
-.post-status {
-  font-size: 10.5px;
-  font-weight: 500;
-  padding: 2px 9px;
-  border-radius: 999px;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-.ps-planned   { background: #EDE9FE; color: #7C3AED; }
-.ps-ready     { background: var(--ok-bg); color: var(--ok); }
-.ps-published { background: #F1F5F9; color: var(--muted); }
-
-/* Deliveries */
-.delivery-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 7px 0;
-}
-.delivery-check {
-  width: 17px;
-  height: 17px;
-  border: 1.5px solid #CBD5E1;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 11px;
-  flex-shrink: 0;
-  transition: all 0.15s;
-}
-.delivery-check:hover { border-color: var(--blue); }
-.delivery-check.checked { background: var(--green); border-color: var(--green); }
-.delivery-text { font-size: 13px; color: var(--ink); flex: 1; }
-.delivery-text.checked-text { text-decoration: line-through; color: var(--muted-2); }
-
-/* Decisions */
-.decision-item {
-  display: flex;
-  gap: 12px;
-  padding: 9px 0;
-  border-bottom: 1px solid var(--line-2);
-  align-items: baseline;
-}
-.decision-item:last-child { border-bottom: none; }
-.decision-num {
-  font-size: 10.5px;
-  font-weight: 600;
-  color: var(--blue);
-  background: #EAF3FD;
-  padding: 2px 7px;
-  border-radius: 4px;
-  flex-shrink: 0;
-  letter-spacing: 0.02em;
-}
-.decision-text { font-size: 13px; color: var(--ink); flex: 1; line-height: 1.5; }
-
-/* Links */
-.link-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--line-2);
-}
-.link-item:last-child { border-bottom: none; }
-.link-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--navy);
-  min-width: 92px;
-}
-.link-url {
-  flex: 1;
-  font-size: 12.5px;
-  color: var(--blue);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* Folders */
-.folder-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--line-2);
-}
-.folder-item:last-child { border-bottom: none; }
-.folder-icon { font-size: 17px; flex-shrink: 0; }
-.folder-name { flex: 1; font-size: 13px; color: var(--ink); }
-.folder-cat {
-  font-size: 10.5px;
-  font-weight: 500;
-  color: var(--muted);
-  background: var(--line-2);
-  padding: 2px 9px;
-  border-radius: 999px;
-}
-
-/* Stack */
-.stack-row {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  padding: 9px 0;
-  border-bottom: 1px solid var(--line-2);
-}
-.stack-row:last-child { border-bottom: none; }
-.stack-name {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--blue);
-  width: 88px;
-  flex-shrink: 0;
-  letter-spacing: 0.01em;
-}
-.stack-desc {
-  font-size: 13px;
-  color: var(--ink);
-  line-height: 1.5;
-}
-
-/* Delete */
-.delete-btn {
-  font-size: 12px;
-  color: var(--p1);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 2px 7px;
-  border-radius: 4px;
-  opacity: 0;
-  flex-shrink: 0;
-  transition: opacity 0.15s, background 0.15s;
-}
-.priority-item:hover .delete-btn,
-.delivery-item:hover .delete-btn,
-.post-item:hover .delete-btn,
-.decision-item:hover .delete-btn,
-.link-item:hover .delete-btn,
-.folder-item:hover .delete-btn { opacity: 1; }
-.delete-btn:hover { background: var(--p1-bg); }
-
-/* Modal */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(7,29,59,0.45);
-  backdrop-filter: blur(3px);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-}
-.modal-overlay.open { display: flex; }
-.modal {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 28px;
-  width: 420px;
-  max-width: 90vw;
-  box-shadow: 0 20px 60px rgba(7,29,59,0.25);
-}
-.modal h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 18px;
-}
-.modal input, .modal textarea, .modal select {
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  margin-bottom: 10px;
-  outline: none;
-  transition: border-color 0.15s;
-  background: var(--white);
-}
-.modal input:focus, .modal textarea:focus, .modal select:focus {
-  border-color: var(--blue);
-}
-.modal-btns {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 14px;
-}
-.btn-cancel {
-  padding: 9px 18px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: var(--white);
-  color: var(--muted);
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-}
-.btn-cancel:hover { border-color: var(--muted); color: var(--ink); }
-.btn-save {
-  padding: 9px 18px;
-  border: none;
-  border-radius: var(--radius-sm);
-  background: var(--blue);
-  color: var(--white);
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  transition: background 0.15s;
-}
-.btn-save:hover { background: var(--navy-2); }
-
-/* Responsive */
-@media (max-width: 1100px) {
-  .today-body { grid-template-columns: 1fr; }
-  .today-col { border-right: none; border-bottom: 1px solid var(--line-2); }
-  .today-col:last-child { border-bottom: none; }
-  .roadmap { grid-template-columns: repeat(2, 1fr); }
-  .metric-row { grid-template-columns: repeat(2, 1fr); }
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .day-log-head { grid-template-columns: 1fr auto; }
-  .day-log-focus { grid-column: 1 / -1; }
-  .day-log-stats { grid-column: 1; }
-}
-@media (max-width: 640px) {
-  .main { padding: 20px 16px 60px; }
-  .topbar { padding: 0 16px; }
-  .roadmap { grid-template-columns: 1fr; }
-  .metric-row { grid-template-columns: 1fr; }
+@media (max-width: 768px){
+  .cfoup-container-app{ padding: 0 var(--cfoup-space-5); }
+  .cc-roadmap{ grid-template-columns: 1fr; }
+  .cfoup-kpis{ grid-template-columns: 1fr; }
+  .cc-day-log-head{ grid-template-columns: 1fr auto; }
+  .cc-day-log-summary{ grid-column: 1 / -1; }
+  .cc-day-log-stats{ grid-column: 1; }
 }
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="brand">
-    <span class="brand-ai">AI</span><span class="brand-cfoup"> CFOup</span>
-    <span class="brand-sep">|</span>
-    <span class="brand-sub">Command Center</span>
+<!-- ==========================================================================
+     HERO COMPACTO
+     ========================================================================== -->
+<header class="cfoup-hero">
+  <div class="cfoup-container-app">
+    <div class="cfoup-hero-top">
+      <div class="cfoup-hero-brand" style="border-left: none; padding-left: 0">
+        <div class="cfoup-hero-brand-line1">AI CFOup</div>
+        <div class="cfoup-hero-brand-line2">Command Center · Diário de trabalho</div>
+      </div>
+    </div>
+    <div class="cfoup-hero-meta">
+      <span>HOJE<strong id="todayChip">—</strong></span>
+      <span class="cc-saved-ind" id="savedInd">✓ Salvo</span>
+    </div>
   </div>
-  <div class="topbar-right">
-    <span class="today-chip" id="todayChip">—</span>
-    <span class="saved-ind" id="savedInd">✓ Salvo</span>
-  </div>
-</div>
+</header>
 
-<div class="main">
+<!-- ==========================================================================
+     CONTEÚDO
+     ========================================================================== -->
+<main class="cc-main">
+  <div class="cfoup-container-app">
 
-  <!-- FAIXA 1 — DIÁRIO DE TRABALHO -->
-  <div class="section-label">Diário de trabalho</div>
+    <!-- ===== FAIXA 1 — DIÁRIO DE TRABALHO ===== -->
+    <div class="cc-section-eyebrow">Diário de trabalho</div>
 
-  <div class="today-card">
-    <div class="today-head">
-      <div class="today-head-row">
-        <div>
-          <div class="today-label">Hoje</div>
-          <div class="today-date" id="todayDate">—</div>
+    <div class="cfoup-section">
+      <div class="cfoup-section-head">
+        <h2>Hoje <span>· <span id="todayDate">—</span></span></h2>
+        <div class="cc-today-head-actions">
+          <button class="cfoup-btn cfoup-btn-pill" onclick="exportDay()">Exportar status</button>
+          <button class="cfoup-btn cfoup-btn-pill" onclick="resetDayChecks()">Zerar checks</button>
         </div>
-        <div class="today-actions">
-          <button class="ghost-btn" onclick="exportDay()" title="Exportar snapshot do dia">Exportar status</button>
-          <button class="ghost-btn" onclick="resetDayChecks()" title="Zerar checks das tasks de hoje">Zerar checks</button>
+      </div>
+      <div class="cc-today-body">
+
+        <!-- Coluna 1: Tasks -->
+        <div class="cc-today-col">
+          <div class="cc-col-head">
+            <span>Tasks acionáveis <span class="cc-col-head-hint">agrupadas por milestone</span></span>
+            <button class="cc-col-add" onclick="openTaskModal()" title="Nova task">+</button>
+          </div>
+          <div class="cc-task-list" id="taskList"></div>
+        </div>
+
+        <!-- Coluna 2: Notas estruturadas do dia -->
+        <div class="cc-today-col">
+          <div class="cc-col-head">Notas do dia</div>
+
+          <div class="cc-note-block">
+            <label class="cc-note-label">O que avancei</label>
+            <textarea class="cc-note-area" id="dayNoteAdvance" placeholder="O que saiu hoje, o que ficou pronto…"></textarea>
+          </div>
+          <div class="cc-note-block">
+            <label class="cc-note-label">O que travou</label>
+            <textarea class="cc-note-area" id="dayNoteBlocked" placeholder="Onde emperrei, dependências…"></textarea>
+          </div>
+          <div class="cc-note-block">
+            <label class="cc-note-label">Próximo passo</label>
+            <textarea class="cc-note-area" id="dayNoteNext" placeholder="O que ataco em seguida…"></textarea>
+          </div>
+          <div class="cc-note-block">
+            <label class="cc-note-label">Pendências</label>
+            <textarea class="cc-note-area" id="dayNotePending" placeholder="O que não pode esquecer…"></textarea>
+          </div>
+        </div>
+
+        <!-- Coluna 3: Links do dia -->
+        <div class="cc-today-col">
+          <div class="cc-col-head">
+            <span>Links do dia</span>
+            <span class="cc-col-count" id="todayLinkCount">0</span>
+          </div>
+          <div class="cc-link-list" id="todayLinkList"></div>
+          <div class="cc-composer">
+            <input type="text" id="linkLabelInput" placeholder="Nome">
+            <input type="text" id="linkUrlInput" placeholder="https://…" onkeydown="if(event.key==='Enter') addTodayLink()">
+            <button onclick="addTodayLink()">+</button>
+          </div>
+          <div class="cc-link-hint">★ promove a permanentes</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== FAIXA 2 — DIAS ANTERIORES ===== -->
+    <div class="cc-section-eyebrow">Dias anteriores</div>
+    <div id="historyList"></div>
+    <button class="cc-load-more" id="loadMoreBtn" style="display:none" onclick="loadMoreDays()">Ver mais dias</button>
+    <div id="historyEmpty" class="cc-empty-hint" style="display:none">Ainda não há registros anteriores. Seu trabalho de hoje fica arquivado automaticamente à meia-noite.</div>
+
+    <!-- ===== FAIXA 3 — ESTADO DO PROJETO ===== -->
+    <div class="cc-section-eyebrow">Estado do projeto</div>
+
+    <!-- KPIs editoriais -->
+    <div class="cfoup-kpis">
+      <div class="cfoup-kpi blue">
+        <div class="cfoup-kpi-label">Fase atual</div>
+        <div class="cfoup-kpi-value">MVP</div>
+        <div class="cfoup-kpi-sub">V0 · piloto Gregorutt</div>
+      </div>
+      <div class="cfoup-kpi">
+        <div class="cfoup-kpi-label">Progresso MVP</div>
+        <div class="cfoup-kpi-value" id="mvpText">0<span class="cfoup-kpi-unit"> / 16</span></div>
+        <div class="cfoup-kpi-sub">Milestones concluídos</div>
+      </div>
+      <div class="cfoup-kpi">
+        <div class="cfoup-kpi-label">Próximo marco</div>
+        <div class="cfoup-kpi-value" style="font-size:18px">Fluxo E2E</div>
+        <div class="cfoup-kpi-sub">Login → dados → chat</div>
+      </div>
+      <div class="cfoup-kpi">
+        <div class="cfoup-kpi-label">Horizonte</div>
+        <div class="cfoup-kpi-value">4<span class="cfoup-kpi-unit"> semanas</span></div>
+        <div class="cfoup-kpi-sub">MVP navegável + chat core</div>
+      </div>
+    </div>
+
+    <!-- Roadmap -->
+    <div class="cc-roadmap" id="roadmap"></div>
+
+    <!-- ===== PRODUTO ===== -->
+    <div class="cc-section-eyebrow">Produto</div>
+
+    <!-- Ferramentas e função -->
+    <div class="cfoup-section">
+      <div class="cfoup-section-head">
+        <h2>Ferramentas <span>· e função</span></h2>
+        <span class="cfoup-section-head-src">Stack do CFOup</span>
+      </div>
+      <div class="cfoup-section-body">
+        <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 24px 32px;">
+          <div>
+            <div class="cc-tool-group">
+              <div class="cc-tool-name">v0</div>
+              <ul class="cc-tool-bullets">
+                <li>criar e refinar telas</li>
+                <li>ajustar layout e hierarquia</li>
+                <li>acelerar front-end</li>
+              </ul>
+            </div>
+            <div class="cc-tool-group">
+              <div class="cc-tool-name">Next.js · React · Tailwind · shadcn</div>
+              <ul class="cc-tool-bullets">
+                <li>fundação do app</li>
+                <li>componentes reutilizáveis</li>
+                <li>estilo padronizado</li>
+              </ul>
+            </div>
+            <div class="cc-tool-group">
+              <div class="cc-tool-name">GitHub</div>
+              <ul class="cc-tool-bullets">
+                <li>código oficial</li>
+                <li>versões e branches</li>
+                <li>commits rastreáveis</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="cc-tool-group">
+              <div class="cc-tool-name">Vercel</div>
+              <ul class="cc-tool-bullets">
+                <li>deploy e preview online</li>
+                <li>testar antes de produção</li>
+                <li>publicar o app</li>
+              </ul>
+            </div>
+            <div class="cc-tool-group">
+              <div class="cc-tool-name">Supabase</div>
+              <ul class="cc-tool-bullets">
+                <li>banco de dados</li>
+                <li>login e segurança básica</li>
+                <li>storage e histórico</li>
+              </ul>
+            </div>
+            <div class="cc-tool-group">
+              <div class="cc-tool-name">Claude API · LLM</div>
+              <ul class="cc-tool-bullets">
+                <li>motor do CFO Chat</li>
+                <li>respostas com base nos dados</li>
+                <li>fallback de escopo</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="today-body">
-
-      <!-- Coluna 1: TASKS DE HOJE -->
-      <div class="today-col today-col-wide">
-        <div class="today-col-head">
-          Hoje <span class="today-col-hint">tasks acionáveis</span>
-          <button class="col-add-btn" onclick="openTaskModal()" title="Nova task">+</button>
+    <!-- Núcleo de Dados + Cortes do MVP lado a lado -->
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div class="cfoup-section">
+        <div class="cfoup-section-head">
+          <h2>Núcleo de Dados <span>· status</span></h2>
         </div>
-        <div class="task-list" id="taskList"></div>
-      </div>
-
-      <!-- Coluna 2: TRAVADO + NOTAS -->
-      <div class="today-col">
-        <div class="today-col-head">Travado · dependências</div>
-        <textarea class="today-obs" id="blockedInput"
-                  placeholder="O que pode me impedir hoje: integração pendente, feedback não voltou, aguardando resposta…"></textarea>
-
-        <div class="today-col-head" style="margin-top:18px">Notas rápidas</div>
-        <textarea class="today-obs" id="notesInput"
-                  placeholder="Ideia, feedback do piloto, risco, decisão em andamento, observação livre…"></textarea>
-      </div>
-
-      <!-- Coluna 3: LINKS DO DIA -->
-      <div class="today-col">
-        <div class="today-col-head">
-          Links do dia
-          <span class="today-col-count" id="todayLinkCount">0</span>
+        <div class="cfoup-section-body">
+          <div class="cc-nucleus-row" id="nucleus-ingestao">
+            <div class="cc-nucleus-info">
+              <div class="cc-nucleus-name"><span class="cc-nucleus-dot"></span>Ingestão</div>
+              <div class="cc-nucleus-desc">Pluggy, OFX/CSV/XLSX, eNotas, ERP, manual tratado</div>
+            </div>
+            <select class="cc-nucleus-status" data-key="ingestao" onchange="setNucleusStatus(this)">
+              <option value="not_started">Não iniciado</option>
+              <option value="in_progress">Em andamento</option>
+              <option value="functional">Funcional</option>
+            </select>
+          </div>
+          <div class="cc-nucleus-row" id="nucleus-classificacao">
+            <div class="cc-nucleus-info">
+              <div class="cc-nucleus-name"><span class="cc-nucleus-dot"></span>Classificação</div>
+              <div class="cc-nucleus-desc">Regras automáticas + revisão humana</div>
+            </div>
+            <select class="cc-nucleus-status" data-key="classificacao" onchange="setNucleusStatus(this)">
+              <option value="not_started">Não iniciado</option>
+              <option value="in_progress">Em andamento</option>
+              <option value="functional">Funcional</option>
+            </select>
+          </div>
+          <div class="cc-nucleus-row" id="nucleus-premissas">
+            <div class="cc-nucleus-info">
+              <div class="cc-nucleus-name"><span class="cc-nucleus-dot"></span>Premissas</div>
+              <div class="cc-nucleus-desc">Crescimento, capex, recorrências, sazonalidade</div>
+            </div>
+            <select class="cc-nucleus-status" data-key="premissas" onchange="setNucleusStatus(this)">
+              <option value="not_started">Não iniciado</option>
+              <option value="in_progress">Em andamento</option>
+              <option value="functional">Funcional</option>
+            </select>
+          </div>
+          <div class="cc-nucleus-row" id="nucleus-motor">
+            <div class="cc-nucleus-info">
+              <div class="cc-nucleus-name"><span class="cc-nucleus-dot"></span>Motor de projeção</div>
+              <div class="cc-nucleus-desc">Inferido + declarado → Fluxo 13s e cenários</div>
+            </div>
+            <select class="cc-nucleus-status" data-key="motor" onchange="setNucleusStatus(this)">
+              <option value="not_started">Não iniciado</option>
+              <option value="in_progress">Em andamento</option>
+              <option value="functional">Funcional</option>
+            </select>
+          </div>
         </div>
-        <div class="today-link-list" id="todayLinkList"></div>
-        <div class="composer-two">
-          <input type="text" id="linkLabelInput" placeholder="Nome" />
-          <input type="text" id="linkUrlInput" placeholder="https://…"
-                 onkeydown="if(event.key==='Enter') addTodayLink()" />
-          <button class="composer-btn" onclick="addTodayLink()">+</button>
+      </div>
+
+      <div class="cfoup-section">
+        <div class="cfoup-section-head">
+          <h2>Cortes <span>· do MVP</span></h2>
+          <span class="cfoup-section-head-src">Disciplina anti-derrapagem</span>
         </div>
-        <div class="link-hint">★ para promover a permanentes</div>
+        <div class="cfoup-section-body">
+          <div class="cfoup-alerts">
+            <div class="cfoup-alert cfoup-alert-atencao">
+              <div class="cfoup-alert-title">Integrações limitadas</div>
+              <div class="cfoup-alert-text">Upload tratado, extrato e Pluggy quando disponível. NF-e/ERP depois. <b>O MVP prova decisão, não integração.</b></div>
+            </div>
+            <div class="cfoup-alert cfoup-alert-atencao">
+              <div class="cfoup-alert-title">Cenários iniciais, não builder</div>
+              <div class="cfoup-alert-text">1–2 decisões reais. Cada cenário <b>termina em delta de caixa 13 semanas</b>.</div>
+            </div>
+            <div class="cfoup-alert cfoup-alert-atencao">
+              <div class="cfoup-alert-title">Chat com perguntas curadas</div>
+              <div class="cfoup-alert-text">~50 perguntas em ~10 grupos. Chat livre só com dados validados.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== OPERAÇÃO ===== -->
+    <div class="cc-section-eyebrow">Operação</div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+
+      <!-- Posts -->
+      <div class="cfoup-section">
+        <div class="cfoup-section-head">
+          <h2>Agenda <span>· LinkedIn</span></h2>
+          <button class="cc-add-icon" onclick="openModal('post')">+ Novo</button>
+        </div>
+        <div class="cfoup-table-wrap">
+          <table class="cfoup-table" id="postTable">
+            <thead>
+              <tr>
+                <th style="width: 60px">Data</th>
+                <th>Post</th>
+                <th style="width: 60px">Idioma</th>
+                <th style="width: 110px">Status</th>
+                <th style="width: 30px"></th>
+              </tr>
+            </thead>
+            <tbody id="postList"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Decisões -->
+      <div class="cfoup-section">
+        <div class="cfoup-section-head">
+          <h2>Log <span>· de decisões</span></h2>
+          <button class="cc-add-icon" onclick="openModal('decision')">+ Nova</button>
+        </div>
+        <div class="cc-dec-filter" id="decisionFilter"></div>
+        <div class="cfoup-table-wrap">
+          <table class="cfoup-table">
+            <tbody id="decisionList"></tbody>
+          </table>
+        </div>
       </div>
 
     </div>
+
+    <!-- ===== REFERÊNCIA ===== -->
+    <div class="cc-section-eyebrow">Referência</div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+
+      <!-- Links -->
+      <div class="cfoup-section">
+        <div class="cfoup-section-head">
+          <h2>Links <span>· permanentes</span></h2>
+          <button class="cc-add-icon" onclick="openModal('link')">+ Novo</button>
+        </div>
+        <div class="cfoup-table-wrap">
+          <table class="cfoup-table">
+            <tbody id="linkList"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Notas do projeto -->
+      <div class="cfoup-section">
+        <div class="cfoup-section-head">
+          <h2>Notas <span>· do projeto</span></h2>
+          <span class="cfoup-section-head-src">Permanente · 5 blocos</span>
+        </div>
+        <div class="cfoup-section-body">
+          <div class="cc-note-block">
+            <label class="cc-note-label">Tese CFOup</label>
+            <textarea class="cc-note-area" id="projTese" placeholder="O que o CFOup é, em uma frase, e por quê…"></textarea>
+          </div>
+          <div class="cc-note-block">
+            <label class="cc-note-label">Princípios de produto</label>
+            <textarea class="cc-note-area" id="projPrincipios" placeholder="O que sempre fazemos, o que nunca fazemos…"></textarea>
+          </div>
+          <div class="cc-note-block">
+            <label class="cc-note-label">Arquitetura · mapa</label>
+            <textarea class="cc-note-area" id="projArq" placeholder="Núcleo de Dados, templates, rotas, lógica do produto…"></textarea>
+          </div>
+          <div class="cc-note-block">
+            <label class="cc-note-label">Riscos importantes</label>
+            <textarea class="cc-note-area" id="projRiscos" placeholder="O que pode dar errado, o que monitorar…"></textarea>
+          </div>
+          <div class="cc-note-block">
+            <label class="cc-note-label">Perguntas em aberto</label>
+            <textarea class="cc-note-area" id="projAberto" placeholder="O que ainda precisa decidir…"></textarea>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===== PRINCÍPIOS NÃO-NEGOCIÁVEIS ===== -->
+    <div class="cfoup-synthesis">
+      <div class="cfoup-synthesis-eyebrow">Princípios não-negociáveis</div>
+      <h3>Toda decisão de construção bate aqui antes</h3>
+      <div class="cfoup-synthesis-points">
+        <div class="cfoup-synthesis-point">
+          <h4>01 · Telas genéricas</h4>
+          <p>Dados via hook, nunca hard-coded. Se aparece <strong>"Gregorutt"</strong> no código fora de configuração, está errado.</p>
+        </div>
+        <div class="cfoup-synthesis-point">
+          <h4>02 · Estado vazio honesto</h4>
+          <p><strong>"Aguardando conexão"</strong> sempre que dado não chegou. Nunca mock fingindo dado real.</p>
+        </div>
+        <div class="cfoup-synthesis-point">
+          <h4>03 · Pendências em 2 lugares</h4>
+          <p>Pendências de Setup ≠ Checklist Mensal. <strong>Função distinta, momento distinto</strong>, não confundir.</p>
+        </div>
+        <div class="cfoup-synthesis-point">
+          <h4>04 · Indicadores</h4>
+          <p>Mesma fonte, duas leituras. <strong>Mesa de Decisão</strong> = sinais executivos. <strong>Análise Contábil</strong> = validação técnica.</p>
+        </div>
+        <div class="cfoup-synthesis-point">
+          <h4>05 · Chat nunca inventa</h4>
+          <p>Camada conversacional sobre dados <strong>conectados e validados</strong>. Fora desse domínio, recusa.</p>
+        </div>
+        <div class="cfoup-synthesis-point">
+          <h4>06 · Cenário sem caixa é enfeite</h4>
+          <p>Toda simulação termina em <strong>delta de caixa</strong> no fluxo 13 semanas. Senão é gráfico bonito.</p>
+        </div>
+        <div class="cfoup-synthesis-point">
+          <h4>07 · Núcleo antes de tela</h4>
+          <p>Construir tela em cima de Núcleo frágil é <strong>construir mentira com confiança</strong>.</p>
+        </div>
+        <div class="cfoup-synthesis-point">
+          <h4>08 · Padrão fixo</h4>
+          <p>Montserrat + Fraunces. Navy + Blue + Cyan. Container <strong>1140px (app) / 1340px (relatório)</strong>.</p>
+        </div>
+        <div class="cfoup-synthesis-point">
+          <h4>09 · Gregorutt é piloto</h4>
+          <p>Decisão que só serve a Gregorutt <strong>não vai pro produto</strong>.</p>
+        </div>
+        <div class="cfoup-synthesis-point">
+          <h4>10 · Contador é fonte</h4>
+          <p>Contador é fornecedor de dado, não gateway de aprovação. <strong>CFOup é para o dono</strong>.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
+</main>
 
-  <!-- FAIXA 2 — DIAS ANTERIORES -->
-  <div class="section-label">Dias anteriores</div>
-  <div id="historyList"></div>
-  <button class="load-more" id="loadMoreBtn" style="display:none" onclick="loadMoreDays()">
-    Ver mais dias
-  </button>
-  <div id="historyEmpty" class="empty-hint" style="display:none">
-    Ainda não há registros anteriores. Seu trabalho de hoje fica arquivado automaticamente à meia-noite.
-  </div>
-
-  <!-- FAIXA 3 — ESTADO DO PROJETO -->
-  <div class="section-label">Estado do projeto</div>
-
-  <div class="metric-row" style="margin-bottom: 14px">
-    <div class="metric accent">
-      <div class="metric-label">Fase atual</div>
-      <div class="metric-value">MVP em construção</div>
-      <div class="metric-sub">V0 — piloto Gregorutt</div>
-    </div>
-    <div class="metric">
-      <div class="metric-label">Progresso MVP</div>
-      <div class="metric-value" id="mvpText">0 / 16</div>
-      <div class="progress-track"><div class="progress-fill" id="mvpBar"></div></div>
-    </div>
-    <div class="metric">
-      <div class="metric-label">Próximo marco</div>
-      <div class="metric-value">Fluxo ponta a ponta</div>
-      <div class="metric-sub">Login → dados → chat</div>
-    </div>
-    <div class="metric">
-      <div class="metric-label">Horizonte</div>
-      <div class="metric-value">4 semanas</div>
-      <div class="metric-sub">MVP navegável + chat core</div>
-    </div>
-  </div>
-
-  <div class="roadmap" id="roadmap"></div>
-
-  <div class="section-label">Prioridades e conteúdo</div>
-  <div class="grid-2">
-
-    <div class="card">
-      <div class="card-head">
-        <span class="card-title">Prioridades ativas</span>
-        <button class="add-btn" onclick="openModal('priority')">+ Nova</button>
-      </div>
-      <div class="card-body" id="priorityList"></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <span class="card-title">Calendário LinkedIn</span>
-        <button class="add-btn" onclick="openModal('post')">+ Novo post</button>
-      </div>
-      <div class="card-body" id="postList"></div>
-    </div>
-
-  </div>
-
-  <div class="section-label">Entregas e decisões</div>
-  <div class="grid-2">
-
-    <div class="card">
-      <div class="card-head">
-        <span class="card-title">Entregas previstas</span>
-        <button class="add-btn" onclick="openModal('delivery')">+ Nova</button>
-      </div>
-      <div class="card-body" id="deliveryList"></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <span class="card-title">Decisões registradas</span>
-        <button class="add-btn" onclick="openModal('decision')">+ Nova</button>
-      </div>
-      <div class="card-body" id="decisionList"></div>
-    </div>
-
-  </div>
-
-  <div class="section-label">Stack e referências</div>
-  <div class="grid-3">
-
-    <div class="card">
-      <div class="card-head"><span class="card-title">Stack e função</span></div>
-      <div class="card-body">
-        <div class="stack-row"><span class="stack-name">v0</span><span class="stack-desc">Criar e refinar telas, ajustar layout.</span></div>
-        <div class="stack-row"><span class="stack-name">GitHub</span><span class="stack-desc">Código oficial, versões e branches.</span></div>
-        <div class="stack-row"><span class="stack-name">Vercel</span><span class="stack-desc">Deploy, preview online e produção.</span></div>
-        <div class="stack-row"><span class="stack-name">Supabase</span><span class="stack-desc">Banco, login, storage e histórico.</span></div>
-        <div class="stack-row"><span class="stack-name">Claude API</span><span class="stack-desc">Motor do CFO Chat e fallback de escopo.</span></div>
-        <div class="stack-row"><span class="stack-name">Pluggy</span><span class="stack-desc">Integração bancária automática (Open Finance).</span></div>
-        <div class="stack-row"><span class="stack-name">eNotas</span><span class="stack-desc">NFSe e validação fiscal automática.</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <span class="card-title">Links permanentes</span>
-        <button class="add-btn" onclick="openModal('link')">+ Novo</button>
-      </div>
-      <div class="card-body" id="linkList"></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <span class="card-title">Pastas de conteúdo</span>
-        <button class="add-btn" onclick="openModal('folder')">+ Nova</button>
-      </div>
-      <div class="card-body" id="folderList"></div>
-    </div>
-
-  </div>
-
-</div>
-
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal" id="modalBox"></div>
+<!-- Modal -->
+<div class="cc-modal-overlay" id="modalOverlay">
+  <div class="cc-modal" id="modalBox"></div>
 </div>
 
 <script>
@@ -1678,6 +1793,8 @@ const DAILY_KEY = 'cfoup_daily_v1';
 const HISTORY_KEY = 'cfoup_history_v1';
 const MVP_KEY = 'cfoup_mvp_v1';
 const ROADMAP_KEY = 'cfoup_roadmap_v1';
+const NUCLEUS_KEY = 'cfoup_nucleus_v1';
+const PROJ_NOTES_KEY = 'cfoup_proj_notes_v1';
 
 const ROADMAP_DEFAULT = [
   {
@@ -1739,53 +1856,31 @@ const ROADMAP_DEFAULT = [
 ];
 
 const DEFAULTS = {
-  priorities: [
-    { id:1, text:'Fechar PRD final do V0', p:'P1', status:'doing' },
-    { id:2, text:'Definir wireframes principais', p:'P1', status:'todo' },
-    { id:3, text:'Definir schema do banco de dados', p:'P1', status:'todo' },
-    { id:4, text:'Definir endpoints principais', p:'P2', status:'todo' },
-    { id:5, text:'Preparar onboarding do piloto', p:'P2', status:'todo' },
-    { id:6, text:'Série de posts LinkedIn', p:'P2', status:'doing' },
-  ],
   posts: [
-    { id:1, day:'SEG', title:'Post 3 — Ponto de equilíbrio', topic:'Break-even', status:'published' },
-    { id:2, day:'QUA', title:'Post 4 — Margem que some sem avisar', topic:'Margem', status:'ready' },
-    { id:3, day:'SEX', title:'Post 5 — A planilha que mente', topic:'Armadilha da planilha', status:'planned' },
-  ],
-  deliveries: [
-    { id:1, text:'Fechar PRD final do V0', done:false },
-    { id:2, text:'Fechar wireframes navegáveis', done:false },
-    { id:3, text:'Definir schema do banco', done:false },
-    { id:4, text:'Definir endpoints principais', done:false },
-    { id:5, text:'Preparar onboarding do piloto', done:false },
-    { id:6, text:'Validar dados de entrada do piloto (Gregorutt)', done:false },
-    { id:7, text:'Montar primeiro protótipo navegável', done:false },
+    { id:1, date:'2026-04-13', title:'Post 3 — Ponto de equilíbrio', topic:'Break-even', lang:'PT', status:'published' },
+    { id:2, date:'2026-04-15', title:'Post 3 — Break-even point', topic:'Break-even', lang:'EN', status:'published' },
+    { id:3, date:'2026-04-17', title:'Post 4 — Margem que some sem avisar', topic:'Margem', lang:'PT', status:'ready' },
+    { id:4, date:'2026-04-19', title:'Post 4 — The margin that vanishes', topic:'Margin', lang:'EN', status:'planned' },
   ],
   decisions: [
-    { id:1, text:'Stack: Next.js + Supabase + Claude API' },
-    { id:2, text:'Deploy: Vercel' },
-    { id:3, text:'Idioma do produto: PT-BR no MVP' },
-    { id:4, text:'Piloto: Gregorutt — SP (discovery concluído)' },
-    { id:5, text:'Modelo: SaaS ~R$35/mês no MVP' },
-    { id:6, text:'ICP: PMEs 5–50 func, R$500K–5M/ano, sem CFO' },
-    { id:7, text:'Foco total no V0 — branding cosmético depois' },
+    { id:1, text:'Stack: Next.js + Supabase + Claude API', cat:'Tecnologia', date:'2026-03-01' },
+    { id:2, text:'Deploy: Vercel', cat:'Tecnologia', date:'2026-03-01' },
+    { id:3, text:'Idioma do produto: PT-BR no MVP', cat:'Produto', date:'2026-03-15' },
+    { id:4, text:'Piloto: Gregorutt — SP (discovery concluído)', cat:'Mercado / GTM', date:'2026-03-20' },
+    { id:5, text:'Modelo: SaaS ~R$35/mês no MVP', cat:'Pricing / Modelo de negócio', date:'2026-03-25' },
+    { id:6, text:'ICP: PMEs 5–50 func, R$500K–5M/ano, sem CFO', cat:'Mercado / GTM', date:'2026-03-25' },
+    { id:7, text:'Foco total no V0 — branding cosmético depois', cat:'Produto', date:'2026-04-01' },
+    { id:8, text:'Núcleo de Dados antes de tela. Construir tela em cima de Núcleo frágil é construir mentira com confiança.', cat:'Produto', date:'2026-04-25' },
+    { id:9, text:'Cenário sem impacto no fluxo 13 semanas é enfeite. Toda simulação termina em delta de caixa.', cat:'Produto', date:'2026-04-25' },
+    { id:10, text:'Chat livre só com dados validados. Antes disso, perguntas curadas (~50 em ~10 grupos).', cat:'Dados / IA', date:'2026-04-25' },
   ],
   links: [
     { id:1, label:'Site', url:'https://cfoup.ai' },
-    { id:2, label:'GitHub', url:'https://github.com' },
+    { id:2, label:'GitHub · cfoup-app', url:'https://github.com/cfoup2026/cfoup-app' },
     { id:3, label:'Vercel', url:'https://vercel.com/dashboard' },
     { id:4, label:'Supabase', url:'https://supabase.com/dashboard' },
-    { id:5, label:'LinkedIn', url:'https://linkedin.com' },
-  ],
-  folders: [
-    { id:1, name:'Posts LinkedIn', cat:'Conteúdo' },
-    { id:2, name:'Decks e apresentações', cat:'Comercial' },
-    { id:3, name:'Logos e branding', cat:'Branding' },
-    { id:4, name:'Teses e documentos', cat:'Produto' },
-    { id:5, name:'Telas e wireframes', cat:'Design' },
-    { id:6, name:'Arquitetura técnica', cat:'Tech' },
-    { id:7, name:'Materiais para investidores', cat:'Investidor' },
-    { id:8, name:'Piloto — Gregorutt', cat:'Piloto' },
+    { id:5, label:'Portal Gregorutt', url:'https://cfoup-clientes.netlify.app/Gregorutt/' },
+    { id:6, label:'Command Center publicado', url:'https://cfoup2026.github.io/cfoup-app/CFOup_CommandCenter.html' },
   ]
 };
 
@@ -1794,6 +1889,34 @@ let today = null;
 let history = [];
 let mvpChecks = {};
 let roadmap = [];
+let nucleus = {};
+let projNotes = {};
+let decisionFilter = 'all';
+
+const NUCLEUS_DEFAULT = {
+  ingestao: 'not_started',
+  classificacao: 'not_started',
+  premissas: 'not_started',
+  motor: 'not_started'
+};
+
+const PROJ_NOTES_DEFAULT = {
+  tese: '',
+  principios: '',
+  arq: '',
+  riscos: '',
+  aberto: ''
+};
+
+const DECISION_CATEGORIES = [
+  'Produto',
+  'Dados / IA',
+  'Tecnologia',
+  'Pricing / Modelo de negócio',
+  'Mercado / GTM',
+  'Pessoas / Parceiros',
+  'Operação / Administrativo'
+];
 let historyVisible = 7;
 
 function load() {
@@ -1801,7 +1924,30 @@ function load() {
     const stored = localStorage.getItem(KEY);
     data = stored ? JSON.parse(stored) : JSON.parse(JSON.stringify(DEFAULTS));
   } catch(e) { data = JSON.parse(JSON.stringify(DEFAULTS)); }
-  if(!data.priorities) data = JSON.parse(JSON.stringify(DEFAULTS));
+
+  // Garantir estrutura mínima da nova versão
+  if (!data.posts) data.posts = JSON.parse(JSON.stringify(DEFAULTS.posts));
+  if (!data.decisions) data.decisions = JSON.parse(JSON.stringify(DEFAULTS.decisions));
+  if (!data.links) data.links = JSON.parse(JSON.stringify(DEFAULTS.links));
+
+  // Migrar decisões antigas (sem cat/date) — atribui categoria padrão
+  data.decisions = data.decisions.map(d => ({
+    ...d,
+    cat: d.cat || 'Operação / Administrativo',
+    date: d.date || todayKey()
+  }));
+
+  // Migrar posts antigos (campo 'day' antigo → preserva, mas se não tiver 'date', deixa em branco)
+  data.posts = data.posts.map(p => ({
+    ...p,
+    date: p.date || '',
+    lang: p.lang || 'PT'
+  }));
+
+  // Limpar coleções obsoletas (priorities, deliveries, folders) — não são mais usadas
+  delete data.priorities;
+  delete data.deliveries;
+  delete data.folders;
 
   try {
     const mvpStored = localStorage.getItem(MVP_KEY);
@@ -1811,11 +1957,10 @@ function load() {
   try {
     const rmStored = localStorage.getItem(ROADMAP_KEY);
     roadmap = rmStored ? JSON.parse(rmStored) : JSON.parse(JSON.stringify(ROADMAP_DEFAULT));
-    // Migração: se veio MVP_KEY antigo, marcar milestones equivalentes
     if (!rmStored && Object.keys(mvpChecks).length) {
       roadmap.forEach(w => {
         w.milestones.forEach((m, idx) => {
-          const oldId = w.id + String.fromCharCode(97 + idx); // w1 + 'a','b','c','d'
+          const oldId = w.id + String.fromCharCode(97 + idx);
           if (mvpChecks[oldId]) m.done = true;
         });
       });
@@ -1824,12 +1969,28 @@ function load() {
   } catch(e) { roadmap = JSON.parse(JSON.stringify(ROADMAP_DEFAULT)); }
 
   try {
+    const nStored = localStorage.getItem(NUCLEUS_KEY);
+    nucleus = nStored ? JSON.parse(nStored) : { ...NUCLEUS_DEFAULT };
+  } catch(e) { nucleus = { ...NUCLEUS_DEFAULT }; }
+  // Garantir todas as chaves
+  Object.keys(NUCLEUS_DEFAULT).forEach(k => { if (!nucleus[k]) nucleus[k] = 'not_started'; });
+
+  try {
+    const pStored = localStorage.getItem(PROJ_NOTES_KEY);
+    projNotes = pStored ? JSON.parse(pStored) : { ...PROJ_NOTES_DEFAULT };
+  } catch(e) { projNotes = { ...PROJ_NOTES_DEFAULT }; }
+  Object.keys(PROJ_NOTES_DEFAULT).forEach(k => { if (typeof projNotes[k] !== 'string') projNotes[k] = ''; });
+
+  try {
     const histStored = localStorage.getItem(HISTORY_KEY);
     history = histStored ? JSON.parse(histStored) : [];
   } catch(e) { history = []; }
 
   loadToday();
 }
+
+function saveNucleus() { try { localStorage.setItem(NUCLEUS_KEY, JSON.stringify(nucleus)); } catch(e) {} flashSaved(); }
+function saveProjNotes() { try { localStorage.setItem(PROJ_NOTES_KEY, JSON.stringify(projNotes)); } catch(e) {} flashSaved(); }
 
 function todayKey() {
   const d = new Date();
@@ -1846,36 +2007,47 @@ function loadToday() {
       const parsed = JSON.parse(stored);
       if (parsed.date === k) {
         today = parsed;
-        // Garantir compatibilidade com estrutura antiga — migrar se necessário
         if (!Array.isArray(today.tasks)) today.tasks = defaultTasks();
-        if (typeof today.blocked !== 'string') today.blocked = today.obs || '';
-        if (typeof today.notes !== 'string') today.notes = '';
         if (!Array.isArray(today.links)) today.links = [];
+        // Migrar do schema antigo (blocked + notes) para o novo (4 campos)
+        if (typeof today.advance !== 'string') {
+          today.advance = '';
+          today.blockedNote = today.blocked || today.obs || '';
+          today.next = '';
+          today.pending = today.notes || '';
+        }
         return;
       }
-      // Dia mudou — arquivar snapshot do dia anterior se teve conteúdo
       if (parsed.date && hasContent(parsed)) {
         history = history.filter(d => d.date !== parsed.date);
         history.unshift(parsed);
         localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
       }
-      // Opção A: preservar tasks e promoted-links, zerar checks/estado do dia
       today = {
         date: k,
-        focus: '',
         tasks: (parsed.tasks || []).map(t => ({
           ...t,
           checks: (t.checks || []).map(c => ({ ...c, done: false }))
         })),
         links: [],
-        blocked: '',
-        notes: ''
+        advance: '',
+        blockedNote: '',
+        next: '',
+        pending: ''
       };
       saveToday();
       return;
     }
   } catch(e) {}
-  today = { date: k, focus: '', tasks: defaultTasks(), links: [], blocked: '', notes: '' };
+  today = {
+    date: k,
+    tasks: defaultTasks(),
+    links: [],
+    advance: '',
+    blockedNote: '',
+    next: '',
+    pending: ''
+  };
   saveToday();
 }
 
@@ -1920,10 +2092,15 @@ function defaultTasks() {
 }
 
 function hasContent(day) {
-  return (day.focus && day.focus.trim()) ||
-         (day.blocked && day.blocked.trim()) ||
-         (day.notes && day.notes.trim()) ||
-         (day.obs && day.obs.trim()) ||
+  return ((day.advance || '').trim()) ||
+         ((day.blockedNote || '').trim()) ||
+         ((day.next || '').trim()) ||
+         ((day.pending || '').trim()) ||
+         // Retrocompat: se for histórico antigo
+         ((day.blocked || '').trim()) ||
+         ((day.notes || '').trim()) ||
+         ((day.obs || '').trim()) ||
+         ((day.focus || '').trim()) ||
          (day.links && day.links.length > 0) ||
          (day.tasks && day.tasks.some(t =>
            (t.checks || []).some(c => c.done)
@@ -1966,8 +2143,11 @@ function longDateFromISO(iso) {
 // RENDER HOJE
 // ============================================================
 function renderToday() {
-  document.getElementById('blockedInput').value = today.blocked || '';
-  document.getElementById('notesInput').value = today.notes || '';
+  const setVal = (id, v) => { const el = document.getElementById(id); if (el) el.value = v || ''; };
+  setVal('dayNoteAdvance', today.advance);
+  setVal('dayNoteBlocked', today.blockedNote);
+  setVal('dayNoteNext', today.next);
+  setVal('dayNotePending', today.pending);
 
   renderTasks();
   renderTodayLinks();
@@ -1976,7 +2156,7 @@ function renderToday() {
 function renderTasks() {
   const el = document.getElementById('taskList');
   if (!today.tasks || !today.tasks.length) {
-    el.innerHTML = '<div class="empty-hint">Nenhuma task hoje. Clique em + para adicionar.</div>';
+    el.innerHTML = '<div class="cc-empty-hint">Nenhuma task hoje. Clique em + para adicionar.</div>';
     return;
   }
   const prioLabel = { high: 'Alta', med: 'Média', low: 'Baixa' };
@@ -2010,41 +2190,41 @@ function renderTasks() {
 
   el.innerHTML = order.map(key => {
     const groupHeader = (key === '__none__')
-      ? '<div class="task-group-header task-group-loose">Tasks avulsas</div>'
+      ? '<div class="cc-task-group task-group-loose">Tasks avulsas</div>'
       : (msLabel[key]
-          ? `<div class="task-group-header">
-               <span class="task-group-ms-label">${escapeHtml(msLabel[key].week)}</span>
-               <span class="task-group-ms-text">${escapeHtml(msLabel[key].text)}</span>
-               ${msLabel[key].done ? '<span class="task-group-done-mark">✓ concluído</span>' : ''}
+          ? `<div class="cc-task-group">
+               <span class="cc-task-group-week">${escapeHtml(msLabel[key].week)}</span>
+               <span class="cc-task-group-name">${escapeHtml(msLabel[key].text)}</span>
+               ${msLabel[key].done ? '<span class="cc-task-group-done">✓ concluído</span>' : ''}
              </div>`
-          : `<div class="task-group-header task-group-orphan">Milestone removido</div>`);
+          : `<div class="cc-task-group task-group-orphan">Milestone removido</div>`);
 
     return groupHeader + groups[key].map(t => `
-      <div class="task-card prio-${t.prio}">
-        <button class="task-delete" onclick="deleteTask(${t.id})" title="Remover task">✕</button>
-        <div class="task-head">
-          <span class="task-title" ondblclick="editTaskTitle(${t.id}, this)">${escapeHtml(t.title)}</span>
-          <div class="task-meta-row">
-            <span class="task-prio-chip prio-${t.prio}" onclick="cycleTaskPrio(${t.id})">${prioLabel[t.prio]}</span>
+      <div class="cc-task prio-${t.prio}">
+        <button class="cc-task-del" onclick="deleteTask(${t.id})" title="Remover task">✕</button>
+        <div class="cc-task-head">
+          <span class="cc-task-title" ondblclick="editTaskTitle(${t.id}, this)">${escapeHtml(t.title)}</span>
+          <div class="cc-task-meta">
+            <span class="cc-task-prio prio-${t.prio}" onclick="cycleTaskPrio(${t.id})">${prioLabel[t.prio]}</span>
           </div>
         </div>
-        <div class="task-tools-row" ondblclick="editTaskTools(${t.id}, this)">
+        <div class="cc-task-tools" ondblclick="editTaskTools(${t.id}, this)">
           ${(t.tools || '').split('·').filter(x=>x.trim()).map(tool =>
-            `<span class="task-tool-chip">${escapeHtml(tool.trim())}</span>`
-          ).join('') || '<span class="task-tool-chip" style="font-style:italic;color:var(--muted-2)">sem ferramentas · duplo-clique para editar</span>'}
+            `<span class="cc-tool-chip">${escapeHtml(tool.trim())}</span>`
+          ).join('') || '<span class="cc-tool-chip" style="font-style:italic;color:var(--muted-2)">sem ferramentas · duplo-clique para editar</span>'}
         </div>
-        <div class="task-objective" ondblclick="editTaskObjective(${t.id}, this)">${escapeHtml(t.objective || 'Sem objetivo — duplo-clique para editar')}</div>
-        <div class="task-checks">
+        <div class="cc-task-obj" ondblclick="editTaskObjective(${t.id}, this)">${escapeHtml(t.objective || 'Sem objetivo — duplo-clique para editar')}</div>
+        <div class="cc-task-checks">
           ${(t.checks || []).map(c => `
-            <div class="task-check-row">
+            <div class="cc-check-row">
               <input type="checkbox" ${c.done?'checked':''} onchange="toggleCheck(${t.id}, ${c.id})" id="tc_${t.id}_${c.id}">
               <label for="tc_${t.id}_${c.id}" ondblclick="editCheckText(${t.id}, ${c.id}, this)">${escapeHtml(c.text)}</label>
-              <button class="task-check-del" onclick="deleteCheck(${t.id}, ${c.id})" title="Remover">✕</button>
+              <button class="cc-check-del" onclick="deleteCheck(${t.id}, ${c.id})" title="Remover">✕</button>
             </div>
           `).join('')}
-          <button class="task-add-check" onclick="addCheck(${t.id})">+ adicionar check</button>
+          <button class="cc-add-check" onclick="addCheck(${t.id})">+ adicionar check</button>
         </div>
-        <button class="task-change-ms" onclick="changeTaskMilestone(${t.id})" title="Mudar milestone desta task">${t.milestoneId ? 'mudar milestone' : 'vincular a milestone'}</button>
+        <button class="cc-task-change-ms" onclick="changeTaskMilestone(${t.id})" title="Mudar milestone desta task">${t.milestoneId ? 'mudar milestone' : 'vincular a milestone'}</button>
       </div>
     `).join('');
   }).join('');
@@ -2073,15 +2253,15 @@ function changeTaskMilestone(taskId) {
 function renderTodayLinks() {
   const lList = document.getElementById('todayLinkList');
   if (!today.links.length) {
-    lList.innerHTML = '<div class="empty-hint">Nenhum link adicionado hoje.</div>';
+    lList.innerHTML = '<div class="cc-empty-hint">Nenhum link adicionado hoje.</div>';
   } else {
     lList.innerHTML = today.links.map(l => `
-      <div class="today-link-item">
-        <button class="today-link-star ${l.promoted?'promoted':''}"
+      <div class="cc-link-row">
+        <button class="cc-link-star ${l.promoted?'promoted':''}"
                 onclick="promoteLink(${l.id})"
                 title="${l.promoted?'Já promovido':'Promover para permanentes'}">★</button>
         <a href="${escapeAttr(l.url)}" target="_blank">${escapeHtml(l.label || l.url)}</a>
-        <button class="today-link-del" onclick="removeTodayLink(${l.id})" title="Remover">✕</button>
+        <button class="cc-link-del" onclick="removeTodayLink(${l.id})" title="Remover">✕</button>
       </div>
     `).join('');
   }
@@ -2135,7 +2315,7 @@ function editTaskTitle(id, el) {
   const t = today.tasks.find(x => x.id === id);
   if (!t) return;
   const input = document.createElement('input');
-  input.className = 'inline-edit';
+  input.className = 'cc-inline-edit';
   input.value = t.title;
   input.style.fontWeight = '600';
   input.style.fontSize = '13.5px';
@@ -2193,7 +2373,7 @@ function editCheckText(taskId, checkId, el) {
   const c = t.checks.find(x => x.id === checkId);
   if (!c) return;
   const input = document.createElement('input');
-  input.className = 'inline-edit';
+  input.className = 'cc-inline-edit';
   input.value = c.text;
   input.style.fontSize = '12.5px';
   el.replaceWith(input);
@@ -2235,23 +2415,23 @@ function openTaskModal(preselectedMilestoneId) {
 
   box.innerHTML = `
     <h3>Nova task</h3>
-    <label class="modal-label">Milestone</label>
+    <label class="cc-modal-label">Milestone</label>
     <select id="m_task_ms">${msOptions}</select>
-    <label class="modal-label">Título</label>
+    <label class="cc-modal-label">Título</label>
     <input id="m_task_title" placeholder="Ex: Fechar tela Overview" />
-    <label class="modal-label">Prioridade</label>
+    <label class="cc-modal-label">Prioridade</label>
     <select id="m_task_prio">
       <option value="high">Alta prioridade</option>
       <option value="med" selected>Média prioridade</option>
       <option value="low">Baixa prioridade</option>
     </select>
-    <label class="modal-label">Ferramentas</label>
+    <label class="cc-modal-label">Ferramentas</label>
     <input id="m_task_tools" placeholder="Ex: v0 · GitHub · Vercel" />
-    <label class="modal-label">Objetivo</label>
+    <label class="cc-modal-label">Objetivo</label>
     <textarea id="m_task_obj" rows="2" placeholder="O que esta task precisa garantir"></textarea>
-    <div class="modal-btns">
-      <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
-      <button class="btn-save" onclick="saveNewTask()">Adicionar</button>
+    <div class="cc-modal-btns">
+      <button class="cfoup-btn cfoup-btn-secondary" onclick="closeModal()">Cancelar</button>
+      <button class="cfoup-btn cfoup-btn-primary" onclick="saveNewTask()">Adicionar</button>
     </div>
   `;
   document.getElementById('modalOverlay').classList.add('open');
@@ -2312,9 +2492,6 @@ function exportDay() {
   lines.push('Snapshot do dia — ' + today.date);
   lines.push('='.repeat(50));
   lines.push('');
-  lines.push('FOCO DO DIA:');
-  lines.push(today.focus || '-');
-  lines.push('');
   lines.push('TASKS:');
   (today.tasks || []).forEach((t, i) => {
     const done = (t.checks || []).filter(c => c.done).length;
@@ -2327,11 +2504,19 @@ function exportDay() {
     });
     lines.push('');
   });
-  lines.push('TRAVADO / DEPENDÊNCIAS:');
-  lines.push(today.blocked || '-');
+  lines.push('NOTAS DO DIA:');
   lines.push('');
-  lines.push('NOTAS RÁPIDAS:');
-  lines.push(today.notes || '-');
+  lines.push('— O que avancei —');
+  lines.push(today.advance || '-');
+  lines.push('');
+  lines.push('— O que travou —');
+  lines.push(today.blockedNote || '-');
+  lines.push('');
+  lines.push('— Próximo passo —');
+  lines.push(today.next || '-');
+  lines.push('');
+  lines.push('— Pendências —');
+  lines.push(today.pending || '-');
   lines.push('');
   if ((today.links || []).length) {
     lines.push('LINKS DO DIA:');
@@ -2380,32 +2565,34 @@ function renderHistory() {
     const totalChecks = tasks.reduce((s,t) => s + (t.checks||[]).length, 0);
     const doneChecks = tasks.reduce((s,t) => s + (t.checks||[]).filter(c=>c.done).length, 0);
     const nLink = (d.links || []).length;
-    const hasBlocked = !!(d.blocked && d.blocked.trim());
-    const hasNotes = !!(d.notes && d.notes.trim());
-    // Retrocompat com estrutura antiga
-    const hasObs = !!(d.obs && d.obs.trim());
+
+    // Suportar tanto schema novo quanto retrocompat
+    const advance = (d.advance || '').trim();
+    const blockedNote = (d.blockedNote || d.blocked || d.obs || '').trim();
+    const next = (d.next || '').trim();
+    const pending = (d.pending || d.notes || '').trim();
+    const hasAnyNote = advance || blockedNote || next || pending;
 
     const stats = [];
-    if (nTasks) stats.push(`<span class="stat-chip">${doneChecks}/${totalChecks} checks</span>`);
-    if (nLink) stats.push(`<span class="stat-chip">${nLink} link${nLink>1?'s':''}</span>`);
-    if (hasBlocked) stats.push(`<span class="stat-chip">travado</span>`);
-    if (hasNotes || hasObs) stats.push(`<span class="stat-chip">notas</span>`);
+    if (nTasks) stats.push(`<span class="cc-day-stat">${doneChecks}/${totalChecks} checks</span>`);
+    if (nLink) stats.push(`<span class="cc-day-stat">${nLink} link${nLink>1?'s':''}</span>`);
+    if (hasAnyNote) stats.push(`<span class="cc-day-stat">notas</span>`);
 
     const taskBlock = nTasks ? `
-      <div class="day-log-section">
-        <div class="day-log-section-label">Tasks do dia</div>
+      <div class="cc-day-sec">
+        <div class="cc-day-sec-label">Tasks do dia</div>
         ${tasks.map(t => {
           const td = (t.checks||[]).filter(c=>c.done).length;
           const tt = (t.checks||[]).length;
           return `
-            <div class="day-log-task">
-              <div class="day-log-task-head">
-                <span class="day-log-task-prio prio-${t.prio||'med'}">${prioLabel[t.prio||'med']}</span>
-                <span class="day-log-task-title">${escapeHtml(t.title)}</span>
-                <span class="day-log-task-count">${td}/${tt}</span>
+            <div class="cc-day-task">
+              <div class="cc-day-task-head">
+                <span class="cc-day-task-prio prio-${t.prio||'med'}">${prioLabel[t.prio||'med']}</span>
+                <span class="cc-day-task-title">${escapeHtml(t.title)}</span>
+                <span class="cc-day-task-count">${td}/${tt}</span>
               </div>
               ${(t.checks||[]).map(c => `
-                <div class="day-log-task-check ${c.done?'done':''}">
+                <div class="cc-day-task-check ${c.done?'done':''}">
                   ${c.done?'✓':'○'} ${escapeHtml(c.text)}
                 </div>
               `).join('')}
@@ -2414,37 +2601,35 @@ function renderHistory() {
         }).join('')}
       </div>` : '';
 
-    const blockedBlock = hasBlocked ? `
-      <div class="day-log-section">
-        <div class="day-log-section-label">Travado · dependências</div>
-        <div class="day-log-obs">${escapeHtml(d.blocked)}</div>
-      </div>` : '';
-
-    const notesBlock = (hasNotes || hasObs) ? `
-      <div class="day-log-section">
-        <div class="day-log-section-label">Notas rápidas</div>
-        <div class="day-log-obs">${escapeHtml(d.notes || d.obs || '')}</div>
-      </div>` : '';
+    const noteBlocks = [];
+    if (advance) noteBlocks.push(`<div class="cc-day-sec"><div class="cc-day-sec-label">O que avancei</div><div class="cc-day-sec-text">${escapeHtml(advance)}</div></div>`);
+    if (blockedNote) noteBlocks.push(`<div class="cc-day-sec"><div class="cc-day-sec-label">O que travou</div><div class="cc-day-sec-text">${escapeHtml(blockedNote)}</div></div>`);
+    if (next) noteBlocks.push(`<div class="cc-day-sec"><div class="cc-day-sec-label">Próximo passo</div><div class="cc-day-sec-text">${escapeHtml(next)}</div></div>`);
+    if (pending) noteBlocks.push(`<div class="cc-day-sec"><div class="cc-day-sec-label">Pendências</div><div class="cc-day-sec-text">${escapeHtml(pending)}</div></div>`);
+    const allNotes = noteBlocks.join('');
 
     const linkBlock = nLink ? `
-      <div class="day-log-section">
-        <div class="day-log-section-label">Links do dia</div>
+      <div class="cc-day-sec">
+        <div class="cc-day-sec-label">Links do dia</div>
         ${d.links.map(l => `
-          <div class="day-log-link">
+          <div class="cc-day-link">
             <a href="${escapeAttr(l.url)}" target="_blank">${escapeHtml(l.label || l.url)}</a>
           </div>
         `).join('')}
       </div>` : '';
 
+    // Resumo de cabeçalho: se tem advance, mostra ele; senão, fallback antigo
+    const summary = advance || (d.focus || '').trim();
+
     return `
-      <div class="day-log" data-date="${d.date}">
-        <div class="day-log-head" onclick="toggleDay('${d.date}')">
-          <div class="day-log-date">${longDateFromISO(d.date)}</div>
-          <div class="day-log-focus ${d.focus?'':'empty'}">${d.focus ? escapeHtml(d.focus) : 'Sem foco registrado'}</div>
-          <div class="day-log-stats">${stats.join('')}</div>
-          <div class="day-log-toggle">▸</div>
+      <div class="cc-day-log" data-date="${d.date}">
+        <div class="cc-day-log-head" onclick="toggleDay('${d.date}')">
+          <div class="cc-day-log-date">${longDateFromISO(d.date)}</div>
+          <div class="cc-day-log-summary ${summary?'':'empty'}">${summary ? escapeHtml(summary) : 'Dia sem registro'}</div>
+          <div class="cc-day-log-stats">${stats.join('')}</div>
+          <div class="cc-day-toggle">▸</div>
         </div>
-        <div class="day-log-body">${taskBlock}${blockedBlock}${notesBlock}${linkBlock}</div>
+        <div class="cc-day-log-body">${taskBlock}${allNotes}${linkBlock}</div>
       </div>`;
   }).join('');
 
@@ -2476,37 +2661,37 @@ function renderRoadmap() {
       if (linkedTasks.length) {
         const tTotal = linkedTasks.reduce((s,t) => s + (t.checks||[]).length, 0);
         const tDone = linkedTasks.reduce((s,t) => s + (t.checks||[]).filter(c=>c.done).length, 0);
-        tProgress = `<span class="milestone-progress" title="Checks de tasks do Hoje ligadas a este milestone">${tDone}/${tTotal}</span>`;
+        tProgress = `<span class="cc-milestone-progress" title="Checks de tasks do Hoje ligadas a este milestone">${tDone}/${tTotal}</span>`;
       }
 
       return `
-        <div class="milestone-row ${m.done?'milestone-done':''}" data-milestone-id="${m.id}">
+        <div class="cc-milestone ${m.done?'done':''}" data-milestone-id="${m.id}">
           <input type="checkbox" ${m.done?'checked':''} onchange="toggleMilestone('${w.id}','${m.id}')" id="ms_${m.id}">
           <label for="ms_${m.id}" ondblclick="editMilestone('${w.id}','${m.id}', this)">${escapeHtml(m.text)}</label>
           ${tProgress}
-          <button class="milestone-del" onclick="deleteMilestone('${w.id}','${m.id}')" title="Remover milestone">✕</button>
+          <button class="cc-milestone-del" onclick="deleteMilestone('${w.id}','${m.id}')" title="Remover milestone">✕</button>
         </div>
       `;
     }).join('');
 
     const toolsHtml = (w.tools || '').split('·').filter(x => x.trim()).map(t =>
-      `<span class="tool-chip">${escapeHtml(t.trim())}</span>`
+      `<span class="cc-tool-chip">${escapeHtml(t.trim())}</span>`
     ).join('');
 
     return `
-      <div class="week-card ${w.current?'current':''}" data-week-id="${w.id}">
-        <div class="week-head">
-          <div class="week-num" ondblclick="editWeekLabel('${w.id}', this)">${escapeHtml(w.label)}</div>
-          <div class="week-name" ondblclick="editWeekName('${w.id}', this)">${escapeHtml(w.name)}</div>
-          <div class="week-goal" ondblclick="editWeekGoal('${w.id}', this)">${escapeHtml(w.goal)}</div>
-          <div class="week-counter">${done} de ${total} milestones</div>
+      <div class="cc-week ${w.current?'current':''}" data-week-id="${w.id}">
+        <div class="cc-week-head">
+          <div class="cc-week-num" ondblclick="editWeekLabel('${w.id}', this)">${escapeHtml(w.label)}</div>
+          <div class="cc-week-name" ondblclick="editWeekName('${w.id}', this)">${escapeHtml(w.name)}</div>
+          <div class="cc-week-goal" ondblclick="editWeekGoal('${w.id}', this)">${escapeHtml(w.goal)}</div>
+          <div class="cc-week-counter">${done} de ${total} milestones</div>
         </div>
-        <div class="week-body">
-          <div class="week-tools" ondblclick="editWeekTools('${w.id}', this)">
+        <div class="cc-week-body">
+          <div class="cc-week-tools" ondblclick="editWeekTools('${w.id}', this)">
             ${toolsHtml || '<span style="font-size:10.5px;color:var(--muted-2);font-style:italic">sem ferramentas</span>'}
           </div>
           ${milestonesHtml}
-          <button class="milestone-add" onclick="addMilestone('${w.id}')">+ adicionar milestone</button>
+          <button class="cc-add-ms" onclick="addMilestone('${w.id}')">+ adicionar milestone</button>
         </div>
       </div>
     `;
@@ -2564,7 +2749,7 @@ function editMilestone(weekId, msId, el) {
   const m = w.milestones.find(x => x.id === msId);
   if (!m) return;
   const input = document.createElement('input');
-  input.className = 'inline-edit';
+  input.className = 'cc-inline-edit';
   input.value = m.text;
   input.style.fontSize = '12.5px';
   el.replaceWith(input);
@@ -2582,7 +2767,7 @@ function editWeekField(weekId, field, el, fontClass) {
   const w = roadmap.find(x => x.id === weekId);
   if (!w) return;
   const input = document.createElement('input');
-  input.className = 'inline-edit';
+  input.className = 'cc-inline-edit';
   input.value = w[field] || '';
   el.replaceWith(input);
   input.focus();
@@ -2606,109 +2791,141 @@ function escapeHtml(str) {
 }
 function escapeAttr(str) { return escapeHtml(str); }
 
-function renderPriorities() {
-  const el = document.getElementById('priorityList');
-  const statusMap = { doing:'Em andamento', todo:'A fazer', blocked:'Bloqueado', done:'Concluído' };
-  const statusCycle = { doing:'todo', todo:'blocked', blocked:'done', done:'doing' };
-  el.innerHTML = data.priorities.map(p => `
-    <div class="priority-item">
-      <span class="p-badge p-${p.p.toLowerCase()}">${p.p}</span>
-      <span class="p-text ${p.status==='done'?'done-text':''}"
-            ondblclick="editPriorityText(${p.id}, this)">${escapeHtml(p.text)}</span>
-      <span class="status-badge s-${p.status}"
-            onclick="cyclePriorityStatus(${p.id},'${statusCycle[p.status]}')">${statusMap[p.status]}</span>
-      <button class="delete-btn" onclick="deleteItem('priorities',${p.id})">✕</button>
-    </div>
-  `).join('') || '<p style="color:var(--muted-2);font-size:13px;font-style:italic">Nenhuma prioridade ativa.</p>';
-}
-function cyclePriorityStatus(id, newStatus) {
-  const item = data.priorities.find(p=>p.id===id);
-  if(item) { item.status = newStatus; save(); renderPriorities(); }
-}
-function editPriorityText(id, el) {
-  const item = data.priorities.find(p=>p.id===id);
-  if(!item) return;
-  const input = document.createElement('input');
-  input.className = 'inline-edit';
-  input.value = item.text;
-  el.replaceWith(input);
-  input.focus();
-  input.addEventListener('blur', () => {
-    item.text = input.value.trim() || item.text;
-    save(); renderPriorities();
-  });
-  input.addEventListener('keydown', e => { if(e.key==='Enter') input.blur(); });
-}
-
 function renderPosts() {
   const el = document.getElementById('postList');
+  if (!data.posts || !data.posts.length) {
+    el.innerHTML = '<tr><td colspan="5" style="color:var(--cfoup-neutral);font-size:13px;font-style:italic;text-align:center;padding:20px">Nenhum post programado.</td></tr>';
+    return;
+  }
   const statusMap = { planned:'Planejado', ready:'Pronto', published:'Publicado' };
   const statusCycle = { planned:'ready', ready:'published', published:'planned' };
-  el.innerHTML = data.posts.length ? data.posts.map(p => `
-    <div class="post-item">
-      <span class="post-day">${p.day}</span>
-      <div class="post-info">
-        <div class="post-title">${escapeHtml(p.title)}</div>
-        <div class="post-meta">${escapeHtml(p.topic)}</div>
-      </div>
-      <span class="post-status ps-${p.status}"
-            onclick="cyclePostStatus(${p.id},'${statusCycle[p.status]}')">${statusMap[p.status]}</span>
-      <button class="delete-btn" onclick="deleteItem('posts',${p.id})">✕</button>
-    </div>
-  `).join('') : '<p style="color:var(--muted-2);font-size:13px;font-style:italic">Nenhum post programado.</p>';
+
+  const sorted = [...data.posts].sort((a,b) => (b.date || '').localeCompare(a.date || ''));
+
+  el.innerHTML = sorted.map(p => {
+    const dateLabel = p.date ? formatPostDate(p.date) : { day: '—', mon: '' };
+    return `
+      <tr>
+        <td>
+          <div class="cc-post-date">
+            <div class="day">${dateLabel.day}</div>
+            <div class="mon">${dateLabel.mon}</div>
+          </div>
+        </td>
+        <td>
+          <div style="font-weight:600;color:var(--cfoup-navy);font-size:13px">${escapeHtml(p.title)}</div>
+          ${p.topic ? '<div style="font-size:11.5px;color:var(--cfoup-muted);margin-top:2px">'+escapeHtml(p.topic)+'</div>' : ''}
+        </td>
+        <td><span class="cc-post-lang lang-${(p.lang||'PT').toLowerCase()}">${escapeHtml(p.lang||'PT')}</span></td>
+        <td><span class="cc-post-status ps-${p.status}" onclick="cyclePostStatus(${p.id},'${statusCycle[p.status]}')">${statusMap[p.status]}</span></td>
+        <td><button class="cc-row-del" onclick="deleteItem('posts',${p.id})">✕</button></td>
+      </tr>
+    `;
+  }).join('');
 }
+
+function formatPostDate(iso) {
+  const parts = iso.split('-');
+  if (parts.length !== 3) return { day: '—', mon: '' };
+  const monShort = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  return {
+    day: parts[2],
+    mon: monShort[parseInt(parts[1])-1] || ''
+  };
+}
+
 function cyclePostStatus(id, newStatus) {
   const item = data.posts.find(p=>p.id===id);
   if(item) { item.status = newStatus; save(); renderPosts(); }
 }
 
-function renderDeliveries() {
-  const el = document.getElementById('deliveryList');
-  el.innerHTML = data.deliveries.map(d => `
-    <div class="delivery-item">
-      <div class="delivery-check ${d.done?'checked':''}" onclick="toggleDelivery(${d.id})">${d.done?'✓':''}</div>
-      <span class="delivery-text ${d.done?'checked-text':''}">${escapeHtml(d.text)}</span>
-      <button class="delete-btn" onclick="deleteItem('deliveries',${d.id})">✕</button>
-    </div>
-  `).join('');
+// ============================================================
+// LOG DE DECISÕES com filtro por categoria
+// ============================================================
+function renderDecisionFilter() {
+  const el = document.getElementById('decisionFilter');
+  if (!el) return;
+  const counts = {};
+  data.decisions.forEach(d => {
+    counts[d.cat] = (counts[d.cat] || 0) + 1;
+  });
+  const total = data.decisions.length;
+  let html = `<button class="cc-dec-chip ${decisionFilter==='all'?'active':''}" onclick="setDecisionFilter('all')">Todas <span class="cc-dec-count">${total}</span></button>`;
+  DECISION_CATEGORIES.forEach(cat => {
+    if (!counts[cat]) return;
+    html += `<button class="cc-dec-chip ${decisionFilter===cat?'active':''}" onclick="setDecisionFilter('${cat.replace(/'/g,"\\'")}')">${escapeHtml(cat)} <span class="cc-dec-count">${counts[cat]}</span></button>`;
+  });
+  el.innerHTML = html;
 }
-function toggleDelivery(id) {
-  const item = data.deliveries.find(d=>d.id===id);
-  if(item) { item.done = !item.done; save(); renderDeliveries(); }
+
+function setDecisionFilter(cat) {
+  decisionFilter = cat;
+  renderDecisionFilter();
+  renderDecisions();
 }
 
 function renderDecisions() {
   const el = document.getElementById('decisionList');
-  el.innerHTML = data.decisions.map((d,i) => `
-    <div class="decision-item">
-      <span class="decision-num">${String(i+1).padStart(2,'0')}</span>
-      <span class="decision-text">${escapeHtml(d.text)}</span>
-      <button class="delete-btn" onclick="deleteItem('decisions',${d.id})">✕</button>
-    </div>
-  `).join('');
+  if (!el) return;
+
+  const sorted = [...data.decisions].sort((a,b) => (b.date || '').localeCompare(a.date || ''));
+  const filtered = decisionFilter === 'all'
+    ? sorted
+    : sorted.filter(d => d.cat === decisionFilter);
+
+  if (!filtered.length) {
+    el.innerHTML = '<tr><td colspan="3" style="color:var(--cfoup-neutral);font-size:13px;font-style:italic;text-align:center;padding:20px">Nenhuma decisão nesta categoria.</td></tr>';
+    return;
+  }
+
+  el.innerHTML = filtered.map(d => {
+    const dateShort = d.date ? formatPostDate(d.date) : null;
+    return `
+      <tr>
+        <td style="width:60px;vertical-align:top">
+          <div class="cc-dec-date">${dateShort ? dateShort.day + ' ' + dateShort.mon : '—'}</div>
+        </td>
+        <td>
+          <div class="cc-dec-cat">${escapeHtml(d.cat || 'Operação / Administrativo')}</div>
+          <div class="cc-dec-text" ondblclick="editDecisionText(${d.id}, this)">${escapeHtml(d.text)}</div>
+        </td>
+        <td style="width:30px;text-align:right;vertical-align:top">
+          <button class="cc-row-del" onclick="deleteItem('decisions',${d.id})">✕</button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function editDecisionText(id, el) {
+  const item = data.decisions.find(d => d.id === id);
+  if (!item) return;
+  const input = document.createElement('textarea');
+  input.className = 'cc-inline-edit';
+  input.value = item.text;
+  input.rows = 2;
+  input.style.minHeight = '40px';
+  input.style.resize = 'vertical';
+  el.replaceWith(input);
+  input.focus();
+  input.addEventListener('blur', () => {
+    item.text = input.value.trim() || item.text;
+    save(); renderDecisions();
+  });
 }
 
 function renderLinks() {
   const el = document.getElementById('linkList');
+  if (!data.links || !data.links.length) {
+    el.innerHTML = '<tr><td colspan="3" style="color:var(--cfoup-neutral);font-size:13px;font-style:italic;text-align:center;padding:20px">Nenhum link cadastrado.</td></tr>';
+    return;
+  }
   el.innerHTML = data.links.map(l => `
-    <div class="link-item">
-      <span class="link-label">${escapeHtml(l.label)}</span>
-      <a class="link-url" href="${escapeAttr(l.url)}" target="_blank">${escapeHtml(l.url.replace(/^https?:\/\//,''))}</a>
-      <button class="delete-btn" onclick="deleteItem('links',${l.id})">✕</button>
-    </div>
-  `).join('');
-}
-
-function renderFolders() {
-  const el = document.getElementById('folderList');
-  const icons = { 'Conteúdo':'📝','Comercial':'📊','Branding':'🎨','Produto':'⚙️','Design':'🖼','Tech':'💻','Investidor':'💼','Piloto':'🏭' };
-  el.innerHTML = data.folders.map(f => `
-    <div class="folder-item">
-      <span class="folder-icon">${icons[f.cat]||'📁'}</span>
-      <span class="folder-name">${escapeHtml(f.name)}</span>
-      <span class="folder-cat">${escapeHtml(f.cat)}</span>
-      <button class="delete-btn" onclick="deleteItem('folders',${f.id})">✕</button>
-    </div>
+    <tr>
+      <td style="width:38%;font-weight:600;color:var(--cfoup-navy);font-size:12.5px">${escapeHtml(l.label)}</td>
+      <td><a href="${escapeAttr(l.url)}" target="_blank" style="font-size:12.5px;color:var(--cfoup-blue);overflow:hidden;text-overflow:ellipsis;display:block;white-space:nowrap">${escapeHtml(l.url.replace(/^https?:\/\//,''))}</a></td>
+      <td style="width:30px;text-align:right"><button class="cc-row-del" onclick="deleteItem('links',${l.id})">✕</button></td>
+    </tr>
   `).join('');
 }
 
@@ -2718,50 +2935,49 @@ function deleteItem(collection, id) {
 }
 
 function renderAll() {
-  renderPriorities();
   renderPosts();
-  renderDeliveries();
+  renderDecisionFilter();
   renderDecisions();
   renderLinks();
-  renderFolders();
 }
 
 let currentModal = null;
 function openModal(type) {
   currentModal = type;
   const box = document.getElementById('modalBox');
+  const today_iso = todayKey();
+  const catOptions = DECISION_CATEGORIES.map(c => `<option value="${escapeAttr(c)}">${escapeHtml(c)}</option>`).join('');
+
   const templates = {
-    priority: `
-      <h3>Nova prioridade</h3>
-      <input id="m_text" placeholder="Descrição da tarefa…" />
-      <select id="m_p"><option value="P1">P1 — Crítico</option><option value="P2">P2 — Importante</option><option value="P3">P3 — Backlog</option></select>
-      <select id="m_status"><option value="todo">A fazer</option><option value="doing">Em andamento</option><option value="blocked">Bloqueado</option></select>
-      <div class="modal-btns"><button class="btn-cancel" onclick="closeModal()">Cancelar</button><button class="btn-save" onclick="saveModal()">Adicionar</button></div>`,
     post: `
-      <h3>Novo post LinkedIn</h3>
-      <select id="m_day"><option>SEG</option><option>TER</option><option>QUA</option><option>QUI</option><option>SEX</option></select>
-      <input id="m_text" placeholder="Título do post…" />
-      <input id="m_topic" placeholder="Tema / subtítulo…" />
+      <h3>Novo post · LinkedIn</h3>
+      <label class="cc-modal-label">Data de publicação</label>
+      <input type="date" id="m_date" value="${today_iso}" />
+      <label class="cc-modal-label">Idioma</label>
+      <select id="m_lang"><option value="PT">PT</option><option value="EN">EN</option></select>
+      <label class="cc-modal-label">Título</label>
+      <input id="m_text" placeholder="Ex: Post 5 — A planilha que mente" />
+      <label class="cc-modal-label">Tema</label>
+      <input id="m_topic" placeholder="Ex: Armadilha da planilha" />
+      <label class="cc-modal-label">Status</label>
       <select id="m_status"><option value="planned">Planejado</option><option value="ready">Pronto</option><option value="published">Publicado</option></select>
-      <div class="modal-btns"><button class="btn-cancel" onclick="closeModal()">Cancelar</button><button class="btn-save" onclick="saveModal()">Adicionar</button></div>`,
-    delivery: `
-      <h3>Nova entrega</h3>
-      <input id="m_text" placeholder="Descreva a entrega…" />
-      <div class="modal-btns"><button class="btn-cancel" onclick="closeModal()">Cancelar</button><button class="btn-save" onclick="saveModal()">Adicionar</button></div>`,
+      <div class="cc-modal-btns"><button class="cfoup-btn cfoup-btn-secondary" onclick="closeModal()">Cancelar</button><button class="cfoup-btn cfoup-btn-primary" onclick="saveModal()">Adicionar</button></div>`,
     decision: `
       <h3>Nova decisão</h3>
+      <label class="cc-modal-label">Categoria</label>
+      <select id="m_cat">${catOptions}</select>
+      <label class="cc-modal-label">Data</label>
+      <input type="date" id="m_date" value="${today_iso}" />
+      <label class="cc-modal-label">Decisão</label>
       <textarea id="m_text" rows="3" placeholder="Descreva a decisão tomada…"></textarea>
-      <div class="modal-btns"><button class="btn-cancel" onclick="closeModal()">Cancelar</button><button class="btn-save" onclick="saveModal()">Adicionar</button></div>`,
+      <div class="cc-modal-btns"><button class="cfoup-btn cfoup-btn-secondary" onclick="closeModal()">Cancelar</button><button class="cfoup-btn cfoup-btn-primary" onclick="saveModal()">Adicionar</button></div>`,
     link: `
       <h3>Novo link permanente</h3>
-      <input id="m_label" placeholder="Nome (ex: GitHub)" />
+      <label class="cc-modal-label">Nome</label>
+      <input id="m_label" placeholder="Ex: GitHub · cfoup-app" />
+      <label class="cc-modal-label">URL</label>
       <input id="m_url" placeholder="https://…" />
-      <div class="modal-btns"><button class="btn-cancel" onclick="closeModal()">Cancelar</button><button class="btn-save" onclick="saveModal()">Adicionar</button></div>`,
-    folder: `
-      <h3>Nova pasta</h3>
-      <input id="m_text" placeholder="Nome da pasta…" />
-      <select id="m_cat"><option>Conteúdo</option><option>Comercial</option><option>Branding</option><option>Produto</option><option>Design</option><option>Tech</option><option>Investidor</option><option>Piloto</option></select>
-      <div class="modal-btns"><button class="btn-cancel" onclick="closeModal()">Cancelar</button><button class="btn-save" onclick="saveModal()">Adicionar</button></div>`,
+      <div class="cc-modal-btns"><button class="cfoup-btn cfoup-btn-secondary" onclick="closeModal()">Cancelar</button><button class="cfoup-btn cfoup-btn-primary" onclick="saveModal()">Adicionar</button></div>`,
   };
   box.innerHTML = templates[type] || '';
   document.getElementById('modalOverlay').classList.add('open');
@@ -2775,31 +2991,31 @@ function closeModal() {
 function saveModal() {
   const val = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
   switch(currentModal) {
-    case 'priority':
-      if(!val('m_text')) return;
-      data.priorities.push({ id:nextId(data.priorities), text:val('m_text'), p:val('m_p'), status:val('m_status') });
-      break;
     case 'post':
       if(!val('m_text')) return;
-      data.posts.push({ id:nextId(data.posts), day:val('m_day'), title:val('m_text'), topic:val('m_topic'), status:val('m_status') });
-      break;
-    case 'delivery':
-      if(!val('m_text')) return;
-      data.deliveries.push({ id:nextId(data.deliveries), text:val('m_text'), done:false });
+      data.posts.push({
+        id: nextId(data.posts),
+        date: val('m_date'),
+        lang: val('m_lang'),
+        title: val('m_text'),
+        topic: val('m_topic'),
+        status: val('m_status')
+      });
       break;
     case 'decision':
       if(!val('m_text')) return;
-      data.decisions.push({ id:nextId(data.decisions), text:val('m_text') });
+      data.decisions.push({
+        id: nextId(data.decisions),
+        text: val('m_text'),
+        cat: val('m_cat'),
+        date: val('m_date')
+      });
       break;
     case 'link':
       if(!val('m_label')||!val('m_url')) return;
       let url = val('m_url');
       if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
       data.links.push({ id:nextId(data.links), label:val('m_label'), url });
-      break;
-    case 'folder':
-      if(!val('m_text')) return;
-      data.folders.push({ id:nextId(data.folders), name:val('m_text'), cat:val('m_cat') });
       break;
   }
   save(); renderAll(); closeModal();
@@ -2811,12 +3027,37 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); }
 
 // Listeners Hoje
 document.addEventListener('DOMContentLoaded', () => {
-  const blockedEl = document.getElementById('blockedInput');
-  const notesEl = document.getElementById('notesInput');
-  if (blockedEl) blockedEl.addEventListener('input', () => { today.blocked = blockedEl.value; saveToday(); });
-  if (notesEl) notesEl.addEventListener('input', () => { today.notes = notesEl.value; saveToday(); });
+  const bind = (id, key) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', () => { today[key] = el.value; saveToday(); });
+  };
+  bind('dayNoteAdvance', 'advance');
+  bind('dayNoteBlocked', 'blockedNote');
+  bind('dayNoteNext', 'next');
+  bind('dayNotePending', 'pending');
 
-  // Virada de dia automática (Opção A: preserva tasks, zera checks)
+  // Notas do projeto (permanentes)
+  const bindProj = (id, key) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.value = projNotes[key] || '';
+    el.addEventListener('input', () => { projNotes[key] = el.value; saveProjNotes(); });
+  };
+  bindProj('projTese', 'tese');
+  bindProj('projPrincipios', 'principios');
+  bindProj('projArq', 'arq');
+  bindProj('projRiscos', 'riscos');
+  bindProj('projAberto', 'aberto');
+
+  // Núcleo de Dados — selects
+  document.querySelectorAll('.nucleus-status').forEach(sel => {
+    const k = sel.dataset.key;
+    sel.value = nucleus[k] || 'not_started';
+    applyNucleusStyle(sel);
+  });
+
+  // Virada de dia automática (Opção A)
   setInterval(() => {
     if (today.date !== todayKey()) {
       if (hasContent(today)) {
@@ -2824,23 +3065,44 @@ document.addEventListener('DOMContentLoaded', () => {
         history.unshift(today);
         saveHistory();
       }
-      // Preserva a lista de tasks e vínculos com milestones; zera checks e campos do dia
       today = {
         date: todayKey(),
-        focus: '',
         tasks: (today.tasks || []).map(t => ({
           ...t,
           checks: (t.checks || []).map(c => ({ ...c, done: false }))
         })),
         links: [],
-        blocked: '',
-        notes: ''
+        advance: '',
+        blockedNote: '',
+        next: '',
+        pending: ''
       };
       saveToday();
       renderTopDate(); renderToday(); renderHistory(); renderRoadmap();
     }
   }, 60000);
 });
+
+function setNucleusStatus(sel) {
+  nucleus[sel.dataset.key] = sel.value;
+  saveNucleus();
+  applyNucleusStyle(sel);
+}
+
+function applyNucleusStyle(sel) {
+  const row = sel.closest('.nucleus-row');
+  if (!row) return;
+  row.classList.remove('status-not_started','status-in_progress','status-functional');
+  row.classList.add('status-' + sel.value);
+}
+
+function togglePrinciples() {
+  const c = document.getElementById('princContent');
+  const a = document.getElementById('princArrow');
+  if (!c) return;
+  c.classList.toggle('open');
+  if (a) a.style.transform = c.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
+}
 
 // INIT
 load();
@@ -2849,6 +3111,7 @@ renderToday();
 renderHistory();
 renderAll();
 renderRoadmap();
+
 </script>
 </body>
 </html>
