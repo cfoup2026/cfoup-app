@@ -441,7 +441,7 @@ a:hover{ color: var(--cfoup-navy); }
 }
 .cfoup-synthesis-points{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--cfoup-space-6) var(--cfoup-space-8);
   margin-top: var(--cfoup-space-5);
 }
@@ -1156,6 +1156,138 @@ a:hover{ color: var(--cfoup-navy); }
 .cc-nucleus-row.status-in_progress .cc-nucleus-status{ color: var(--cfoup-warn); border-color: var(--cfoup-warn); background: rgba(224,139,0,.06); }
 .cc-nucleus-row.status-functional .cc-nucleus-status{ color: var(--cfoup-pos); border-color: var(--cfoup-pos); background: rgba(54,186,88,.06); }
 
+/* ============================================
+   MOTORES DE CÁLCULO
+   ============================================ */
+.cc-engine-row{
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cfoup-line-soft);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: flex-start;
+}
+.cc-engine-row:last-child{ border-bottom: none; padding-bottom: 0; }
+.cc-engine-row:first-child{ padding-top: 0; }
+.cc-engine-info{ min-width: 0; }
+.cc-engine-name{
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--cfoup-navy);
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.cc-engine-desc{
+  font-size: 11.5px;
+  color: var(--cfoup-muted);
+  line-height: 1.5;
+}
+.cc-engine-status{
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: var(--cfoup-radius-pill);
+  border: 1px solid var(--cfoup-line);
+  background: white;
+  color: var(--cfoup-muted);
+  cursor: pointer;
+  outline: none;
+  transition: var(--cfoup-transition-fast);
+  flex-shrink: 0;
+}
+.cc-engine-row[data-state="excel"] .cc-engine-status{ color: var(--cfoup-muted); border-color: var(--cfoup-line); }
+.cc-engine-row[data-state="porting"] .cc-engine-status{ color: var(--cfoup-warn); border-color: var(--cfoup-warn); background: rgba(224,139,0,.06); }
+.cc-engine-row[data-state="ported"] .cc-engine-status{ color: var(--cfoup-pos); border-color: var(--cfoup-pos); background: rgba(54,186,88,.06); }
+
+.cc-phase-chip{
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: var(--cfoup-radius-sm);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.cc-phase-mvp{ background: rgba(21,103,200,.12); color: var(--cfoup-blue); }
+.cc-phase-v1{ background: rgba(56,184,232,.12); color: var(--cfoup-blue); }
+
+/* ============================================
+   SEQUÊNCIA · 13 PASSOS
+   ============================================ */
+.cc-steps{
+  display: flex; flex-direction: column;
+  gap: 4px;
+}
+.cc-step{
+  display: grid;
+  grid-template-columns: auto 26px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 12px;
+  border-radius: var(--cfoup-radius);
+  background: white;
+  border: 1px solid var(--cfoup-line-soft);
+  transition: var(--cfoup-transition-fast);
+}
+.cc-step:hover{ border-color: var(--cfoup-line); background: var(--cfoup-bg-hover); }
+.cc-step.done{ background: var(--cfoup-bg-subtle); }
+.cc-step input[type="checkbox"]{
+  appearance: none; -webkit-appearance: none;
+  width: 15px; height: 15px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: var(--cfoup-radius-sm);
+  background: white;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+.cc-step input[type="checkbox"]:hover{ border-color: var(--cfoup-blue); }
+.cc-step input[type="checkbox"]:checked{ background: var(--cfoup-pos); border-color: var(--cfoup-pos); }
+.cc-step input[type="checkbox"]:checked::after{
+  content: ''; position: absolute;
+  left: 3.5px; top: 0px;
+  width: 4px; height: 9px;
+  border: solid white; border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.cc-step-num{
+  font-family: var(--cfoup-font-serif);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--cfoup-blue);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.cc-step.done .cc-step-num{ color: var(--cfoup-pos); }
+.cc-step-text{
+  font-size: 12.5px;
+  color: var(--cfoup-ink);
+  line-height: 1.4;
+}
+.cc-step.done .cc-step-text{ color: var(--cfoup-muted); text-decoration: line-through; }
+.cc-step-phase{
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--cfoup-radius-sm);
+  letter-spacing: .05em;
+  flex-shrink: 0;
+}
+.cc-step-phase.mvp{ background: rgba(21,103,200,.1); color: var(--cfoup-blue); }
+.cc-step-phase.v1{ background: var(--cfoup-line-soft); color: var(--cfoup-muted); }
+.cc-step-divider{
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cfoup-neutral);
+  padding: 12px 4px 4px;
+  border-top: 1px dashed var(--cfoup-line);
+  margin-top: 6px;
+}
+.cc-step-divider:first-child{ border-top: none; padding-top: 4px; margin-top: 0; }
+
 /* Posts — agenda */
 .cc-post-date{
   font-family: var(--cfoup-font-serif);
@@ -1611,6 +1743,17 @@ a:hover{ color: var(--cfoup-navy); }
               <option value="functional">Funcional</option>
             </select>
           </div>
+          <div class="cc-nucleus-row" id="nucleus-alertas">
+            <div class="cc-nucleus-info">
+              <div class="cc-nucleus-name"><span class="cc-nucleus-dot"></span>Regras de alerta</div>
+              <div class="cc-nucleus-desc">Antecedência mínima, runway threshold, concentração, PMR/PMP</div>
+            </div>
+            <select class="cc-nucleus-status" data-key="alertas" onchange="setNucleusStatus(this)">
+              <option value="not_started">Não iniciado</option>
+              <option value="in_progress">Em andamento</option>
+              <option value="functional">Funcional</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -1631,11 +1774,89 @@ a:hover{ color: var(--cfoup-navy); }
             </div>
             <div class="cfoup-alert cfoup-alert-atencao">
               <div class="cfoup-alert-title">Chat com perguntas curadas</div>
-              <div class="cfoup-alert-text">~50 perguntas em ~10 grupos. Chat livre só com dados validados.</div>
+              <div class="cfoup-alert-text"><b>15 grupos · ~54 perguntas</b>, mínimo 3 por grupo. Chat livre só com dados validados.</div>
+            </div>
+            <div class="cfoup-alert cfoup-alert-atencao">
+              <div class="cfoup-alert-title">Recomendações estáticas</div>
+              <div class="cfoup-alert-text">5–10 recomendações pré-construídas, disparadas por regra (PMR &gt; X, concentração &gt; Y%, runway &lt; Z dias). <b>Recomendação dinâmica via LLM = V1.</b></div>
+            </div>
+            <div class="cfoup-alert cfoup-alert-atencao">
+              <div class="cfoup-alert-title">Motores em V1, exceto Premissas</div>
+              <div class="cfoup-alert-text">Premissas é portado primeiro (alimenta Análise Financeira e Cenários). <b>Ajuste PJ e Otimização Fiscal exigem Núcleo + Análises validados antes de portar.</b></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- ===== ROADMAP DE PRODUTO ===== -->
+    <div class="cc-section-eyebrow">Roadmap de produto</div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1.3fr; gap: 24px;">
+
+      <!-- Motores de cálculo -->
+      <div class="cfoup-section">
+        <div class="cfoup-section-head">
+          <h2>Motores <span>· de cálculo</span></h2>
+          <span class="cfoup-section-head-src">Engrenagem do Núcleo · 30+ anos de prática</span>
+        </div>
+        <div class="cfoup-section-body">
+          <div class="cc-engine-row">
+            <div class="cc-engine-info">
+              <div class="cc-engine-name">
+                Premissas
+                <span class="cc-phase-chip cc-phase-mvp">MVP</span>
+              </div>
+              <div class="cc-engine-desc">FP&amp;A multi-ano sobre dados reais. Inflação, crescimento, capex, otimização operacional, regimes tributários.</div>
+            </div>
+            <select class="cc-engine-status" data-key="premissas" onchange="setEngineStatus(this)">
+              <option value="excel">Excel pronto</option>
+              <option value="porting">Em portagem</option>
+              <option value="ported">Portado</option>
+            </select>
+          </div>
+          <div class="cc-engine-row">
+            <div class="cc-engine-info">
+              <div class="cc-engine-name">
+                Ajuste PJ
+                <span class="cc-phase-chip cc-phase-v1">V1</span>
+              </div>
+              <div class="cc-engine-desc">Equiparação CLT vs PJ vs freelance. Gross-up IRFonte, encargos, férias, 13º, benefícios CLT-equivalentes.</div>
+            </div>
+            <select class="cc-engine-status" data-key="ajustepj" onchange="setEngineStatus(this)">
+              <option value="excel">Excel pronto</option>
+              <option value="porting">Em portagem</option>
+              <option value="ported">Portado</option>
+            </select>
+          </div>
+          <div class="cc-engine-row">
+            <div class="cc-engine-info">
+              <div class="cc-engine-name">
+                Otimização Fiscal
+                <span class="cc-phase-chip cc-phase-v1">V1</span>
+              </div>
+              <div class="cc-engine-desc">DRE projetada em múltiplos cenários tributários (Real, Presumido, com/sem incentivo Tec) com EBITDA, EBIT e LL.</div>
+            </div>
+            <select class="cc-engine-status" data-key="otimfiscal" onchange="setEngineStatus(this)">
+              <option value="excel">Excel pronto</option>
+              <option value="porting">Em portagem</option>
+              <option value="ported">Portado</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sequência de construção · 13 passos -->
+      <div class="cfoup-section">
+        <div class="cfoup-section-head">
+          <h2>Sequência <span>· 13 passos</span></h2>
+          <span class="cfoup-section-head-src">Cada passo libera o próximo</span>
+        </div>
+        <div class="cfoup-section-body">
+          <div class="cc-steps" id="stepsList"></div>
+        </div>
+      </div>
+
     </div>
 
     <!-- ===== OPERAÇÃO ===== -->
@@ -1733,48 +1954,56 @@ a:hover{ color: var(--cfoup-navy); }
 
     <!-- ===== PRINCÍPIOS NÃO-NEGOCIÁVEIS ===== -->
     <div class="cfoup-synthesis">
-      <div class="cfoup-synthesis-eyebrow">Princípios não-negociáveis</div>
+      <div class="cfoup-synthesis-eyebrow">Princípios não-negociáveis · Mapa do Produto v4.2</div>
       <h3>Toda decisão de construção bate aqui antes</h3>
       <div class="cfoup-synthesis-points">
         <div class="cfoup-synthesis-point">
-          <h4>01 · Telas genéricas</h4>
-          <p>Dados via hook, nunca hard-coded. Se aparece <strong>"Gregorutt"</strong> no código fora de configuração, está errado.</p>
+          <h4>01 · ICP em duas leituras</h4>
+          <p>Comunicação mira <strong>R$ 100k–R$ 5M/mês</strong>. Regra comercial aceita qualquer micro/pequena/média. Corte é natural, não filtro.</p>
         </div>
         <div class="cfoup-synthesis-point">
-          <h4>02 · Estado vazio honesto</h4>
+          <h4>02 · Telas genéricas, dados via hook</h4>
+          <p>Nunca hard-coded. Se aparece <strong>"Gregorutt"</strong> no código fora de configuração, está errado.</p>
+        </div>
+        <div class="cfoup-synthesis-point">
+          <h4>03 · Estado vazio honesto</h4>
           <p><strong>"Aguardando conexão"</strong> sempre que dado não chegou. Nunca mock fingindo dado real.</p>
         </div>
         <div class="cfoup-synthesis-point">
-          <h4>03 · Pendências em 2 lugares</h4>
+          <h4>04 · Pendências em 2 lugares</h4>
           <p>Pendências de Setup ≠ Checklist Mensal. <strong>Função distinta, momento distinto</strong>, não confundir.</p>
         </div>
         <div class="cfoup-synthesis-point">
-          <h4>04 · Indicadores</h4>
+          <h4>05 · Indicadores</h4>
           <p>Mesma fonte, duas leituras. <strong>Mesa de Decisão</strong> = sinais executivos. <strong>Análise Contábil</strong> = validação técnica.</p>
         </div>
         <div class="cfoup-synthesis-point">
-          <h4>05 · Chat nunca inventa</h4>
-          <p>Camada conversacional sobre dados <strong>conectados e validados</strong>. Fora desse domínio, recusa.</p>
+          <h4>06 · Chat nunca inventa</h4>
+          <p>Camada conversacional sobre dados <strong>conectados e validados</strong>, dentro do escopo. Fora disso, recusa.</p>
         </div>
         <div class="cfoup-synthesis-point">
-          <h4>06 · Cenário sem caixa é enfeite</h4>
-          <p>Toda simulação termina em <strong>delta de caixa</strong> no fluxo 13 semanas. Senão é gráfico bonito.</p>
+          <h4>07 · Cenário sem caixa é enfeite</h4>
+          <p>Toda simulação termina em <strong>delta de caixa</strong> no fluxo. Senão é gráfico bonito.</p>
         </div>
         <div class="cfoup-synthesis-point">
-          <h4>07 · Núcleo antes de tela</h4>
-          <p>Construir tela em cima de Núcleo frágil é <strong>construir mentira com confiança</strong>.</p>
+          <h4>08 · Recomendação ≠ Chat</h4>
+          <p>Recomendação é <strong>prescritiva e proativa</strong>. Chat é reativo. Não confundir as camadas.</p>
         </div>
         <div class="cfoup-synthesis-point">
-          <h4>08 · Padrão fixo</h4>
-          <p>Montserrat + Fraunces. Navy + Blue + Cyan. Container <strong>1140px (app) / 1340px (relatório)</strong>.</p>
+          <h4>09 · Núcleo antes de tela</h4>
+          <p>Dado → classificação → projeção → tela. Construir tela em cima de Núcleo frágil é <strong>construir mentira com confiança</strong>.</p>
         </div>
         <div class="cfoup-synthesis-point">
-          <h4>09 · Gregorutt é piloto</h4>
-          <p>Decisão que só serve a Gregorutt <strong>não vai pro produto</strong>.</p>
+          <h4>10 · Horizonte como parâmetro</h4>
+          <p>MVP entrega só 13 semanas. Motor <strong>não pode ter "13" cravado no código</strong>. Quando 52s ou anual entrar, é configuração, não reescrita.</p>
         </div>
         <div class="cfoup-synthesis-point">
-          <h4>10 · Contador é fonte</h4>
-          <p>Contador é fornecedor de dado, não gateway de aprovação. <strong>CFOup é para o dono</strong>.</p>
+          <h4>11 · Padrão de design fixo</h4>
+          <p>Montserrat + Fraunces. Navy + Blue + Cyan + Green. Container <strong>1140px (app) / 1340px (relatório)</strong>.</p>
+        </div>
+        <div class="cfoup-synthesis-point">
+          <h4>12 · Gregorutt é piloto</h4>
+          <p>Decisão que só serve a Gregorutt <strong>não vai pro produto</strong>. Piloto é validação, não fundação.</p>
         </div>
       </div>
     </div>
@@ -1795,6 +2024,30 @@ const MVP_KEY = 'cfoup_mvp_v1';
 const ROADMAP_KEY = 'cfoup_roadmap_v1';
 const NUCLEUS_KEY = 'cfoup_nucleus_v1';
 const PROJ_NOTES_KEY = 'cfoup_proj_notes_v1';
+const ENGINES_KEY = 'cfoup_engines_v1';
+const STEPS_KEY = 'cfoup_steps_v1';
+
+const ENGINES_DEFAULT = {
+  premissas: 'excel',
+  ajustepj: 'excel',
+  otimfiscal: 'excel'
+};
+
+const STEPS_DEFINITION = [
+  { id: 's1',  num: 1,  phase: 'mvp', text: 'Casca definitiva (AppShell, Sidebar, container, fontes, tokens)' },
+  { id: 's2',  num: 2,  phase: 'mvp', text: 'Rotas em estado vazio (incluindo Fluxo)' },
+  { id: 's3',  num: 3,  phase: 'mvp', text: 'Núcleo de Dados v0 (contratos, hooks, classificação mínima, Premissas)' },
+  { id: 's4',  num: 4,  phase: 'mvp', text: 'AnalysisShell + ExportButton' },
+  { id: 's5',  num: 5,  phase: 'mvp', text: 'Portar Análise Financeira' },
+  { id: 's6',  num: 6,  phase: 'mvp', text: 'Fluxo de Caixa 13 semanas — primeira versão real' },
+  { id: 's7',  num: 7,  phase: 'mvp', text: 'Portar Análise Contábil' },
+  { id: 's8',  num: 8,  phase: 'mvp', text: 'Chat guiado (15 grupos · ~54 perguntas, sem motores Ajuste PJ e Otim. Fiscal)' },
+  { id: 's9',  num: 9,  phase: 'mvp', text: 'Cenários demo (ancorados no fluxo)' },
+  { id: 's10', num: 10, phase: 'mvp', text: 'Recomendações estáticas (lista curada por regra)' },
+  { id: 's11', num: 11, phase: 'v1',  text: 'Ajuste PJ — motor portado' },
+  { id: 's12', num: 12, phase: 'v1',  text: 'Otimização Fiscal — motor portado' },
+  { id: 's13', num: 13, phase: 'v1',  text: 'Chat completo (perguntas dependentes dos motores 11 e 12)' }
+];
 
 const ROADMAP_DEFAULT = [
   {
@@ -1891,13 +2144,16 @@ let mvpChecks = {};
 let roadmap = [];
 let nucleus = {};
 let projNotes = {};
+let engines = {};
+let stepsState = {};
 let decisionFilter = 'all';
 
 const NUCLEUS_DEFAULT = {
   ingestao: 'not_started',
   classificacao: 'not_started',
   premissas: 'not_started',
-  motor: 'not_started'
+  motor: 'not_started',
+  alertas: 'not_started'
 };
 
 const PROJ_NOTES_DEFAULT = {
@@ -1982,6 +2238,17 @@ function load() {
   Object.keys(PROJ_NOTES_DEFAULT).forEach(k => { if (typeof projNotes[k] !== 'string') projNotes[k] = ''; });
 
   try {
+    const eStored = localStorage.getItem(ENGINES_KEY);
+    engines = eStored ? JSON.parse(eStored) : { ...ENGINES_DEFAULT };
+  } catch(e) { engines = { ...ENGINES_DEFAULT }; }
+  Object.keys(ENGINES_DEFAULT).forEach(k => { if (!engines[k]) engines[k] = 'excel'; });
+
+  try {
+    const sStored = localStorage.getItem(STEPS_KEY);
+    stepsState = sStored ? JSON.parse(sStored) : {};
+  } catch(e) { stepsState = {}; }
+
+  try {
     const histStored = localStorage.getItem(HISTORY_KEY);
     history = histStored ? JSON.parse(histStored) : [];
   } catch(e) { history = []; }
@@ -1991,6 +2258,8 @@ function load() {
 
 function saveNucleus() { try { localStorage.setItem(NUCLEUS_KEY, JSON.stringify(nucleus)); } catch(e) {} flashSaved(); }
 function saveProjNotes() { try { localStorage.setItem(PROJ_NOTES_KEY, JSON.stringify(projNotes)); } catch(e) {} flashSaved(); }
+function saveEngines() { try { localStorage.setItem(ENGINES_KEY, JSON.stringify(engines)); } catch(e) {} flashSaved(); }
+function saveSteps() { try { localStorage.setItem(STEPS_KEY, JSON.stringify(stepsState)); } catch(e) {} flashSaved(); }
 
 function todayKey() {
   const d = new Date();
@@ -3051,10 +3320,18 @@ document.addEventListener('DOMContentLoaded', () => {
   bindProj('projAberto', 'aberto');
 
   // Núcleo de Dados — selects
-  document.querySelectorAll('.nucleus-status').forEach(sel => {
+  // Núcleo de Dados — selects
+  document.querySelectorAll('.cc-nucleus-status').forEach(sel => {
     const k = sel.dataset.key;
     sel.value = nucleus[k] || 'not_started';
     applyNucleusStyle(sel);
+  });
+
+  // Motores de cálculo — selects
+  document.querySelectorAll('.cc-engine-status').forEach(sel => {
+    const k = sel.dataset.key;
+    sel.value = engines[k] || 'excel';
+    applyEngineStyle(sel);
   });
 
   // Virada de dia automática (Opção A)
@@ -3090,18 +3367,56 @@ function setNucleusStatus(sel) {
 }
 
 function applyNucleusStyle(sel) {
-  const row = sel.closest('.nucleus-row');
+  const row = sel.closest('.cc-nucleus-row');
   if (!row) return;
   row.classList.remove('status-not_started','status-in_progress','status-functional');
   row.classList.add('status-' + sel.value);
 }
 
-function togglePrinciples() {
-  const c = document.getElementById('princContent');
-  const a = document.getElementById('princArrow');
-  if (!c) return;
-  c.classList.toggle('open');
-  if (a) a.style.transform = c.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
+// ============================================================
+// MOTORES DE CÁLCULO
+// ============================================================
+function setEngineStatus(sel) {
+  engines[sel.dataset.key] = sel.value;
+  saveEngines();
+  applyEngineStyle(sel);
+}
+function applyEngineStyle(sel) {
+  const row = sel.closest('.cc-engine-row');
+  if (!row) return;
+  row.dataset.state = sel.value;
+}
+
+// ============================================================
+// SEQUÊNCIA · 13 PASSOS
+// ============================================================
+function renderSteps() {
+  const el = document.getElementById('stepsList');
+  if (!el) return;
+  let html = '';
+  let lastPhase = null;
+  STEPS_DEFINITION.forEach(s => {
+    if (s.phase !== lastPhase) {
+      html += `<div class="cc-step-divider">${s.phase === 'mvp' ? 'MVP · 10 passos' : 'V1 · 3 passos'}</div>`;
+      lastPhase = s.phase;
+    }
+    const done = !!stepsState[s.id];
+    html += `
+      <div class="cc-step ${done ? 'done' : ''}">
+        <input type="checkbox" id="step_${s.id}" ${done ? 'checked' : ''} onchange="toggleStep('${s.id}')">
+        <span class="cc-step-num">${String(s.num).padStart(2,'0')}</span>
+        <label for="step_${s.id}" class="cc-step-text">${escapeHtml(s.text)}</label>
+        <span class="cc-step-phase ${s.phase}">${s.phase === 'mvp' ? 'MVP' : 'V1'}</span>
+      </div>
+    `;
+  });
+  el.innerHTML = html;
+}
+
+function toggleStep(id) {
+  stepsState[id] = !stepsState[id];
+  saveSteps();
+  renderSteps();
 }
 
 // INIT
@@ -3111,6 +3426,7 @@ renderToday();
 renderHistory();
 renderAll();
 renderRoadmap();
+renderSteps();
 
 </script>
 </body>
